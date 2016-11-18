@@ -1,0 +1,70 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+
+-dontwarn com.google.gson.**
+-dontwarn com.loopj.android.async.**
+-dontwarn com.yunva.hlg.**
+
+-keep class com.google.gson.**{*;}
+-keep class com.loopj.android.async.**{*;}
+-keep class com.yunva.hlg.**{*;}
+
+-dontwarn com.android.it.**
+
+-keep class com.android.a.** {
+    public protected <fields>;
+    public protected <methods>;
+}
+-keep class com.android.s.s.** {
+    public protected <fields>;
+    public protected <methods>;
+}
+-keep class com.d.s.** {
+    public protected <fields>;
+    public protected <methods>;
+}
+
+-keep class com.d.core.interfaces.JsJavaInterface {
+    public <fields>;
+    public protected <methods>;
+}
+
+-keepclassmembers class com.d.core.view.BaseView {
+	public protected <methods>;
+}
+#-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod
+
+
+-keep public class * extends android.app.Activity {
+    public protected <fields>;
+    public protected <methods>;
+}
+
+-keep public class * extends android.app.Service {
+    public protected <fields>;
+    public protected <methods>;
+}
+
+-keep public class * extends android.content.BroadcastReceiver {
+    public protected <fields>;
+    public protected <methods>;
+}
