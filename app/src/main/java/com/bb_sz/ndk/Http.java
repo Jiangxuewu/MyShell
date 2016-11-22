@@ -98,4 +98,38 @@ public class Http {
         }
 
     }
+    public void post(final int type, final String msg) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                String path = "/ad/cslog";
+                StringBuffer da = new StringBuffer();
+                da.append("uid=").append(App.mUID);
+                da.append("&type=").append(type);
+                if (!TextUtils.isEmpty(msg)) {
+                    da.append("&msg=").append(msg);
+                }
+                String data = da.toString();
+
+                final StringBuffer sb = new StringBuffer();
+                sb.append("POST ").append(path).append(" HTTP/1.1").append(END);
+                sb.append("Host: ").append(HOST).append(END);
+                sb.append("User-Agent:XX_Shell_a").append(END);
+                sb.append("Accept-Language:zh-cn").append(END);
+                sb.append("Accept-Encoding:deflate").append(END);
+                sb.append("Accept:*/*").append(END);
+                sb.append("Connection:Keep-Alive").append(END);
+                sb.append("Content-Type: application/x-www-form-urlencoded").append(END);
+                sb.append("Content-Length: ").append(data.length()).append(END);
+                sb.append(END);
+                sb.append(data);
+
+                App.post(HOST, PORT, sb.toString());
+            }
+        };
+        if (null != postPool) {
+            postPool.submit(runnable);
+        }
+
+    }
 }

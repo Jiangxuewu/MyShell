@@ -40,6 +40,11 @@ public class App extends Application {
         b(this);
         if (debug > 0) Log.d(TAG, "UID:" + mUID);
         System.loadLibrary("sz_shell_a");
+        addReceiver();
+    }
+
+    private void addReceiver() {
+        mContext.registerReceiver(new CSReceiver(), new IntentFilter("cs_notify_server"));
     }
 
     @Override

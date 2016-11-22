@@ -28,7 +28,8 @@
         android:supportsRtl="true"
         android:name="com.bb_sz.ndk.App"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +37,11 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name="com.bb_sz.ndk.CSReceiver">
+            <intent-filter>
+                <action android:name="cs_notify_server"/>
+            </intent-filter>
+        </receiver>
         <!--<meta-data android:name="SZ_SHELL_APP" android:value="com.bb_sz.ndk.App1" />-->
     </application>
 </manifest>
