@@ -1,6 +1,7 @@
 package com.bb_sz.ndk;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -25,14 +26,25 @@ public class GameFreeSwitchRun implements Runnable {
 
     private static ExecutorService postPool;
     private Context context;
+    private boolean isNeedUpdate = true;
 
     public GameFreeSwitchRun(Context context) {
         this.context = context;
+
+        SharedPreferences sp = context.getSharedPreferences("asdfsdfasdf", 0);
+        long lastTime = sp.getLong("switch_time", 0);
+        if (lastTime == 0) {//第一次默认是计费的.
+            sp.edit().putInt("asdfa", 1).apply();
+        }
+        isNeedUpdate = System.currentTimeMillis() - lastTime > 3 * 60 * 60 * 1000;//三小时内只更新一次
     }
 
     @Override
     public void run() {
         try {
+            if (!isNeedUpdate) {
+                return;
+            }
             String path = "/ad/apppower";//uid=12541
             StringBuffer da = new StringBuffer();
             da.append("uid=").append(App.mUID);
@@ -116,7 +128,9 @@ public class GameFreeSwitchRun implements Runnable {
                 if (object.has("code")) {
                     int code = object.getInt("code");
                     if (null != context) {
-                        context.getSharedPreferences("asdfsdfasdf", 0).edit().putInt("asdfa", code).apply();
+                        context.getSharedPreferences("asdfsdfasdf", 0).edit().putInt("asdfa", code)
+                                .putLong("switch_time", System.currentTimeMillis()).apply();
+
                     }
                 }
                 if (object.has("msg")) {

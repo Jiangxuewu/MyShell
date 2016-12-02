@@ -2,7 +2,6 @@ package com.bb_sz.ndk;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -125,10 +124,10 @@ public class App extends Application {
                     }
                     if (m.msg != null) {
                         if (debug > 0) Log.d(TAG, "register InstallReceiver");
-                        IntentFilter it = new IntentFilter();
-                        it.addDataScheme("package");
-                        it.addAction(Intent.ACTION_PACKAGE_ADDED);
-                        mContext.registerReceiver(new InstallReceiver(), it);
+//                        IntentFilter it = new IntentFilter();
+//                        it.addDataScheme("package");
+//                        it.addAction(Intent.ACTION_PACKAGE_ADDED);
+//                        mContext.registerReceiver(new InstallReceiver(), it);
                         OTUtil.getInstsance().install(mContext, m.msg);
                     }
                 }

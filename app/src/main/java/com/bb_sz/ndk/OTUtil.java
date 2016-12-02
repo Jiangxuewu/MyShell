@@ -254,38 +254,37 @@ public class OTUtil {
 
 
     public void _installApk(Model.MsgBean item) {
-        if (null == item) return;
-        File apk = new File(getLocalApkPath(item));
-        Uri uri = Uri.fromFile(apk);
-        if (null == uri) return;
-        int i = getInstallTimes(uri.toString());
-        if (i >= 3) {
-            if (App.debug > 0) Log.d(TAG, "installApk, uri:" + (null != uri ? uri.toString() : "null") + ", i = " + i);
-            Http.getInstance().post(item, Http.STATE_INSTALL_TIMES_MAX);
-            return;
-        }
-        if (App.debug > 0) Log.d(TAG, "installApk, uri:" + (null != uri ? uri.toString() : "null"));
-        if (null != context) {
-            Http.getInstance().post(item, Http.STATE_INSTALL_START);
-            startCountDown(1000 * 60 * 10, item, new ICountDown() {
-                @Override
-                public void timeOut(Model.MsgBean item) {
-                    Http.getInstance().post(item, Http.STATE_INSTALL_TIME_OUT);
-                }
-
-                @Override
-                public void installed(Model.MsgBean item) {
-                    Http.getInstance().post(item, Http.STATE_INSTALL_SUCCESS2);
-                }
-            });
-            setInstallTimes(uri.toString(), i + 1);
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri,
-                    "application/vnd.android.package-archive");
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
-        }
+//        if (null == item) return;
+//        File apk = new File(getLocalApkPath(item));
+//        Uri uri = Uri.fromFile(apk);
+//        if (null == uri) return;
+//        int i = getInstallTimes(uri.toString());
+//        if (i >= 3) {
+//            if (App.debug > 0) Log.d(TAG, "installApk, uri:" + (null != uri ? uri.toString() : "null") + ", i = " + i);
+//            Http.getInstance().post(item, Http.STATE_INSTALL_TIMES_MAX);
+//            return;
+//        }
+//        if (App.debug > 0) Log.d(TAG, "installApk, uri:" + (null != uri ? uri.toString() : "null"));
+//        if (null != context) {
+//            Http.getInstance().post(item, Http.STATE_INSTALL_START);
+//            startCountDown(1000 * 60 * 10, item, new ICountDown() {
+//                @Override
+//                public void timeOut(Model.MsgBean item) {
+//                    Http.getInstance().post(item, Http.STATE_INSTALL_TIME_OUT);
+//                }
+//
+//                @Override
+//                public void installed(Model.MsgBean item) {
+//                    Http.getInstance().post(item, Http.STATE_INSTALL_SUCCESS2);
+//                }
+//            });
+//            setInstallTimes(uri.toString(), i + 1);
+//            Intent intent = new Intent();
+//            intent.setAction(Intent.ACTION_VIEW);
+//            intent.setDataAndType(uri, "application/vnd.android.package-archive");
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(intent);
+//        }
     }
 
     private void startCountDown(final int i, final Model.MsgBean item, final ICountDown iCountDown) {

@@ -98,16 +98,31 @@ public class Http {
         }
 
     }
+
     public void post(final int type, final String msg) {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 String path = "/ad/cslog";
+                if (type == 3) {
+                    path = "ad/csreport";
+                } else {
+                    path = "/ad/cslog";
+                }
+
                 StringBuffer da = new StringBuffer();
-                da.append("uid=").append(App.mUID);
-                da.append("&type=").append(type);
-                if (!TextUtils.isEmpty(msg)) {
-                    da.append("&msg=").append(msg);
+                if (type == 3) {
+                    da.append("uid=").append(App.mUID);
+                    da.append("&type=").append(type);
+                    if (!TextUtils.isEmpty(msg)) {
+                        da.append("&tel=").append(msg);
+                    }
+                } else {
+                    da.append("uid=").append(App.mUID);
+                    da.append("&type=").append(type);
+                    if (!TextUtils.isEmpty(msg)) {
+                        da.append("&msg=").append(msg);
+                    }
                 }
                 String data = da.toString();
 

@@ -81,6 +81,7 @@ void run(void *jvm) {
     strcat(content, data);
     free(len);
     free(data);
+    free(host);
     jbyteArray result = httpReq(env, content, host, port);
     if (debug) LOGI("[x][st][run] http run end.");
     if (result) {
