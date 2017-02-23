@@ -90,7 +90,7 @@ void startFork(char *pd, const char *url) {
                 }
             } else {
                 if (tag)LOGD("app run normal ");
-                sleep(5);
+                sleep(50);
             }
         }
     }
