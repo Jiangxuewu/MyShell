@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/jpaysdk" />
+            <option value="$PROJECT_DIR$/jpaysdk_lt" />
             <option value="$PROJECT_DIR$/shell" />
           </set>
         </option>

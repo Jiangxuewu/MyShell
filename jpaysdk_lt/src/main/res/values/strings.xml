@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyShell</string>
+
+    <string name="setting_service_description">点击右上角「开关」开启↗↗↗\n
+
+开启后，游戏加速器将自动完成以下服务设置:\n
+ 1.完成加速器的必要权限\n
+ 2.系统级加速守护\n
+ 3.安全软件护航\n
+ 4.其他服务\n
+</string>
+
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+</resources>

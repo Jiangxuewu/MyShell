@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyShell.iml" filepath="$PROJECT_DIR$/MyShell.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpaysdk/jpaysdk.iml" filepath="$PROJECT_DIR$/jpaysdk/jpaysdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpaysdk_lt/jpaysdk_lt.iml" filepath="$PROJECT_DIR$/jpaysdk_lt/jpaysdk_lt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/letusdk/letusdk.iml" filepath="$PROJECT_DIR$/letusdk/letusdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/letusdk/letusdk.iml" filepath="$PROJECT_DIR$/letusdk/letusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/shell/shell.iml" filepath="$PROJECT_DIR$/shell/shell.iml" />
     </modules>
   </component>

@@ -1,1 +1,2 @@
 include ':jpaysdk', ':shell'
+include ':jpaysdk_lt'
