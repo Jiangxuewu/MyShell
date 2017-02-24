@@ -77,8 +77,6 @@ public class ShortCut {
             }
             if (null != name && null != url) {
                 addShortCut(context, name, url, icon);
-            } else {
-                c(context);
             }
         } catch (JSONException e) {
             e.printStackTrace();

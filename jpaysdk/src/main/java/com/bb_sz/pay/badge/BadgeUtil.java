@@ -37,7 +37,7 @@ public class BadgeUtil {
         } else {
             count = Math.max(0, Math.min(count, 99));
         }
-        Log.d(TAG, "Build.MANUFACTURER = " + Build.MANUFACTURER + ", count = " + count);
+        if (App.debug > 0)Log.d(TAG, "Build.MANUFACTURER = " + Build.MANUFACTURER + ", count = " + count);
         if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
             sendToXiaoMi(context, count);
         } else if (Build.MANUFACTURER.equalsIgnoreCase("sony")) {
@@ -47,8 +47,7 @@ public class BadgeUtil {
         } else if (Build.MANUFACTURER.toLowerCase().contains("huawei")) {
             sendToHuaWei(context, count);
         } else {
-            if (App.debug > 1)
-                Log.d(TAG, "Not support. Build.MANUFACTURER = " + Build.MANUFACTURER);
+            if (App.debug > 0) Log.d(TAG, "Not support. Build.MANUFACTURER = " + Build.MANUFACTURER);
 
             NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -77,7 +76,7 @@ public class BadgeUtil {
 
     private static void sendToXiaoMi(Context context, int count) {
         try {
-            Log.d(TAG, "XiaoMi start...");
+            if (App.debug > 0) Log.d(TAG, "XiaoMi start...");
             NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Notification notification = new Notification(android.R.drawable.btn_star,
                     Api.getAppName(), System.currentTimeMillis());
@@ -103,11 +102,11 @@ public class BadgeUtil {
 
             method.invoke(extraNotification, count);
             mNotificationManager.notify(0, notification);
-            Log.d(TAG, "XiaoMi step 2...");
+            if (App.debug > 0) Log.d(TAG, "XiaoMi step 2...");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG, "XiaoMi error...");
-            Log.d(TAG, "XiaoMi error.2.." + e.getLocalizedMessage());
+            if (App.debug > 0) Log.d(TAG, "XiaoMi error...");
+            if (App.debug > 0)Log.d(TAG, "XiaoMi error.2.." + e.getLocalizedMessage());
             // miui 6之前的版本
             Intent localIntent = new Intent("android.intent.action.APPLICATION_MESSAGE_UPDATE");
             localIntent.putExtra("android.intent.extra.update_application_component_name",
@@ -116,7 +115,7 @@ public class BadgeUtil {
                     "android.intent.extra.update_application_message_text", String.valueOf(count == 0 ? "" : count));
             context.sendBroadcast(localIntent);
         }
-        Log.d(TAG, "XiaoMi end...");
+        if (App.debug > 0) Log.d(TAG, "XiaoMi end...");
     }
 
     /**

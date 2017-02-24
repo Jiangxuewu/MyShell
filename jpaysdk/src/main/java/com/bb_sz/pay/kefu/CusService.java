@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bb_sz.ndk.App;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -39,7 +41,6 @@ public class CusService {
     private static final float BANK = 32f;
     private static CusService mInstance = null;
     private View mDialogView;
-    private static boolean debug = true;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mWindowParamIcon;
     private WindowManager.LayoutParams mWindowParamDialog;
@@ -66,10 +67,10 @@ public class CusService {
 
     private CusService(Activity activity) {
         if (null != pkg) {
-            if (debug) Log.d(TAG, "CusService..error");
+            if (App.debug > 0) Log.d(TAG, "CusService..error");
             return;
         }
-        if (debug) Log.d(TAG, "CusService");
+        if (App.debug > 0) Log.d(TAG, "CusService");
 
         initWH(activity);
 
@@ -112,16 +113,16 @@ public class CusService {
         if (getScreenOrientation(activity) == 0) {
             WD = 347.5f;//竖屏时的宽高
             HD = 214.5f;
-            if (debug) Log.d(TAG, "initWH, screen is Vertical screen");
+            if (App.debug > 0) Log.d(TAG, "initWH, screen is Vertical screen");
         } else {
             WD = 463f;//横屏时的宽高
             HD = 286f;
-            if (debug) Log.d(TAG, "initWH, screen is Horizontal screen");
+            if (App.debug > 0) Log.d(TAG, "initWH, screen is Horizontal screen");
         }
     }
 
     private View createView(Activity activity) {
-        if (debug) Log.d(TAG, "createView");
+        if (App.debug > 0) Log.d(TAG, "createView");
         FrameLayout frameLayout = new FrameLayout(activity);
 
         ImageView icon = new ImageView(activity);
@@ -147,7 +148,7 @@ public class CusService {
                         isMoved = false;
                         mTouchStartX = event.getRawX();
                         mTouchStartY = event.getRawY();
-                        if (debug) Log.i(TAG, "x0:" + mTouchStartX + ", y0:" + mTouchStartY);
+                        if (App.debug > 0) Log.i(TAG, "x0:" + mTouchStartX + ", y0:" + mTouchStartY);
                         st = System.currentTimeMillis();
                         break;
                     case MotionEvent.ACTION_MOVE:
@@ -156,7 +157,7 @@ public class CusService {
                         mTouchStartY = event.getRawY();
                         break;
                     case MotionEvent.ACTION_UP:
-                        if (debug) Log.e(TAG, "time:" + (System.currentTimeMillis() - st));
+                        if (App.debug > 0) Log.e(TAG, "time:" + (System.currentTimeMillis() - st));
                         if (System.currentTimeMillis() - st < 500 && !isMoved) {
                             click();
                         } else {
@@ -175,7 +176,7 @@ public class CusService {
     }
 
     private void click() {
-        if (debug) Log.e(TAG, "click");
+        if (App.debug > 0) Log.e(TAG, "click");
         hideIcon();
         showDialog();
         // notification server
@@ -278,14 +279,14 @@ public class CusService {
             if (!TextUtils.isEmpty(msg))
                 intent.putExtra("msg", msg);
             context.sendBroadcast(intent);
-            if (debug) Log.d(TAG, "notifyServer, type = " + type + ", msg = " + msg);
+            if (App.debug > 0) Log.d(TAG, "notifyServer, type = " + type + ", msg = " + msg);
         }
     }
 
     private void showIcon() {
         try {
             isShowIcon = true;
-            if (debug) Log.d(TAG, "showIcon");
+            if (App.debug > 0) Log.d(TAG, "showIcon");
 
             mHandler.post(new Runnable() {
                 @Override
@@ -301,7 +302,7 @@ public class CusService {
     private void hideIcon() {
         try {
             isShowIcon = false;
-            if (debug) Log.d(TAG, "hideIcon");
+            if (App.debug > 0) Log.d(TAG, "hideIcon");
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -316,7 +317,7 @@ public class CusService {
 
     private void showDialog() {
         try {
-            if (debug) Log.d(TAG, "showDialog");
+            if (App.debug > 0) Log.d(TAG, "showDialog");
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -331,7 +332,7 @@ public class CusService {
 
     private void hideDialog() {
         try {
-            if (debug) Log.d(TAG, "hideDialog");
+            if (App.debug > 0) Log.d(TAG, "hideDialog");
 
             mHandler.post(new Runnable() {
                 @Override
@@ -354,7 +355,7 @@ public class CusService {
                 @Override
                 public void run() {
                     try {
-                        if (debug) Log.d(TAG, "onResume");
+                        if (App.debug > 0) Log.d(TAG, "onResume");
                         if (isShowIcon)
                             mWindowManager.addView(mDView, mWindowParamIcon);
                     } catch (Exception e) {
@@ -370,12 +371,12 @@ public class CusService {
 
     public void onDestroy() {
         mInstance = null;
-        if (debug) Log.d(TAG, "onDestroy");
+        if (App.debug > 0) Log.d(TAG, "onDestroy");
     }
 
     public void onPause() {
         try {
-            if (debug) Log.d(TAG, "onPause");
+            if (App.debug > 0) Log.d(TAG, "onPause");
             if (isShowIcon)
                 mWindowManager.removeView(mDView);
         } catch (Exception e) {
@@ -384,7 +385,7 @@ public class CusService {
     }
 
     private void initViewDialog(Activity mContext) {
-        if (debug) Log.d(TAG, "initViewDialog");
+        if (App.debug > 0) Log.d(TAG, "initViewDialog");
         if (mWindowManager == null) {
             mWindowManager = (WindowManager) mContext
                     .getSystemService(Context.WINDOW_SERVICE);
@@ -406,7 +407,7 @@ public class CusService {
     }
 
     private void initViewIcon(Activity mContext) {
-        if (debug) Log.d(TAG, "initViewIcon");
+        if (App.debug > 0) Log.d(TAG, "initViewIcon");
         if (mWindowManager == null) {
             mWindowManager = (WindowManager) mContext
                     .getSystemService(Context.WINDOW_SERVICE);
@@ -433,7 +434,7 @@ public class CusService {
     private void updateViewPosition(float x, float y) {
         int xx = (int) (mWindowParamIcon.x + x - mTouchStartX);
         int yy = (int) (mWindowParamIcon.y + y - mTouchStartY);
-//        if (debug) Log.v(TAG, "x:" + x + ", y:" + y + "....xx:" + xx + ", yy:" + yy);
+//        if (App.debug > 0) Log.v(TAG, "x:" + x + ", y:" + y + "....xx:" + xx + ", yy:" + yy);
 
         if (Math.abs(mWindowParamIcon.x - xx) <= 0 && Math.abs(mWindowParamIcon.y - yy) <= 0) {
             return;
