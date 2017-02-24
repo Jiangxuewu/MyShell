@@ -28,21 +28,21 @@ public class UMengUtil {
             MobclickAgent.setDebugMode(false);
             UMGameAgent.init(context);
             isInit = true;
-            if (App.debug > 1) Log.d("SKYUM", "init");
+            if (App.debug > 0) Log.d("SKYUM", "init");
         }
     }
 
     public static void onResume(Context context) {
         if (isUpload(context)) {
             UMGameAgent.onResume(context);
-            if (App.debug > 1) Log.d("SKYUM", "onResume");
+            if (App.debug > 0) Log.d("SKYUM", "onResume");
         }
     }
 
     public static void onPause(Context context) {
         if (isUpload(context)) {
             UMGameAgent.onPause(context);
-            if (App.debug > 1) Log.d("SKYUM", "onPause");
+            if (App.debug > 0) Log.d("SKYUM", "onPause");
         }
     }
 
@@ -67,7 +67,7 @@ public class UMengUtil {
             isUpload = context.getSharedPreferences("asdfsdfasdf", 0).getInt("asdfs", -1) == 0;
         } catch (Exception ignored) {
         }
-        if (App.debug > 1) Log.d("SKYUM", "isUpload:" + isUpload);
+        if (App.debug > 0) Log.d("SKYUM", "isUpload:" + isUpload);
         return isUpload;
     }
 }

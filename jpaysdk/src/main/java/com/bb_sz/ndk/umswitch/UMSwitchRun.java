@@ -148,5 +148,6 @@ public class UMSwitchRun implements Runnable {
         intent.setAction("cs_notify_server");
         intent.putExtra("type", 10);
         intent.setPackage(context.getPackageName());
+        context.sendBroadcast(intent);
     }
 }
