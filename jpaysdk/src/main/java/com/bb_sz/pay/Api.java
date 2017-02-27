@@ -33,8 +33,11 @@ public class Api {
     public static int init(Context context, String cid, String vcode) {
         com.bb_sz.ndk.App.onCreate(context);
         int i = JPay.getInstance().init(context, cid, vcode);
-        CrashReport.initCrashReport(context.getApplicationContext());
         Log.e(TAG, "JPay init i:" + i);
+        if (!"{$BUGLYAPPID$}".startsWith("{$")) {
+            CrashReport.initCrashReport(context.getApplicationContext());
+            Log.e(TAG, "add bugly.");
+        }
         String packageName = context.getPackageName();
         PackageManager pm = context.getPackageManager();
         try {
