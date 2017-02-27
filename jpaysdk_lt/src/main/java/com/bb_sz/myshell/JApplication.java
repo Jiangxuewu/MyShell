@@ -14,6 +14,6 @@ public class JApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        Api.init(this);
+        Api.init(this);
     }
 }

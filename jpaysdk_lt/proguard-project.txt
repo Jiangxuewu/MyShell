@@ -19,38 +19,52 @@
 #   public *;
 #}
 
+-dontwarn com.jpay.**
+-dontwarn com.umeng.**
+-dontwarn u.**
+-dontwarn com.tencent.bugly.**
 
--dontwarn com.google.gson.**
--dontwarn com.loopj.android.async.**
--dontwarn com.yunva.hlg.**
+-dontwarn com.android.said.adapter.**
+-dontwarn com.ffcs.crypt.**
+-dontwarn com.lyhtgh.pay.**
+-dontwarn com.unicom.shield.**
+-dontwarn com.unicom.xiaowo.**
 
--keep class com.google.gson.**{*;}
--keep class com.loopj.android.async.**{*;}
--keep class com.yunva.hlg.**{*;}
+-keep class com.android.said.adapter.** { *; }
+-keep class com.ffcs.crypt.** { *; }
+-keep class com.lyhtgh.pay.** { *; }
+-keep class com.unicom.shield.** { *; }
+-keep class com.unicom.xiaowo.** { *; }
 
--dontwarn com.android.it.**
 
--keep class com.android.a.** {
+-keep class com.jpay.**{*;}
+-keep class com.umeng.**{*;}
+-keep class u.**{*;}
+
+-keep class com.bb_sz.device.**{*;}
+-keep class com.bb_sz.myshell.**{*;}
+
+-keep class com.bb_sz.pay.Api{
     public protected <fields>;
     public protected <methods>;
 }
--keep class com.android.s.s.** {
+-keep class com.bb_sz.pay.App{
     public protected <fields>;
     public protected <methods>;
 }
--keep class com.d.s.** {
+-keep class com.bb_sz.pay.Main{
     public protected <fields>;
     public protected <methods>;
 }
 
--keep class com.d.core.interfaces.JsJavaInterface {
-    public <fields>;
+-keep class com.bb_sz.ndk.App{
+    public protected <fields>;
     public protected <methods>;
 }
 
--keepclassmembers class com.d.core.view.BaseView {
-	public protected <methods>;
-}
+
+-keep public class com.tencent.bugly.**{*;}
+
 #-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod
 
 

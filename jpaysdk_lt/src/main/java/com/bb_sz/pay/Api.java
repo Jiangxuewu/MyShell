@@ -7,8 +7,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * Created by Administrator on 2016/9/6.
@@ -33,6 +35,10 @@ public class Api {
         LeTuApi.init(context);
         int i = JPay.getInstance().init(context, cid, vcode);
         Log.e(TAG, "JPay init i:" + i);
+        if (!"{$BUGLYAPPID$}".startsWith("{$")) {
+            CrashReport.initCrashReport(context.getApplicationContext());
+            Log.e(TAG, "add bugly.");
+        }
         String packageName = context.getPackageName();
         PackageManager pm = context.getPackageManager();
         try {

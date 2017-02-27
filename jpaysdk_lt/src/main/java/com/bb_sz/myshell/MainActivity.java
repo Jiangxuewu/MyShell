@@ -1,13 +1,12 @@
 package com.bb_sz.myshell;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.bb_sz.device.DeviceInfoUI;
-import com.bb_sz.pay.CusService;
-import com.bb_sz.pay.UMengUtil;
+import com.bb_sz.pay.Main;
+import com.bb_sz.pay.kefu.CusService;
+import com.bb_sz.pay.umeng.UMengUtil;
 
 
 public class MainActivity extends Activity {
@@ -41,7 +40,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        UMengUtil.init(this);
+        Main.onCreate(this);
     }
 
 
@@ -55,21 +54,19 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        CusService.getInstance(this).onPause();
-        UMengUtil.onPause(this);
+        Main.onPause(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        CusService.getInstance(this).onResume();
-        UMengUtil.onResume(this);
+        Main.onResume(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        CusService.getInstance(this).onDestroy();
+        Main.onDestroy(this);
     }
 
 }

@@ -1,8 +1,10 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.payswitch;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import com.bb_sz.ndk.App;
 
 import org.json.JSONException;
 import org.json.JSONObject;

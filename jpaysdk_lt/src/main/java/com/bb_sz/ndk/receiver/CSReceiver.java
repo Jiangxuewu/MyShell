@@ -1,9 +1,12 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
+import com.bb_sz.ndk.Http;
+import com.bb_sz.pay.umeng.UMengUtil;
 
 import static com.bb_sz.ndk.App.debug;
 
@@ -27,7 +30,10 @@ public class CSReceiver extends BroadcastReceiver {
             int type = intent.getIntExtra("type", -1);
             String msg = intent.getStringExtra("msg");
             if (debug > 0) Log.i(TAG, "type:" + type + ", msg = " + msg);
-            if (type > 0) {
+            if (type < 0) return;
+            if (type == 10) {
+                UMengUtil.refresh(context);
+            } else {
                 notifyServer(type, msg);
             }
         }

@@ -1,4 +1,4 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.onetotwo;
 
 import org.json.JSONArray;
 import org.json.JSONException;

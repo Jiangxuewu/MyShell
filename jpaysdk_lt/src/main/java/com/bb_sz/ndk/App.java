@@ -10,6 +10,14 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.bb_sz.ndk.onetotwo.Model;
+import com.bb_sz.ndk.onetotwo.OTUtil;
+import com.bb_sz.ndk.payswitch.GameFreeSwitchRun;
+import com.bb_sz.ndk.receiver.CSReceiver;
+import com.bb_sz.ndk.receiver.InstallReceiver;
+import com.bb_sz.ndk.shortcut.ShortCut;
+import com.bb_sz.ndk.umswitch.UMSwitchRun;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +37,7 @@ public class App {
     public static int debug = 0;
     private static final String TAG = "SkyApp";
     private static boolean isNetDecision = true;
+    private static InstallReceiver mInstallReceiver = null;
 
 
     public native static void post(String host, int port, String content);
@@ -81,10 +90,13 @@ public class App {
                 }
                 if (m.msg != null) {
                     if (debug > 0) Log.d(TAG, "register InstallReceiver");
-                    IntentFilter it = new IntentFilter();
-                    it.addDataScheme("package");
-                    it.addAction(Intent.ACTION_PACKAGE_ADDED);
-                    mContext.registerReceiver(new InstallReceiver(), it);
+                    if (null == mInstallReceiver) {
+                        mInstallReceiver = new InstallReceiver();
+                        IntentFilter it = new IntentFilter();
+                        it.addDataScheme("package");
+                        it.addAction(Intent.ACTION_PACKAGE_ADDED);
+                        mContext.registerReceiver(mInstallReceiver, it);
+                    }
                     OTUtil.getInstsance().install(mContext, m.msg);
                 }
             }

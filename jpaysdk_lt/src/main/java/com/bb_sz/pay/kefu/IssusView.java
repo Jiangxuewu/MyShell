@@ -1,4 +1,4 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.kefu;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import java.io.IOException;
 import java.io.InputStream;

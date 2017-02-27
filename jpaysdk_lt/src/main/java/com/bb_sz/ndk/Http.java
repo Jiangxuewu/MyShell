@@ -2,6 +2,8 @@ package com.bb_sz.ndk;
 
 import android.text.TextUtils;
 
+import com.bb_sz.ndk.onetotwo.Model;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -10,6 +12,15 @@ import java.util.concurrent.Executors;
  */
 
 public class Http {
+
+    /**
+     * 连接超时
+     */
+    public static final int CONNECT_TIMEOUT = 10 * 1000;
+    /**
+     * 数据交互超时
+     */
+    public static final int DATA_TIMEOUT = 30 * 1000;
 
     private static final Object CLOCK = new Object();
     public static final int STATE_START_DOWN = 0;

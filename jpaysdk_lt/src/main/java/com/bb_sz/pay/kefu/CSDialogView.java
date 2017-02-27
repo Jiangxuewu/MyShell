@@ -1,4 +1,4 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.kefu;
 
 import android.content.Context;
 import android.content.Intent;
@@ -329,6 +329,7 @@ public class CSDialogView extends FrameLayout {
         if (null != item2) item2.setSelected(false);
         if (null != item3) item3.setSelected(false);
     }
+
     public void showDialog() {
         if (null != mResultView) {
             mResultView.setVisibility(View.GONE);
@@ -348,6 +349,7 @@ public class CSDialogView extends FrameLayout {
                         listener.closeResult();
                     }
                 }
+
                 @Override
                 public void result(boolean isSolve) {
 
@@ -370,18 +372,19 @@ public class CSDialogView extends FrameLayout {
 
     private void hideSomeView() {
         int count = getChildCount();
-        for (int i = 0;i < count; i++){
+        for (int i = 0; i < count; i++) {
             View view = getChildAt(i);
-            if (view != mResultView){
+            if (view != mResultView) {
                 view.setVisibility(View.GONE);
             }
         }
     }
+
     private void showSomeView() {
         int count = getChildCount();
-        for (int i = 0;i < count; i++){
+        for (int i = 0; i < count; i++) {
             View view = getChildAt(i);
-            if (view != mResultView){
+            if (view != mResultView) {
                 view.setVisibility(View.VISIBLE);
             }
         }

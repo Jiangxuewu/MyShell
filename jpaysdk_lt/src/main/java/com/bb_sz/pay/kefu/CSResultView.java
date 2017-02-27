@@ -1,4 +1,4 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.kefu;
 
 import android.content.Context;
 import android.content.Intent;

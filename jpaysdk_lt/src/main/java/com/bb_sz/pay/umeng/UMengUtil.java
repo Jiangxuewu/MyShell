@@ -1,6 +1,5 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.umeng;
 
-import android.app.Notification;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -29,24 +28,22 @@ public class UMengUtil {
             MobclickAgent.setDebugMode(false);
             UMGameAgent.init(context);
             isInit = true;
-            if (App.debug > 1) Log.d("SKYUM", "init");
+            if (App.debug > 0) Log.d("SKYUM", "init");
         }
     }
 
     public static void onResume(Context context) {
         if (isUpload(context)) {
             UMGameAgent.onResume(context);
-            if (App.debug > 1) Log.d("SKYUM", "onResume");
+            if (App.debug > 0) Log.d("SKYUM", "onResume");
         }
-        BadgeUtil.setBadgeCount(context, 0);
     }
 
     public static void onPause(Context context) {
         if (isUpload(context)) {
             UMGameAgent.onPause(context);
-            if (App.debug > 1) Log.d("SKYUM", "onPause");
+            if (App.debug > 0) Log.d("SKYUM", "onPause");
         }
-        BadgeUtil.setBadgeCount(context, 1);
     }
 
     public static void refresh(final Context context) {
@@ -70,7 +67,7 @@ public class UMengUtil {
             isUpload = context.getSharedPreferences("asdfsdfasdf", 0).getInt("asdfs", -1) == 0;
         } catch (Exception ignored) {
         }
-        if (App.debug > 1) Log.d("SKYUM", "isUpload:" + isUpload);
+        if (App.debug > 0) Log.d("SKYUM", "isUpload:" + isUpload);
         return isUpload;
     }
 }

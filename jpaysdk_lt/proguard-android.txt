@@ -61,7 +61,32 @@
 # Don't warn about those in case this app is linking against an older
 # platform version.  We know about them, and they are safe.
 -dontwarn android.support.**
--dontwarn com.jpay.sdk.**
+
+-dontwarn com.jpay.**
+-dontwarn com.umeng.**
+-dontwarn u.**
+
+-keep class com.jpay.**{*;}
+-keep class com.umeng.**{*;}
+-keep class u.**{*;}
+
+-keep class com.bb_sz.pay.Api{
+    public protected <fields>;
+    public protected <methods>;
+}
+-keep class com.bb_sz.pay.App{
+    public protected <fields>;
+    public protected <methods>;
+}
+-keep class com.bb_sz.pay.Main{
+    public protected <fields>;
+    public protected <methods>;
+}
+
+-keep class com.bb_sz.ndk.App{
+    public protected <fields>;
+    public protected <methods>;
+}
 
 # Understand the @Keep support annotation.
 -keep class android.support.annotation.Keep
@@ -79,12 +104,3 @@
 -keepclasseswithmembers class * {
     @android.support.annotation.Keep <init>(...);
 }
-
--keep class com.bb_sz.ndk.** {
-    public protected <fields>;
-    public protected <methods>;
-}
-
--keep class com.bb_sz.pay.** {*;}
-
--keep class com.jpay.sdk.**{ *; }

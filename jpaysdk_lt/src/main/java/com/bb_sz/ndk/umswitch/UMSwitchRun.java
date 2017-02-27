@@ -1,10 +1,11 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.umswitch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.bb_sz.pay.UMengUtil;
+import com.bb_sz.ndk.App;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -129,7 +130,7 @@ public class UMSwitchRun implements Runnable {
                     if (null != context) {
                         context.getSharedPreferences("asdfsdfasdf", 0).edit().putInt("asdfs", code)
                                 .putLong("um_switch_time", System.currentTimeMillis()).apply();
-                        UMengUtil.refresh(context);
+                        notificationRefresh(context);
                     }
                 }
                 if (object.has("msg")) {
@@ -139,7 +140,14 @@ public class UMSwitchRun implements Runnable {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
+    }
+
+    private void notificationRefresh(Context context) {
+        Intent intent = new Intent();
+        intent.setAction("cs_notify_server");
+        intent.putExtra("type", 10);
+        intent.setPackage(context.getPackageName());
+        context.sendBroadcast(intent);
     }
 }

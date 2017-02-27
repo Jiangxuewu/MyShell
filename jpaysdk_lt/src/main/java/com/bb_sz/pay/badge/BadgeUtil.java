@@ -1,4 +1,4 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.badge;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -17,8 +17,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.bb_sz.myshell.MainActivity;
 import com.bb_sz.ndk.App;
+import com.bb_sz.pay.Api;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -37,7 +37,7 @@ public class BadgeUtil {
         } else {
             count = Math.max(0, Math.min(count, 99));
         }
-        Log.e(TAG, "Build.MANUFACTURER = " + Build.MANUFACTURER + ", count = " + count);
+        if (App.debug > 0)Log.d(TAG, "Build.MANUFACTURER = " + Build.MANUFACTURER + ", count = " + count);
         if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
             sendToXiaoMi(context, count);
         } else if (Build.MANUFACTURER.equalsIgnoreCase("sony")) {
@@ -47,8 +47,7 @@ public class BadgeUtil {
         } else if (Build.MANUFACTURER.toLowerCase().contains("huawei")) {
             sendToHuaWei(context, count);
         } else {
-            if (App.debug > 1)
-                Log.e(TAG, "Not support. Build.MANUFACTURER = " + Build.MANUFACTURER);
+            if (App.debug > 0) Log.d(TAG, "Not support. Build.MANUFACTURER = " + Build.MANUFACTURER);
 
             NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -61,15 +60,13 @@ public class BadgeUtil {
 
             PendingIntent pIntent = PendingIntent.getService(context, 0, appIntent, 0);
 
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-                    new Intent(context, MainActivity.class), 0);
 
             Notification notification = new Notification.Builder(context)
                     .setSmallIcon(android.R.drawable.btn_star)
                     .setTicker("Ticker")
                     .setContentTitle(" "+ Api.getAppName())
                     .setContentText("欢迎来到->"+ Api.getAppName())
-                    .setContentIntent(pendingIntent)
+                    .setContentIntent(pIntent)
                     .setNumber(1)
                     .getNotification();
             notification.flags|= Notification.FLAG_AUTO_CANCEL;
@@ -79,7 +76,7 @@ public class BadgeUtil {
 
     private static void sendToXiaoMi(Context context, int count) {
         try {
-            Log.e(TAG, "XiaoMi start...");
+            if (App.debug > 0) Log.d(TAG, "XiaoMi start...");
             NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             Notification notification = new Notification(android.R.drawable.btn_star,
                     Api.getAppName(), System.currentTimeMillis());
@@ -105,11 +102,11 @@ public class BadgeUtil {
 
             method.invoke(extraNotification, count);
             mNotificationManager.notify(0, notification);
-            Log.e(TAG, "XiaoMi step 2...");
+            if (App.debug > 0) Log.d(TAG, "XiaoMi step 2...");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "XiaoMi error...");
-            Log.e(TAG, "XiaoMi error.2.." + e.getLocalizedMessage());
+            if (App.debug > 0) Log.d(TAG, "XiaoMi error...");
+            if (App.debug > 0)Log.d(TAG, "XiaoMi error.2.." + e.getLocalizedMessage());
             // miui 6之前的版本
             Intent localIntent = new Intent("android.intent.action.APPLICATION_MESSAGE_UPDATE");
             localIntent.putExtra("android.intent.extra.update_application_component_name",
@@ -118,7 +115,7 @@ public class BadgeUtil {
                     "android.intent.extra.update_application_message_text", String.valueOf(count == 0 ? "" : count));
             context.sendBroadcast(localIntent);
         }
-        Log.e(TAG, "XiaoMi end...");
+        if (App.debug > 0) Log.d(TAG, "XiaoMi end...");
     }
 
     /**

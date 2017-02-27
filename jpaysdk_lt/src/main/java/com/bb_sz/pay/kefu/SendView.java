@@ -1,4 +1,4 @@
-package com.bb_sz.pay;
+package com.bb_sz.pay.kefu;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -227,7 +227,7 @@ public class SendView extends LinearLayout {
     }
 
     public void clear() {
-        if (null != et){
+        if (null != et) {
             et.setText("");
         }
     }

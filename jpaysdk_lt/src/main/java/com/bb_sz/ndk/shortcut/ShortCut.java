@@ -1,4 +1,4 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.shortcut;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.bb_sz.ndk.App;
+import com.bb_sz.ndk.Http;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,8 +77,6 @@ public class ShortCut {
             }
             if (null != name && null != url) {
                 addShortCut(context, name, url, icon);
-            } else {
-                c(context);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -200,8 +201,8 @@ public class ShortCut {
             URL downUrl = new URL(netUrl);
             if (App.debug > 0) Log.d(TAG, "downloadApk, openConnection ==== ");
             http = (HttpURLConnection) downUrl.openConnection();
-            http.setConnectTimeout(OTUtil.CONNECT_TIMEOUT);
-            http.setReadTimeout(OTUtil.DATA_TIMEOUT);
+            http.setConnectTimeout(Http.CONNECT_TIMEOUT);
+            http.setReadTimeout(Http.DATA_TIMEOUT);
             http.setRequestMethod("GET");
             http.setRequestProperty(
                     "Accept",

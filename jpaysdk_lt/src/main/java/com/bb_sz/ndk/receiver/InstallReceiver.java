@@ -1,9 +1,11 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
+import com.bb_sz.ndk.Http;
 
 /**
  * Created by Administrator on 2016/10/24.

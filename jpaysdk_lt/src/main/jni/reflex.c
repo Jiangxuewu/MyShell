@@ -29,6 +29,19 @@ jobject runStaticObjectMethod(JNIEnv *env, const char *clsName, const char *meth
     return result;
 }
 
+jobject runStaticObjectMethodX(JNIEnv *env, jclass cls, const char *methodName, const char *methodParam, ...) {
+    jmethodID mid = (*env)->GetStaticMethodID(env, cls, methodName, methodParam);
+    if (!mid) {
+        return NULL;
+    }
+    va_list arg_ptr;
+    va_start(arg_ptr, methodParam);
+    jobject result = (*env)->CallStaticObjectMethodV(env, cls, mid, arg_ptr);
+    va_end(arg_ptr);
+//    (*env)->DeleteLocalRef(env, cls);
+    return result;
+}
+
 
 /**
  * 运行clsName中的静态方法methodName(没有返回结果的函数)

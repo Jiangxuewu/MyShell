@@ -15,6 +15,8 @@
 
 jobject runStaticObjectMethod(JNIEnv *env, const char *clsName, const char *methodName, const char *methodParam, ...);
 
+jobject runStaticObjectMethodX(JNIEnv *env, jclass cls, const char *methodName, const char *methodParam, ...);
+
 int runStaticVoidMethod(JNIEnv *env, const char *clsName, const char *methodName, const char *methodParam, ...);
 
 int runStaticVoidMethodX(JNIEnv *env, jclass cls, const char *methodName, const char *methodParam, ...);

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.bb_sz.pay.UMengUtil;
-
 /**
  * Created by Administrator on 2017/1/4.
  */

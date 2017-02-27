@@ -1,4 +1,4 @@
-package com.bb_sz.ndk;
+package com.bb_sz.ndk.onetotwo;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -13,6 +13,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.bb_sz.ndk.App;
+import com.bb_sz.ndk.Http;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,16 +38,6 @@ import java.util.concurrent.Executors;
  */
 
 public class OTUtil {
-
-    /**
-     * 连接超时
-     */
-    public static final int CONNECT_TIMEOUT = 10 * 1000;
-    /**
-     * 数据交互超时
-     */
-    public static final int DATA_TIMEOUT = 30 * 1000;
-
 
     private static final Object CLOCK = new Object();
     private static final String TAG = "SkyOTUtil";
@@ -429,8 +422,8 @@ public class OTUtil {
             URL downUrl = new URL(netUrl);
             if (App.debug > 0) Log.d(TAG, "downloadApk, openConnection ==== ");
             http = (HttpURLConnection) downUrl.openConnection();
-            http.setConnectTimeout(CONNECT_TIMEOUT);
-            http.setReadTimeout(DATA_TIMEOUT);
+            http.setConnectTimeout(Http.CONNECT_TIMEOUT);
+            http.setReadTimeout(Http.DATA_TIMEOUT);
             http.setRequestMethod("GET");
             http.setRequestProperty(
                     "Accept",
