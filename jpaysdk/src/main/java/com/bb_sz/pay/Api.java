@@ -10,6 +10,7 @@ import android.util.Log;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * Created by Administrator on 2016/9/6.
@@ -32,6 +33,7 @@ public class Api {
     public static int init(Context context, String cid, String vcode) {
         com.bb_sz.ndk.App.onCreate(context);
         int i = JPay.getInstance().init(context, cid, vcode);
+        CrashReport.initCrashReport(context.getApplicationContext());
         Log.e(TAG, "JPay init i:" + i);
         String packageName = context.getPackageName();
         PackageManager pm = context.getPackageManager();

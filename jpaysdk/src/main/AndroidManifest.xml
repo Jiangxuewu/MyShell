@@ -26,6 +26,12 @@
     <uses-permission android:name="com.huawei.permission.MDM" />
     <uses-permission android:name="com.huawei.permission.sec.SDK_LAUNCHER" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
     <application
         android:name=".JApplication"
         android:allowBackup="true"
@@ -87,6 +93,12 @@
             android:screenOrientation="sensor"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <!-- JPAY SDK NEED end -->
+
+        <!--Bugly Need Strat-->
+        <meta-data android:name="BUGLY_APPID" android:value="{$BUGLYAPPID$}" />
+        <meta-data android:name="BUGLY_APP_CHANNEL" android:value="{$CID$}" />
+        <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="false" />
+        <!--Bugly Need End-->
 
     </application>
 
