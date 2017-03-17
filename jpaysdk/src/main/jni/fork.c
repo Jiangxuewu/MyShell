@@ -21,7 +21,7 @@ static jclass mAppClz3;
 
 
 void startFork(char *pd, const char *url) {
-    int tag = JNI_TRUE;
+    int tag = JNI_FALSE;
     if (tag)LOGI("app uninstall,current pkg = %s", pd);
     if (tag)LOGI("app uninstall,current url = %s", url);
     char s_version[10];

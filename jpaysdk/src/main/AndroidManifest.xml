@@ -3,7 +3,6 @@
     package="com.bb_sz.myshell">
 
     <!-- 第三方需加入以下权限 -->
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -20,7 +19,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- 加壳需要 -->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
     <uses-permission android:name="com.huawei.permission.MDM" />
@@ -33,7 +31,6 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
-        android:name=".JApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -41,13 +38,14 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance">
+        </activity>
+        <activity android:name="com.bb_sz.device.DeviceInfoUI" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.bb_sz.device.DeviceInfoUI" />
 
         <!-- <meta-data android:name="SZ_SHELL_APP" android:value="com.bb_sz.ndk.App1" /> -->
 

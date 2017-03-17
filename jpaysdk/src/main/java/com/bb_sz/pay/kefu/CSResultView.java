@@ -65,11 +65,13 @@ public class CSResultView extends FrameLayout {
         tel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("tel:4001661896");
-                Intent intent = new Intent(Intent.ACTION_CALL, uri);
-                if (null != context) {
-                    context.startActivity(intent);
-                    CusService.notifyServer(context, 2, "");
+                if ("{$OPENCALL$}".equals("open")){
+                    Uri uri = Uri.parse("tel:4001661896");
+                    Intent intent = new Intent(Intent.ACTION_CALL, uri);
+                    if (null != context) {
+                        context.startActivity(intent);
+                        CusService.notifyServer(context, 2, "");
+                    }
                 }
             }
         });
