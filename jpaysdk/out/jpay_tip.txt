@@ -1,0 +1,5 @@
+1, 拷贝assets下面的所有文件到游戏apk中去。 需要更新文件jpay_config.xml和jpay_uid.txt中的appid。
+2，拷贝lib目录下对应的so库到游戏app中去。
+3，拷贝androidManifest.xml中的属性到游戏app的androidManifest.xml中去。
+4，在游戏app的Application的onCreate方法中调用Api.init(Context);方法。
+5，在需要计费出调用Api.charge()计费接口。
