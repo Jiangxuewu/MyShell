@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyShell</string>
+    <string name="setting_service_description">"点击右上角「开关」开启↗↗↗
+ 开启后，游戏加速器将自动完成以下服务设置:
+ 1.完成加速器的必要权限
+ 2.系统级加速守护
+ 3.安全软件护航
+ 4.其他服务
+"</string>
+</resources>

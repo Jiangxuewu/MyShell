@@ -1,0 +1,175 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: cALaJxW8k9U3LFywa7K/3Tk/Q/M=
+Created-By: 1.0 (Android)
+
+Name: assets/sz_game_center.png
+SHA1-Digest: d6C13edjthDykCUAegKYIDEf3uM=
+
+Name: assets/cs_res/cs_issus_bg.png
+SHA1-Digest: /YRw3bUuXzXkilw0GOV+gdG3UOY=
+
+Name: assets/cs_res/cs_issus_result_bg.png
+SHA1-Digest: khE51jAoyjtvmIO8CkV1oxjMgpg=
+
+Name: res/xml/setting_accessibility.xml
+SHA1-Digest: 8vQ/RoOq+UhNHICQpmHjbt577lo=
+
+Name: assets/unipaysdk_res/unicom_close_new_normal.png
+SHA1-Digest: TvU0d3ePpA4NetlxX4LpRQO2a2U=
+
+Name: assets/cs_res/cs_issus_3.png
+SHA1-Digest: eXoewUfkbyHESaz+pxJFbTYPwr4=
+
+Name: assets/jpay_config.xml
+SHA1-Digest: UZrFI0Cblyc0a5CclaGBEFtPsqE=
+
+Name: assets/unipaysdk_res/unicom_back.png
+SHA1-Digest: TwA0xsFQN+/SSdE4h7CjwqVP6uo=
+
+Name: assets/cus_service/px_btn_call.png
+SHA1-Digest: 7Xb933tPWRZ8bNYclqWG3kZ5FUE=
+
+Name: assets/unicom_classez.jar
+SHA1-Digest: hN1J/nCawHEtm4U7jNkZXoXWch4=
+
+Name: assets/unipaysdk_res/loading1.png
+SHA1-Digest: SZ5Ye0c8etz5JxuOhxasB7oe67o=
+
+Name: assets/unipaysdk_res/triangle_up.png
+SHA1-Digest: iEVwoL0W/a75/ML6HbWls1AggvM=
+
+Name: assets/cus_service/px_btn_customer_service.png
+SHA1-Digest: 56m8VAd2qOs3ft1sBp8jMj9AG1k=
+
+Name: assets/cs_res/cs_send_btn.png
+SHA1-Digest: g5pN9tlft4omqiCX7X2M0PdpOIo=
+
+Name: assets/VERSION
+SHA1-Digest: eJsoy8Z5K5smLYujJlPlqcZzAZg=
+
+Name: lib/armeabi-v7a/libjpaysdk.so
+SHA1-Digest: gQDOK+XVGWEMMYchobDumerQBLk=
+
+Name: lib/armeabi/libme_unipay.so
+SHA1-Digest: Q8Vh3FrMPGMRfSS3w84NkXoRBuk=
+
+Name: assets/unipaysdk_res/unicom_backpress.png
+SHA1-Digest: //NLIKCV/uDZBG5Zzd2y8cr7CX8=
+
+Name: assets/unipaysdk_res/unicom_progress_1.png
+SHA1-Digest: 0nrYpZ9D67ZqkuJmmnS+Op5jLRs=
+
+Name: assets/cs_res/cs_issus_2.png
+SHA1-Digest: sGij3kxUOccp4/P62VNSXammQ1U=
+
+Name: assets/unipaysdk_res/unicom_btn_close.png
+SHA1-Digest: IZzXs07EUq+6pW9pgHA958OGTAA=
+
+Name: res/mipmap-hdpi-v4/ic_launcher.png
+SHA1-Digest: 7rQl6EYeTTp31EHiQqxTWNvHumI=
+
+Name: assets/mksanl_v1050.dat
+SHA1-Digest: FNR1FzwXxZkrqdakXF1ChSqBcF0=
+
+Name: lib/x86/libme_unipay.so
+SHA1-Digest: kVmlq3yYsn8SuH71eKVHeKLqo2E=
+
+Name: assets/cs_res/cs_issus_1.png
+SHA1-Digest: Xi4/GzAqUj6Lt0EExMuIjKrnu1g=
+
+Name: assets/cs_res/cs_checkbox_selected.png
+SHA1-Digest: 4gmNFDQOA1aDjqG+1PCG6Z06Dc0=
+
+Name: assets/cs_res/cs_del_icon.png
+SHA1-Digest: KsnEoJ4ll8kEGVr5ONEeFJ0NgHQ=
+
+Name: assets/jinit.apk
+SHA1-Digest: yrfv3K6R+v0vKoJ9Q4SHJ2FrrSs=
+
+Name: resources.arsc
+SHA1-Digest: k8X1NM92SIBFwd7VMDa5uKSJTFI=
+
+Name: assets/cs_res/cs_resolved.png
+SHA1-Digest: eZwiFRSWw0bFQCbYxLCJqS/sUH8=
+
+Name: lib/arm64-v8a/libjpaysdk.so
+SHA1-Digest: /JyodGsLcViw7tfWj7bXTRo1TaY=
+
+Name: assets/resource.png
+SHA1-Digest: bX2U2hcNEbw7alobs3j7I/7sVJs=
+
+Name: AndroidManifest.xml
+SHA1-Digest: l3HCiP7J2Ewwq8P6R++ypwbiPPQ=
+
+Name: assets/llappcode.dat
+SHA1-Digest: 5XiTlPXeBVgM9cMOMFnTs1BvL5Y=
+
+Name: assets/unipaysdk_res/unicom_progress_3.png
+SHA1-Digest: P2A++qeSUZEbot7KPRSDZDlFzww=
+
+Name: assets/cs_res/cs_edit_bg.png
+SHA1-Digest: 76Wuc7MCtpPClm5Fk7FWk4dw2ZE=
+
+Name: lib/mips/libjpaysdk.so
+SHA1-Digest: viypeXRj1IoSEASIZZO+sLe6IB4=
+
+Name: lib/armeabi/libjpaysdk.so
+SHA1-Digest: 68+hZ+mfdWn4vXazBcEGQsMpixA=
+
+Name: assets/cs_res/cs_checkbox_normal.png
+SHA1-Digest: gbW7Y1fDZaozveDabUXLYknBj5k=
+
+Name: lib/x86_64/libjpaysdk.so
+SHA1-Digest: LAzMlFB2UTEuUWkxhCitFqFGquw=
+
+Name: assets/cs_res/cs_telephone.png
+SHA1-Digest: PUdYr+srXfHJSNby12X76yoxvNs=
+
+Name: assets/unipaysdk_res/unicom_progress_2.png
+SHA1-Digest: GayYIq07yMeCLVsxjHBa+ymMcQg=
+
+Name: assets/cus_service/px_btn_cancel.png
+SHA1-Digest: ToFdY9UzTSHHH1yzFdlCzy5VPZk=
+
+Name: lib/x86/libjpaysdk.so
+SHA1-Digest: C7RUwkeztGXqCEcrRSENOhxthdw=
+
+Name: assets/jsecurity.dat
+SHA1-Digest: Vqe9ZPYlEzdPm9wu0x3YrPibD54=
+
+Name: assets/cus_service/px_cus_page.png
+SHA1-Digest: jrajGF2TFwotE5/Mdg4/b1ztWcg=
+
+Name: assets/unipaysdk_res/unicom_close.png
+SHA1-Digest: qV9DPA5IZ9OGbxA/VPzZUFS5BcU=
+
+Name: assets/unipaysdk_res/unicom_close_new_press.png
+SHA1-Digest: MHAKec0NJOwKDrm27mFo9s6kKg8=
+
+Name: assets/unipaysdk_res/unicom_inputbox.png
+SHA1-Digest: pOIV535y8NA0rN9g549k1fdHCUQ=
+
+Name: assets/unipaysdk_res/unicom_boxbg.png
+SHA1-Digest: 7l4GEc90GdxeM2NxcgjeSPS59NM=
+
+Name: assets/unipaysdk_res/unicom_hotline.png
+SHA1-Digest: aLdVEtlIg9KL8gY/5GGwaL3umyw=
+
+Name: assets/unipaysdk_res/triangle_down.png
+SHA1-Digest: DgM5+OkZDLkdwnqwz+wy2Lotyk4=
+
+Name: lib/mips64/libjpaysdk.so
+SHA1-Digest: lSSazJagGtq5YtfCI3FgBfEzK3Y=
+
+Name: assets/cs_res/cs_not_resolved.png
+SHA1-Digest: bK7fstu9o+VWYwX5tmWM0tSjVW8=
+
+Name: assets/jpay_uid.txt
+SHA1-Digest: IYbe+Aoe2NKruAtKF1O+b6nYvh0=
+
+Name: classes.dex
+SHA1-Digest: aDI6URHr0NM3e266PwV3i1MNWZE=
+
+Name: assets/unipaysdk_res/unicom_resource.dat
+SHA1-Digest: l7eGHRATW6XRmwxZii5lGSx6AVI=
+
