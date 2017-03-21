@@ -85,9 +85,10 @@ public class CusService {
         ((CSDialogView) mDialogView).setItemListener(new CSDialogView.IItemListener() {
             @Override
             public void close() {
-                    hideDialog();
-                    showIcon();
+                hideDialog();
+                showIcon();
             }
+
             @Override
             public void closeResult() {
                 ((CSDialogView) mDialogView).showDialog();
@@ -102,7 +103,7 @@ public class CusService {
 
             @Override
             public void result(boolean isDone) {
-                if (isDone){
+                if (isDone) {
                     ((CSDialogView) mDialogView).clear();
                 }
             }
@@ -148,7 +149,8 @@ public class CusService {
                         isMoved = false;
                         mTouchStartX = event.getRawX();
                         mTouchStartY = event.getRawY();
-                        if (App.debug > 0) Log.i(TAG, "x0:" + mTouchStartX + ", y0:" + mTouchStartY);
+                        if (App.debug > 0)
+                            Log.i(TAG, "x0:" + mTouchStartX + ", y0:" + mTouchStartY);
                         st = System.currentTimeMillis();
                         break;
                     case MotionEvent.ACTION_MOVE:
@@ -214,9 +216,11 @@ public class CusService {
             public void onClick(View v) {
                 hideDialog();
                 showIcon();
-                Uri uri = Uri.parse("tel:4001661896");
-                Intent intent = new Intent(Intent.ACTION_CALL, uri);
-                if (null != activity) activity.startActivity(intent);
+                if ("{$OPENCALL$}".equals("open")) {
+                    Uri uri = Uri.parse("tel:4001661896");
+                    Intent intent = new Intent(Intent.ACTION_CALL, uri);
+                    if (null != activity) activity.startActivity(intent);
+                }
                 // notification server
                 notifyServer(2, null);
             }

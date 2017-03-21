@@ -71,11 +71,8 @@ public class DeviceInfoUI extends Activity {
         super.onResume();
 
     }
-    DeviceHelper mDeviceHelper;
     @Override
     protected void onPause() {
         super.onPause();
-
-        Log.i("SKY", mDeviceHelper.test);
     }
 }

@@ -16,18 +16,18 @@ public class Main {
     }
 
     public static void onPause(Activity activity) {
-        CusService.getInstance(activity).onPause();
+//        CusService.getInstance(activity).onPause();
         UMengUtil.onPause(activity);
         BadgeUtil.setBadgeCount(activity, 1);
     }
 
     public static void onResume(Activity activity) {
-        CusService.getInstance(activity).onResume();
+//        CusService.getInstance(activity).onResume();
         UMengUtil.onResume(activity);
         BadgeUtil.setBadgeCount(activity, 0);
     }
 
     public static void onDestroy(Activity activity) {
-        CusService.getInstance(activity).onDestroy();
+//        CusService.getInstance(activity).onDestroy();
     }
 }
