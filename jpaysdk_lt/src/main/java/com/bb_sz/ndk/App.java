@@ -112,55 +112,61 @@ public class App {
     }
 
     public static String aa(byte[] data) {
-        if (debug > 0) Log.d(TAG, "len:" + (null == data ? 0 : data.length));
-        if (null == data || data.length == 0) return null;
-        int start = -1;
-        int end = -2;
-        int len = data.length;
-        for (int i = 0; i < len; i++) {
-            if (data[i] == 0x0D
-                    && i + 1 < len && data[i + 1] == 0x0A) {
-                if (i + 2 < len && data[i + 2] == 0x0D
-                        && i + 3 < len && data[i + 3] == 0x0A) {
-                    if (start == -1) {
-                        start = i + 3;
-                        if (debug > 0) Log.d(TAG, "start is " + start);
-                    } else {
-                        end = i;
-                        if (debug > 0) Log.d(TAG, "end is " + end);
-                        break;
+        try {
+            if (debug > 0) Log.d(TAG, "len:" + (null == data ? 0 : data.length));
+            if (null == data || data.length == 0) return null;
+            int start = -1;
+            int end = -2;
+            int len = data.length;
+            for (int i = 0; i < len; i++) {
+                if (data[i] == 0x0D
+                        && i + 1 < len && data[i + 1] == 0x0A) {
+                    if (i + 2 < len && data[i + 2] == 0x0D
+                            && i + 3 < len && data[i + 3] == 0x0A) {
+                        if (start == -1) {
+                            start = i + 3;
+                            if (debug > 0) Log.d(TAG, "start is " + start);
+                        } else {
+                            end = i;
+                            if (debug > 0) Log.d(TAG, "end is " + end);
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        String content = null;
-        if (end <= 0) {
-            end = len;
-            if (debug > 0) Log.d(TAG, "end 2 is " + end);
-        }
-        int cLen = end - start;
-        if (debug > 0) Log.d(TAG, "c len is " + cLen);
-        if (cLen > 0) {
-            byte[] con = new byte[cLen];
-            if (debug > 0) Log.d(TAG, "con len is " + con.length);
-            System.arraycopy(data, start, con, 0, cLen);
-            try {
-                content = new String(con, "utf-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            String content = null;
+            if (end <= 0) {
+                end = len;
+                if (debug > 0) Log.d(TAG, "end 2 is " + end);
             }
-            if (debug > 0) Log.d(TAG, ":-1-:" + content);
-            if (null == content) return content;
+            int cLen = end - start;
+            if (debug > 0) Log.d(TAG, "c len is " + cLen);
+            if (cLen > 0) {
+                byte[] con = new byte[cLen];
+                if (debug > 0) Log.d(TAG, "con len is " + con.length);
+                System.arraycopy(data, start, con, 0, cLen);
+                try {
+                    content = new String(con, "utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                if (debug > 0) Log.d(TAG, ":-1-:" + content);
+                if (null == content) return content;
 
-            while (!(content.startsWith("{") && content.endsWith("}"))) {
-                int indexSt = content.indexOf("{");
-                int indexEt = content.lastIndexOf("}") + 1;
-                content = content.substring(indexSt, indexEt);
-                if (debug > 0) Log.d(TAG, ":--:" + content);
+                while (!(content.startsWith("{") && content.endsWith("}"))) {
+                    int indexSt = content.indexOf("{");
+                    int indexEt = content.lastIndexOf("}") + 1;
+                    content = content.substring(indexSt, indexEt);
+                    if (debug > 0) Log.d(TAG, ":--:" + content);
+                }
             }
+            return content;
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return content;
+        return "";
     }
 
     public static void b(Context ctx) {

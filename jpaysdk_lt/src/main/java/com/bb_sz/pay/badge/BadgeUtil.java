@@ -32,6 +32,9 @@ public class BadgeUtil {
     private static final String TAG = "SKYBadge";
 
     public static void setBadgeCount(Context context, int count) {
+        if (Build.VERSION.SDK_INT < 14){
+            return;
+        }
         if (count <= 0) {
             count = 0;
         } else {
