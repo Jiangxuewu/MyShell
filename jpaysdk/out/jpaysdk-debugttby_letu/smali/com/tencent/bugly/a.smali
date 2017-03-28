@@ -1,5 +1,6 @@
 .class public abstract Lcom/tencent/bugly/a;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # instance fields
@@ -16,6 +17,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,12 +35,16 @@
 .method public onDbCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
 
+    .prologue
+    .line 36
     return-void
 .end method
 
 .method public onDbDowngrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 6
 
+    .prologue
+    .line 68
     :try_start_0
     invoke-virtual {p0}, Lcom/tencent/bugly/a;->getTables()[Ljava/lang/String;
 
@@ -45,10 +52,12 @@
 
     if-nez v0, :cond_1
 
+    .line 80
     :cond_0
     :goto_0
     return-void
 
+    .line 71
     :cond_1
     invoke-virtual {p0}, Lcom/tencent/bugly/a;->getTables()[Ljava/lang/String;
 
@@ -63,6 +72,7 @@
 
     aget-object v3, v1, v0
 
+    .line 72
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "DROP TABLE IF EXISTS "
@@ -79,10 +89,12 @@
 
     invoke-virtual {p1, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
+    .line 71
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 74
     :cond_2
     invoke-virtual {p0, p1}, Lcom/tencent/bugly/a;->onDbCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     :try_end_0
@@ -90,15 +102,18 @@
 
     goto :goto_0
 
+    .line 75
     :catch_0
     move-exception v0
 
+    .line 76
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->b(Ljava/lang/Throwable;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 77
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
@@ -107,6 +122,8 @@
 .method public onDbUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 6
 
+    .prologue
+    .line 46
     :try_start_0
     invoke-virtual {p0}, Lcom/tencent/bugly/a;->getTables()[Ljava/lang/String;
 
@@ -114,10 +131,12 @@
 
     if-nez v0, :cond_1
 
+    .line 58
     :cond_0
     :goto_0
     return-void
 
+    .line 49
     :cond_1
     invoke-virtual {p0}, Lcom/tencent/bugly/a;->getTables()[Ljava/lang/String;
 
@@ -132,6 +151,7 @@
 
     aget-object v3, v1, v0
 
+    .line 50
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "DROP TABLE IF EXISTS "
@@ -148,10 +168,12 @@
 
     invoke-virtual {p1, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
+    .line 49
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 52
     :cond_2
     invoke-virtual {p0, p1}, Lcom/tencent/bugly/a;->onDbCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     :try_end_0
@@ -159,15 +181,18 @@
 
     goto :goto_0
 
+    .line 53
     :catch_0
     move-exception v0
 
+    .line 54
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->b(Ljava/lang/Throwable;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 55
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
@@ -176,5 +201,7 @@
 .method public onServerStrategyChanged(Lcom/tencent/bugly/crashreport/common/strategy/StrategyBean;)V
     .locals 0
 
+    .prologue
+    .line 92
     return-void
 .end method

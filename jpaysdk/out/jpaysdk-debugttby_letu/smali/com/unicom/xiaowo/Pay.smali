@@ -2,6 +2,17 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/unicom/xiaowo/Pay$UnipayCommandResultListener;,
+        Lcom/unicom/xiaowo/Pay$UnipayExitListener;,
+        Lcom/unicom/xiaowo/Pay$UnipayPauseListener;,
+        Lcom/unicom/xiaowo/Pay$UnipayPayResultListener;
+    }
+.end annotation
+
+
 # static fields
 .field public static final CANCEL:I = 0x3
 

@@ -1,5 +1,6 @@
 .class public final Lcom/tencent/bugly/proguard/e;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # static fields
@@ -10,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 12
     const/16 v0, 0x10
 
     new-array v0, v0, [C
@@ -18,8 +21,10 @@
 
     sput-object v0, Lcom/tencent/bugly/proguard/e;->a:[C
 
+    .line 17
     return-void
 
+    .line 12
     :array_0
     .array-data 2
         0x30s
@@ -44,18 +49,23 @@
 .method public static a([B)Ljava/lang/String;
     .locals 6
 
+    .prologue
+    .line 53
     if-eqz p0, :cond_0
 
     array-length v0, p0
 
     if-nez v0, :cond_1
 
+    .line 55
     :cond_0
     const/4 v0, 0x0
 
+    .line 66
     :goto_0
     return-object v0
 
+    .line 58
     :cond_1
     array-length v0, p0
 
@@ -63,6 +73,7 @@
 
     new-array v1, v0, [C
 
+    .line 59
     const/4 v0, 0x0
 
     :goto_1
@@ -70,8 +81,10 @@
 
     if-ge v0, v2, :cond_2
 
+    .line 61
     aget-byte v2, p0, v0
 
+    .line 62
     mul-int/lit8 v3, v0, 0x2
 
     add-int/lit8 v3, v3, 0x1
@@ -84,10 +97,12 @@
 
     aput-char v4, v1, v3
 
+    .line 63
     ushr-int/lit8 v2, v2, 0x4
 
     int-to-byte v2, v2
 
+    .line 64
     mul-int/lit8 v3, v0, 0x2
 
     sget-object v4, Lcom/tencent/bugly/proguard/e;->a:[C
@@ -98,10 +113,12 @@
 
     aput-char v2, v1, v3
 
+    .line 59
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 66
     :cond_2
     new-instance v0, Ljava/lang/String;
 

@@ -1,15 +1,19 @@
 .class public Lcom/unicom/shield/unipay;
 .super Ljava/lang/Object;
+.source "SourceFile"
 
 
 # direct methods
 .method public static a(Landroid/app/Application;Landroid/content/Context;)V
     .locals 6
 
+    .prologue
+    .line 11
     const-string v0, "me_unipay"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 12
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -30,6 +34,7 @@
 
     invoke-static/range {v0 .. v5}, Lcom/unicom/shield/unipay;->install_native(Landroid/app/Application;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 14
     return-void
 .end method
 

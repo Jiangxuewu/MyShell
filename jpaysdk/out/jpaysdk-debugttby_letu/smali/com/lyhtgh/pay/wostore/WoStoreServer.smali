@@ -1,5 +1,6 @@
 .class public Lcom/lyhtgh/pay/wostore/WoStoreServer;
 .super Ljava/lang/Object;
+.source "SourceFile"
 
 
 # static fields
@@ -10,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 22
     const/4 v0, 0x0
 
     sput-object v0, Lcom/lyhtgh/pay/wostore/WoStoreServer;->mWoStoreResultHandle:Landroid/os/Handler;
@@ -20,6 +23,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,12 +35,16 @@
 .method public startWoStorServer(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIILandroid/os/Handler;)V
     .locals 12
 
+    .prologue
+    .line 46
     sput-object p14, Lcom/lyhtgh/pay/wostore/WoStoreServer;->mWoStoreResultHandle:Landroid/os/Handler;
 
+    .line 48
     invoke-static {}, Lcom/unicom/xiaowo/Pay;->getInstance()Lcom/unicom/xiaowo/Pay;
 
     move-result-object v0
 
+    .line 58
     new-instance v11, Lcom/lyhtgh/pay/wostore/WoStorePayRet;
 
     invoke-direct {v11}, Lcom/lyhtgh/pay/wostore/WoStorePayRet;-><init>()V
@@ -60,7 +69,9 @@
 
     move-object/from16 v10, p10
 
+    .line 48
     invoke-virtual/range {v0 .. v11}, Lcom/unicom/xiaowo/Pay;->payChannel(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/unicom/xiaowo/Pay$UnipayPayResultListener;)V
 
+    .line 59
     return-void
 .end method

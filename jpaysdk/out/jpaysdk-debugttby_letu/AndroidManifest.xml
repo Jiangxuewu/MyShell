@@ -65,7 +65,7 @@
         <service android:name="com.unicom.wostore.unipay.paysecurity.SecurityServiceFramework"/>
         <meta-data android:name="lltt_merchantid" android:value="{$LTMID$}"/>
         <meta-data android:name="lltt_mappid" android:value="{$LTAppID$}"/>
-        <meta-data android:name="lltt_cpchannelid" android:value="{$LTCID$}"/>
+        <meta-data android:name="lltt_cpchannelid" android:value="{$CID$}"/>
         <meta-data android:name="BUGLY_APPID" android:value="{$BUGLYAPPID$}"/>
         <meta-data android:name="BUGLY_APP_CHANNEL" android:value="{$CID$}"/>
         <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="false"/>

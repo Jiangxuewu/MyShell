@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/tencent/bugly/proguard/n;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # virtual methods
