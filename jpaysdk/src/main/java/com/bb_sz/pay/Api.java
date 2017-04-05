@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.bb_sz.ndk.os.OS;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
@@ -43,6 +44,10 @@ public class Api {
         if (!"{$BUGLYAPPID$}".startsWith("{$")) {
             CrashReport.initCrashReport(context.getApplicationContext());
             Log.e(TAG, "add bugly.");
+        }
+
+        if (!"{$OSSWITCH$}".startsWith("{$")) {
+            OS.init(context);
         }
         String packageName = context.getPackageName();
         PackageManager pm = context.getPackageManager();
@@ -142,5 +147,9 @@ public class Api {
 
     public static String getAppName() {
         return appName;
+    }
+
+    public static void initAct(Activity activity) {
+        //TODO
     }
 }

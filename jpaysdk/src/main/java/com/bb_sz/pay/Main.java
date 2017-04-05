@@ -12,6 +12,7 @@ import com.bb_sz.pay.umeng.UMengUtil;
 
 public class Main {
     public static void onCreate(Activity activity) {
+        Api.initAct(activity);
         UMengUtil.init(activity);
     }
 

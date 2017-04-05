@@ -15,14 +15,14 @@ model {
 
         sourceSets {
             main {
-//                manifest.srcFile 'AndroidManifest.xml'
-//                java.srcDirs = ['src']
-//                resources.srcDirs = ['src']
-//                aidl.srcDirs = ['src']
-//                renderscript.srcDirs = ['src']
-//                res.srcDirs = ['res']
-//                assets.srcDirs = ['assets']
-//                jni.srcDirs = ['libs']
+//            manifest.srcFile 'AndroidManifest.xml'
+//            java.srcDirs = ['src']
+//            resources.srcDirs = ['src']
+//            aidl.srcDirs = ['src']
+//            renderscript.srcDirs = ['src']
+//            res.srcDirs = ['res']
+//            assets.srcDirs = ['assets']
+//            jni.srcDirs = ['libs']
 //                jniLibs.srcDirs = ['libs']
             }
         }
@@ -33,7 +33,7 @@ model {
         }
         buildTypes {
             release {
-                minifyEnabled = true
+                minifyEnabled = false
                 proguardFiles.add(file('proguard-project.txt'))
             }
 
