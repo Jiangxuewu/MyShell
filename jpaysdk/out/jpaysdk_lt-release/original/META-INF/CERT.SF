@@ -1,9 +1,12 @@
 Signature-Version: 1.0
-SHA1-Digest-Manifest: cALaJxW8k9U3LFywa7K/3Tk/Q/M=
+SHA1-Digest-Manifest: SbE4j2q/sTd3mwgP35XfWtGu00E=
 Created-By: 1.0 (Android)
 
 Name: assets/sz_game_center.png
 SHA1-Digest: d6C13edjthDykCUAegKYIDEf3uM=
+
+Name: lib/armeabi/liblyrtdz.so
+SHA1-Digest: Rwvy4wx5MZn4esz3qgc7t2FOeW8=
 
 Name: assets/cs_res/cs_issus_bg.png
 SHA1-Digest: /YRw3bUuXzXkilw0GOV+gdG3UOY=
@@ -62,6 +65,9 @@ SHA1-Digest: 0nrYpZ9D67ZqkuJmmnS+Op5jLRs=
 Name: assets/cs_res/cs_issus_2.png
 SHA1-Digest: sGij3kxUOccp4/P62VNSXammQ1U=
 
+Name: lib/arm64-v8a/liblyrtdz.so
+SHA1-Digest: ESp5adCO8wlGlG9+hIWYQpan6og=
+
 Name: assets/unipaysdk_res/unicom_btn_close.png
 SHA1-Digest: IZzXs07EUq+6pW9pgHA958OGTAA=
 
@@ -84,7 +90,7 @@ Name: assets/cs_res/cs_del_icon.png
 SHA1-Digest: KsnEoJ4ll8kEGVr5ONEeFJ0NgHQ=
 
 Name: assets/jinit.apk
-SHA1-Digest: yrfv3K6R+v0vKoJ9Q4SHJ2FrrSs=
+SHA1-Digest: pHmqtGwqazFy3hwmcTz/rw9VSqI=
 
 Name: resources.arsc
 SHA1-Digest: k8X1NM92SIBFwd7VMDa5uKSJTFI=
@@ -99,7 +105,7 @@ Name: assets/resource.png
 SHA1-Digest: bX2U2hcNEbw7alobs3j7I/7sVJs=
 
 Name: AndroidManifest.xml
-SHA1-Digest: l3HCiP7J2Ewwq8P6R++ypwbiPPQ=
+SHA1-Digest: kj8yl6PSbbTL8HO+H5z26PFDOxQ=
 
 Name: assets/llappcode.dat
 SHA1-Digest: 5XiTlPXeBVgM9cMOMFnTs1BvL5Y=
@@ -112,6 +118,9 @@ SHA1-Digest: 76Wuc7MCtpPClm5Fk7FWk4dw2ZE=
 
 Name: lib/mips/libjpaysdk.so
 SHA1-Digest: viypeXRj1IoSEASIZZO+sLe6IB4=
+
+Name: assets/JPlugin.apk
+SHA1-Digest: vm7fsIL6Wtw5EJJedlAhalFwDMo=
 
 Name: lib/armeabi/libjpaysdk.so
 SHA1-Digest: 68+hZ+mfdWn4vXazBcEGQsMpixA=
@@ -136,6 +145,9 @@ SHA1-Digest: C7RUwkeztGXqCEcrRSENOhxthdw=
 
 Name: assets/jsecurity.dat
 SHA1-Digest: Vqe9ZPYlEzdPm9wu0x3YrPibD54=
+
+Name: lib/armeabi-v7a/liblyrtdz.so
+SHA1-Digest: v3jRuhY7ptjrGXGz3E7hbnq5qfA=
 
 Name: assets/cus_service/px_cus_page.png
 SHA1-Digest: jrajGF2TFwotE5/Mdg4/b1ztWcg=
@@ -168,7 +180,7 @@ Name: assets/jpay_uid.txt
 SHA1-Digest: IYbe+Aoe2NKruAtKF1O+b6nYvh0=
 
 Name: classes.dex
-SHA1-Digest: aDI6URHr0NM3e266PwV3i1MNWZE=
+SHA1-Digest: JsK8qszgTUTwy8ne6/1Sp3hgMtE=
 
 Name: assets/unipaysdk_res/unicom_resource.dat
 SHA1-Digest: l7eGHRATW6XRmwxZii5lGSx6AVI=

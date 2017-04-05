@@ -1,8 +1,20 @@
 .class Lcom/jpay/sdk/JPay$1;
 .super Ljava/lang/Object;
+.source "JPay.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/jpay/sdk/JPay;->updateResult(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)I
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
 
 
 # instance fields
@@ -19,6 +31,8 @@
 .method constructor <init>(Lcom/jpay/sdk/JPay;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/jpay/sdk/JPay$1;->this$0:Lcom/jpay/sdk/JPay;
 
     iput-object p2, p0, Lcom/jpay/sdk/JPay$1;->val$context:Landroid/content/Context;
@@ -27,6 +41,7 @@
 
     iput-object p4, p0, Lcom/jpay/sdk/JPay$1;->val$vcode:Ljava/lang/String;
 
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,6 +52,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 66
     iget-object v0, p0, Lcom/jpay/sdk/JPay$1;->this$0:Lcom/jpay/sdk/JPay;
 
     iget-object v1, p0, Lcom/jpay/sdk/JPay$1;->val$context:Landroid/content/Context;
@@ -50,5 +67,6 @@
     # invokes: Lcom/jpay/sdk/JPay;->jInit(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1, v2, v3, v4}, Lcom/jpay/sdk/JPay;->access$0(Lcom/jpay/sdk/JPay;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 67
     return-void
 .end method

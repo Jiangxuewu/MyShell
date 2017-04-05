@@ -1,5 +1,26 @@
 .class public final enum Lcom/umeng/analytics/MobclickAgent$EScenarioType;
 .super Ljava/lang/Enum;
+.source "MobclickAgent.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/umeng/analytics/MobclickAgent;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "EScenarioType"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Enum",
+        "<",
+        "Lcom/umeng/analytics/MobclickAgent$EScenarioType;",
+        ">;"
+    }
+.end annotation
 
 
 # static fields
@@ -22,6 +43,7 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x3
 
     const/4 v5, 0x2
@@ -30,6 +52,7 @@
 
     const/4 v3, 0x0
 
+    .line 395
     new-instance v0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;
 
     const-string v1, "E_UM_NORMAL"
@@ -66,6 +89,7 @@
 
     sput-object v0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;->E_UM_GAME_OEM:Lcom/umeng/analytics/MobclickAgent$EScenarioType;
 
+    .line 394
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/umeng/analytics/MobclickAgent$EScenarioType;
@@ -93,17 +117,28 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)V"
+        }
+    .end annotation
 
+    .prologue
+    .line 399
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 400
     iput p3, p0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;->a:I
 
+    .line 401
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/umeng/analytics/MobclickAgent$EScenarioType;
     .locals 1
 
+    .prologue
+    .line 394
     const-class v0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -118,6 +153,8 @@
 .method public static values()[Lcom/umeng/analytics/MobclickAgent$EScenarioType;
     .locals 1
 
+    .prologue
+    .line 394
     sget-object v0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;->b:[Lcom/umeng/analytics/MobclickAgent$EScenarioType;
 
     invoke-virtual {v0}, [Lcom/umeng/analytics/MobclickAgent$EScenarioType;->clone()Ljava/lang/Object;
@@ -131,9 +168,11 @@
 
 
 # virtual methods
-.method public final toValue()I
+.method public toValue()I
     .locals 1
 
+    .prologue
+    .line 404
     iget v0, p0, Lcom/umeng/analytics/MobclickAgent$EScenarioType;->a:I
 
     return v0

@@ -1,5 +1,17 @@
 .class public enum Lcom/umeng/analytics/Gender;
 .super Ljava/lang/Enum;
+.source "Gender.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Enum",
+        "<",
+        "Lcom/umeng/analytics/Gender;",
+        ">;"
+    }
+.end annotation
 
 
 # static fields
@@ -20,12 +32,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 13
     new-instance v0, Lcom/umeng/analytics/Gender$1;
 
     const-string v1, "Male"
@@ -34,6 +48,7 @@
 
     sput-object v0, Lcom/umeng/analytics/Gender;->Male:Lcom/umeng/analytics/Gender;
 
+    .line 18
     new-instance v0, Lcom/umeng/analytics/Gender$2;
 
     const-string v1, "Female"
@@ -42,6 +57,7 @@
 
     sput-object v0, Lcom/umeng/analytics/Gender;->Female:Lcom/umeng/analytics/Gender;
 
+    .line 23
     new-instance v0, Lcom/umeng/analytics/Gender$3;
 
     const-string v1, "Unknown"
@@ -50,6 +66,7 @@
 
     sput-object v0, Lcom/umeng/analytics/Gender;->Unknown:Lcom/umeng/analytics/Gender;
 
+    .line 12
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/umeng/analytics/Gender;
@@ -73,17 +90,28 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)V"
+        }
+    .end annotation
 
+    .prologue
+    .line 31
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 32
     iput p3, p0, Lcom/umeng/analytics/Gender;->value:I
 
+    .line 33
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IILcom/umeng/analytics/Gender$1;)V
     .locals 0
 
+    .prologue
+    .line 12
     invoke-direct {p0, p1, p2, p3}, Lcom/umeng/analytics/Gender;-><init>(Ljava/lang/String;II)V
 
     return-void
@@ -92,23 +120,31 @@
 .method public static getGender(I)Lcom/umeng/analytics/Gender;
     .locals 1
 
+    .prologue
+    .line 40
+    .line 41
     packed-switch p0, :pswitch_data_0
 
+    .line 50
     sget-object v0, Lcom/umeng/analytics/Gender;->Unknown:Lcom/umeng/analytics/Gender;
 
+    .line 53
     :goto_0
     return-object v0
 
+    .line 43
     :pswitch_0
     sget-object v0, Lcom/umeng/analytics/Gender;->Male:Lcom/umeng/analytics/Gender;
 
     goto :goto_0
 
+    .line 46
     :pswitch_1
     sget-object v0, Lcom/umeng/analytics/Gender;->Female:Lcom/umeng/analytics/Gender;
 
     goto :goto_0
 
+    .line 41
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -116,9 +152,11 @@
     .end packed-switch
 .end method
 
-.method public static transGender(Lcom/umeng/analytics/Gender;)Lu/aly/bj;
+.method public static transGender(Lcom/umeng/analytics/Gender;)Lcom/umeng/analytics/f/a;
     .locals 2
 
+    .prologue
+    .line 57
     sget-object v0, Lcom/umeng/analytics/Gender$4;->a:[I
 
     invoke-virtual {p0}, Lcom/umeng/analytics/Gender;->ordinal()I
@@ -129,21 +167,25 @@
 
     packed-switch v0, :pswitch_data_0
 
-    sget-object v0, Lu/aly/bj;->c:Lu/aly/bj;
+    .line 64
+    sget-object v0, Lcom/umeng/analytics/f/a;->c:Lcom/umeng/analytics/f/a;
 
     :goto_0
     return-object v0
 
+    .line 59
     :pswitch_0
-    sget-object v0, Lu/aly/bj;->a:Lu/aly/bj;
+    sget-object v0, Lcom/umeng/analytics/f/a;->a:Lcom/umeng/analytics/f/a;
 
     goto :goto_0
 
+    .line 61
     :pswitch_1
-    sget-object v0, Lu/aly/bj;->b:Lu/aly/bj;
+    sget-object v0, Lcom/umeng/analytics/f/a;->b:Lcom/umeng/analytics/f/a;
 
     goto :goto_0
 
+    .line 57
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -154,6 +196,8 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/umeng/analytics/Gender;
     .locals 1
 
+    .prologue
+    .line 12
     const-class v0, Lcom/umeng/analytics/Gender;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -168,6 +212,8 @@
 .method public static values()[Lcom/umeng/analytics/Gender;
     .locals 1
 
+    .prologue
+    .line 12
     sget-object v0, Lcom/umeng/analytics/Gender;->a:[Lcom/umeng/analytics/Gender;
 
     invoke-virtual {v0}, [Lcom/umeng/analytics/Gender;->clone()Ljava/lang/Object;
@@ -184,6 +230,8 @@
 .method public value()I
     .locals 1
 
+    .prologue
+    .line 36
     iget v0, p0, Lcom/umeng/analytics/Gender;->value:I
 
     return v0

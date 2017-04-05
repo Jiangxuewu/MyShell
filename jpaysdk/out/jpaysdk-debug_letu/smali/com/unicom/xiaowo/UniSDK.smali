@@ -2,6 +2,14 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/unicom/xiaowo/UniSDK$UnisdkInitResultListener;
+    }
+.end annotation
+
+
 # static fields
 .field public static final CANCEL:I = 0x3
 

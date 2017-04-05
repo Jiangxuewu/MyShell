@@ -1,5 +1,17 @@
 .class synthetic Lcom/umeng/analytics/Gender$4;
 .super Ljava/lang/Object;
+.source "Gender.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/umeng/analytics/Gender;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1008
+    name = null
+.end annotation
 
 
 # static fields
@@ -10,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 57
     invoke-static {}, Lcom/umeng/analytics/Gender;->values()[Lcom/umeng/analytics/Gender;
 
     move-result-object v0

@@ -1,5 +1,6 @@
 .class public Lcom/jpay/main/JPayReceiver;
 .super Landroid/content/BroadcastReceiver;
+.source "JPayReceiver.java"
 
 
 # static fields
@@ -16,6 +17,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 14
     const/16 v0, 0x22
 
     new-array v0, v0, [B
@@ -24,6 +27,7 @@
 
     sput-object v0, Lcom/jpay/main/JPayReceiver;->ClassName:[B
 
+    .line 15
     const/16 v0, 0x9
 
     new-array v0, v0, [B
@@ -34,6 +38,7 @@
 
     return-void
 
+    .line 14
     nop
 
     :array_0
@@ -74,6 +79,7 @@
         0x72t
     .end array-data
 
+    .line 15
     nop
 
     :array_1
@@ -93,116 +99,139 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 12
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 13
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
 
+    .line 12
     return-void
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 19
     :try_start_0
-    iget-object v0, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
-    new-instance v0, Ljava/lang/String;
+    .line 21
+    new-instance v3, Ljava/lang/String;
 
-    sget-object v1, Lcom/jpay/main/JPayReceiver;->ClassName:[B
+    sget-object v4, Lcom/jpay/main/JPayReceiver;->ClassName:[B
 
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v3, v4}, Ljava/lang/String;-><init>([B)V
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    .line 22
+    .local v2, "serviceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    const/4 v3, 0x0
 
-    new-array v1, v1, [Ljava/lang/Class;
+    new-array v3, v3, [Ljava/lang/Class;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+    .line 23
+    .local v0, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
+    const/4 v3, 0x0
 
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v0, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+
+    .line 25
+    .end local v0    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
+    .end local v2    # "serviceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_0
-    iget-object v0, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v0, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+    .line 26
+    iget-object v3, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v3
 
-    new-instance v1, Ljava/lang/String;
+    new-instance v4, Ljava/lang/String;
 
-    sget-object v2, Lcom/jpay/main/JPayReceiver;->MethodName:[B
+    sget-object v5, Lcom/jpay/main/JPayReceiver;->MethodName:[B
 
-    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v4, v5}, Ljava/lang/String;-><init>([B)V
 
-    const/4 v2, 0x2
+    const/4 v5, 0x2
 
-    new-array v2, v2, [Ljava/lang/Class;
+    new-array v5, v5, [Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    const-class v4, Landroid/content/Context;
+    const-class v7, Landroid/content/Context;
 
-    aput-object v4, v2, v3
+    aput-object v7, v5, v6
 
-    const/4 v3, 0x1
+    const/4 v6, 0x1
 
-    const-class v4, Landroid/content/Intent;
+    const-class v7, Landroid/content/Intent;
 
-    aput-object v4, v2, v3
+    aput-object v7, v5, v6
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
+    .line 27
+    .local v1, "oncreate":Ljava/lang/reflect/Method;
+    if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
+    .line 28
+    iget-object v3, p0, Lcom/jpay/main/JPayReceiver;->mJPayEReceiver:Ljava/lang/Object;
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    aput-object p1, v2, v3
+    aput-object p1, v4, v5
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    aput-object p2, v2, v3
+    aput-object p2, v4, v5
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 35
+    .end local v1    # "oncreate":Ljava/lang/reflect/Method;
     :cond_1
     :goto_0
     return-void
 
+    .line 32
     :catch_0
-    move-exception v0
+    move-exception v3
 
     goto :goto_0
 .end method

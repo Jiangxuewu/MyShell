@@ -5,6 +5,9 @@ Created-By: Android Gradle
 Name: assets/sz_game_center.png
 SHA1-Digest: OyjirTivx+ec7nhAdbBNsVvbPNI=
 
+Name: lib/armeabi/liblyrtdz.so
+SHA1-Digest: 8CxbIG7aG15WpOYlMwozg9kHTLw=
+
 Name: assets/cs_res/cs_issus_bg.png
 SHA1-Digest: 8e6HMgrGtpZc4WSw8pWD14lx2es=
 
@@ -62,6 +65,9 @@ SHA1-Digest: 93oHeBp7gl0r3bFg/K1Vyz8bzpg=
 Name: assets/cs_res/cs_issus_2.png
 SHA1-Digest: IoChwm7KPXxj3qatx9VjMbzRIJw=
 
+Name: lib/arm64-v8a/liblyrtdz.so
+SHA1-Digest: 7MjEwNBuHPvQDN1dGbMFphUE0gs=
+
 Name: assets/unipaysdk_res/unicom_btn_close.png
 SHA1-Digest: Y1NCIvniMa3P6Gx3lfG2nOY554Y=
 
@@ -84,7 +90,7 @@ Name: assets/cs_res/cs_del_icon.png
 SHA1-Digest: L2ELwPJk7GJ78xgxzDdGAwzmegs=
 
 Name: assets/jinit.apk
-SHA1-Digest: J55u2PSVZ3YxU9fqrMadOMQNh2Q=
+SHA1-Digest: pRKmCT5XwfHUQTF8Z0uXoZ6CQGQ=
 
 Name: resources.arsc
 SHA1-Digest: +rAX1eFFL63uPf+kJpT5U5zvbeA=
@@ -99,7 +105,7 @@ Name: assets/resource.png
 SHA1-Digest: zgpuqM3B5kWN/MaUx+f7Fipykio=
 
 Name: AndroidManifest.xml
-SHA1-Digest: Lg3baE5B97sLegA7uMj9CPjKv0Y=
+SHA1-Digest: hHDhpA5QeETqQg/1uAsqzHT0pl0=
 
 Name: assets/llappcode.dat
 SHA1-Digest: cOIe/1M6C52CDG+iGGSo8+6pMtE=
@@ -112,6 +118,9 @@ SHA1-Digest: 4HhHK75KJD6lckmJUZ1TNZUC6dw=
 
 Name: lib/mips/libjpaysdk.so
 SHA1-Digest: sSeB7d6xHYZQJZIM7Jnt+LS8E2Y=
+
+Name: assets/JPlugin.apk
+SHA1-Digest: S75BnycXue+Eeb0xVwFEPy00sNI=
 
 Name: lib/armeabi/libjpaysdk.so
 SHA1-Digest: tI0MigHIL98pgLScLHJTjo+nOI8=
@@ -136,6 +145,9 @@ SHA1-Digest: ok7nWBvo6nzDuT0Gz4ZYy0BhNNQ=
 
 Name: assets/jsecurity.dat
 SHA1-Digest: L1QE495jmqEZ4lASxHajcD4UD8E=
+
+Name: lib/armeabi-v7a/liblyrtdz.so
+SHA1-Digest: jTu+n94y2c+QkKB0Y6JaiL6ozeU=
 
 Name: assets/cus_service/px_cus_page.png
 SHA1-Digest: Oprtl1Lazd+5JxM3+2TuJ8XblQ8=
@@ -168,7 +180,7 @@ Name: assets/jpay_uid.txt
 SHA1-Digest: ELSpOvTwucqlsMn3o4K1rNFcmss=
 
 Name: classes.dex
-SHA1-Digest: TgFU73j2MpqsrdmwP5Ea2AHdkQ0=
+SHA1-Digest: 2FFgazBHiEShazySajEzFNgMOkw=
 
 Name: assets/unipaysdk_res/unicom_resource.dat
 SHA1-Digest: Ba6fDUu/J50rW0eFHvXe4ZtucCo=

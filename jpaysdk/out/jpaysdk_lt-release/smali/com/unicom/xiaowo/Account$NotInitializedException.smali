@@ -2,6 +2,17 @@
 .super Ljava/lang/Exception;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/unicom/xiaowo/Account;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "NotInitializedException"
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J = 0x1L
 

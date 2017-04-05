@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/jpay/sdk/IChargeResult;
 .super Ljava/lang/Object;
+.source "IChargeResult.java"
 
 
 # virtual methods

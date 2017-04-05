@@ -2,6 +2,17 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/unicom/xiaowo/Account;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "ClientInfo"
+.end annotation
+
+
 # instance fields
 .field private clientId:Ljava/lang/String;
 

@@ -1,5 +1,6 @@
 .class public Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 # interfaces
 .implements Lcom/tencent/bugly/crashreport/a;
@@ -41,10 +42,13 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 60
     sput-boolean v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->l:Z
 
+    .line 62
     sput-boolean v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->m:Z
 
     return-void
@@ -52,25 +56,38 @@
 
 .method private constructor <init>(Landroid/content/Context;Lcom/tencent/bugly/crashreport/common/info/a;Lcom/tencent/bugly/crashreport/crash/b;Lcom/tencent/bugly/proguard/v;ZLjava/lang/String;)V
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "SdCardPath"
+        }
+    .end annotation
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 49
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->h:Z
 
+    .line 50
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
+    .line 52
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
 
+    .line 54
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->k:Z
 
+    .line 64
     invoke-static {p1}, Lcom/tencent/bugly/proguard/y;->a(Landroid/content/Context;)Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->b:Landroid/content/Context;
 
+    .line 124
     :try_start_0
     invoke-static {p6}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/String;)Z
     :try_end_0
@@ -80,19 +97,26 @@
 
     if-nez v0, :cond_0
 
+    .line 133
     :goto_0
     iput-object p3, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->n:Lcom/tencent/bugly/crashreport/crash/b;
 
+    .line 134
     iput-object p6, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->f:Ljava/lang/String;
 
+    .line 135
     iput-object p2, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
+    .line 136
     iput-object p4, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->d:Lcom/tencent/bugly/proguard/v;
 
+    .line 137
     iput-boolean p5, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->g:Z
 
+    .line 138
     return-void
 
+    .line 127
     :cond_0
     :try_start_1
     const-string v0, "bugly"
@@ -111,6 +135,7 @@
 
     goto :goto_0
 
+    .line 130
     :catch_0
     move-exception v0
 
@@ -120,6 +145,7 @@
 
     iget-object v0, v0, Lcom/tencent/bugly/crashreport/common/info/a;->c:Ljava/lang/String;
 
+    .line 131
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "/data/data/"
@@ -146,6 +172,8 @@
 .method static synthetic a(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)Landroid/content/Context;
     .locals 1
 
+    .prologue
+    .line 31
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->b:Landroid/content/Context;
 
     return-object v0
@@ -154,12 +182,14 @@
 .method private declared-synchronized a(Z)V
     .locals 9
 
+    .prologue
     const/4 v6, 0x3
 
     const/4 v8, 0x2
 
     const/4 v7, 0x1
 
+    .line 260
     monitor-enter p0
 
     :try_start_0
@@ -167,6 +197,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 261
     const-string v0, "[Native] Native crash report has already registered."
 
     const/4 v1, 0x0
@@ -177,11 +208,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 315
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 265
     :cond_0
     :try_start_1
     new-instance v0, Lcom/tencent/bugly/crashreport/crash/jni/a;
@@ -202,12 +235,14 @@
 
     iput-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->e:Lcom/tencent/bugly/crashreport/crash/jni/NativeExceptionHandler;
 
+    .line 268
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     if-eqz v0, :cond_8
 
+    .line 270
     :try_start_2
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->f:Ljava/lang/String;
 
@@ -217,8 +252,10 @@
 
     move-result-object v1
 
+    .line 271
     if-eqz v1, :cond_4
 
+    .line 272
     const-string v0, "[Native] Native Crash Report enable."
 
     const/4 v2, 0x0
@@ -227,6 +264,7 @@
 
     invoke-static {v0, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 273
     const-string v0, "[Native] Check extra jni for Bugly NDK v%s"
 
     const/4 v2, 0x1
@@ -357,11 +395,13 @@
 
     invoke-static {v0, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 274
     :goto_4
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
     iput-object v1, v0, Lcom/tencent/bugly/crashreport/common/info/a;->n:Ljava/lang/String;
 
+    .line 275
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
@@ -371,6 +411,7 @@
 
     goto/16 :goto_0
 
+    .line 279
     :catch_0
     move-exception v0
 
@@ -383,12 +424,14 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 313
     :cond_4
     :goto_5
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
+    .line 314
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->h:Z
@@ -397,6 +440,7 @@
 
     goto/16 :goto_0
 
+    .line 260
     :catchall_0
     move-exception v0
 
@@ -404,6 +448,7 @@
 
     throw v0
 
+    .line 273
     :cond_5
     :try_start_6
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -457,6 +502,7 @@
 
     goto :goto_4
 
+    .line 281
     :cond_8
     :try_start_7
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->h:Z
@@ -465,6 +511,7 @@
 
     if-eqz v0, :cond_4
 
+    .line 283
     :try_start_8
     const-string v0, "com.tencent.feedback.eup.jni.NativeExceptionUpload"
 
@@ -550,8 +597,10 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 289
     if-nez v0, :cond_9
 
+    .line 290
     const-string v0, "com.tencent.feedback.eup.jni.NativeExceptionUpload"
 
     const-string v1, "registNativeExceptionHandler"
@@ -620,19 +669,23 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 298
     :cond_9
     if-eqz v0, :cond_4
 
+    .line 299
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
 
+    .line 300
     invoke-static {}, Lcom/tencent/bugly/crashreport/common/info/a;->b()Lcom/tencent/bugly/crashreport/common/info/a;
 
     move-result-object v1
 
     iput-object v0, v1, Lcom/tencent/bugly/crashreport/common/info/a;->n:Ljava/lang/String;
 
+    .line 301
     const-string v0, "com.tencent.feedback.eup.jni.NativeExceptionUpload"
 
     const-string v1, "enableHandler"
@@ -665,12 +718,14 @@
 
     invoke-static {v0, v1, v2, v3, v4}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 304
     sget-boolean v0, Lcom/tencent/bugly/b;->c:Z
 
     if-eqz v0, :cond_a
 
     move v0, v6
 
+    .line 305
     :goto_6
     const-string v1, "com.tencent.feedback.eup.jni.NativeExceptionUpload"
 
@@ -712,6 +767,7 @@
 
     goto/16 :goto_5
 
+    .line 304
     :cond_a
     const/4 v0, 0x5
 
@@ -726,8 +782,10 @@
 .method private a(ILjava/lang/String;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 649
     iget-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
     if-eqz v1, :cond_0
@@ -736,10 +794,12 @@
 
     if-nez v1, :cond_1
 
+    .line 662
     :cond_0
     :goto_0
     return v0
 
+    .line 653
     :cond_1
     :try_start_0
     invoke-virtual {p0, p1, p2}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->setNativeInfo(ILjava/lang/String;)V
@@ -747,10 +807,12 @@
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 654
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 656
     :catch_0
     move-exception v1
 
@@ -758,15 +820,18 @@
 
     goto :goto_0
 
+    .line 658
     :catch_1
     move-exception v1
 
+    .line 659
     invoke-static {v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 660
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
@@ -775,10 +840,13 @@
 .method private static a(Ljava/lang/String;Z)Z
     .locals 5
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v3, 0x0
 
+    .line 402
+    .line 404
     :try_start_0
     const-string v1, "[Native] Trying to load so: %s"
 
@@ -792,12 +860,15 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 405
     if-eqz p1, :cond_0
 
+    .line 406
     invoke-static {p0}, Ljava/lang/System;->load(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 411
     :goto_0
     :try_start_1
     const-string v1, "[Native] Successfully loaded SO: %s"
@@ -814,9 +885,11 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 416
     :goto_1
     return v0
 
+    .line 408
     :cond_0
     :try_start_2
     invoke-static {p0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
@@ -825,6 +898,7 @@
 
     goto :goto_0
 
+    .line 412
     :catch_0
     move-exception v1
 
@@ -832,6 +906,7 @@
 
     move v1, v3
 
+    .line 413
     :goto_2
     invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
@@ -841,6 +916,7 @@
 
     invoke-static {v2, v4}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 414
     const-string v2, "[Native] Failed to load so: %s"
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -853,6 +929,7 @@
 
     goto :goto_1
 
+    .line 412
     :catch_1
     move-exception v1
 
@@ -866,6 +943,8 @@
 .method static synthetic b(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)Lcom/tencent/bugly/crashreport/common/info/a;
     .locals 1
 
+    .prologue
+    .line 31
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
     return-object v0
@@ -874,6 +953,8 @@
 .method private declared-synchronized b()V
     .locals 7
 
+    .prologue
+    .line 423
     monitor-enter p0
 
     :try_start_0
@@ -881,6 +962,7 @@
 
     if-nez v0, :cond_0
 
+    .line 424
     const-string v0, "[Native] Native crash report has already unregistered."
 
     const/4 v1, 0x0
@@ -891,19 +973,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 450
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 428
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->unregist()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 429
     if-eqz v0, :cond_1
 
+    .line 430
     const-string v0, "[Native] Successfully closed native crash report."
 
     const/4 v1, 0x0
@@ -912,6 +998,7 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 431
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
@@ -921,9 +1008,11 @@
 
     goto :goto_0
 
+    .line 434
     :catch_0
     move-exception v0
 
+    .line 435
     :try_start_2
     const-string v0, "[Native] Failed to close native crash report."
 
@@ -935,6 +1024,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 439
     :cond_1
     :try_start_3
     const-string v0, "com.tencent.feedback.eup.jni.NativeExceptionUpload"
@@ -969,10 +1059,12 @@
 
     invoke-static {v0, v1, v2, v3, v4}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 441
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
 
+    .line 442
     const-string v0, "[Native] Successfully closed native crash report."
 
     const/4 v1, 0x0
@@ -986,6 +1078,7 @@
 
     goto :goto_0
 
+    .line 445
     :catch_1
     move-exception v0
 
@@ -998,10 +1091,12 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 448
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
+    .line 449
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->h:Z
@@ -1010,6 +1105,7 @@
 
     goto :goto_0
 
+    .line 423
     :catchall_0
     move-exception v0
 
@@ -1021,20 +1117,25 @@
 .method private declared-synchronized b(Z)V
     .locals 1
 
+    .prologue
+    .line 524
     monitor-enter p0
 
     if-eqz p1, :cond_0
 
+    .line 525
     :try_start_0
     invoke-virtual {p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->startNativeMonitor()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 529
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 527
     :cond_0
     :try_start_1
     invoke-direct {p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->b()V
@@ -1043,6 +1144,7 @@
 
     goto :goto_0
 
+    .line 524
     :catchall_0
     move-exception v0
 
@@ -1054,6 +1156,8 @@
 .method static synthetic c(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 31
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->f:Ljava/lang/String;
 
     return-object v0
@@ -1062,6 +1166,8 @@
 .method private declared-synchronized c(Z)V
     .locals 4
 
+    .prologue
+    .line 542
     monitor-enter p0
 
     :try_start_0
@@ -1069,6 +1175,7 @@
 
     if-eq v0, p1, :cond_0
 
+    .line 543
     const-string v0, "user change native %b"
 
     const/4 v1, 0x1
@@ -1085,15 +1192,18 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 544
     iput-boolean p1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->k:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 546
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 542
     :catchall_0
     move-exception v0
 
@@ -1105,6 +1215,8 @@
 .method static synthetic d(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)Lcom/tencent/bugly/crashreport/crash/jni/NativeExceptionHandler;
     .locals 1
 
+    .prologue
+    .line 31
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->e:Lcom/tencent/bugly/crashreport/crash/jni/NativeExceptionHandler;
 
     return-object v0
@@ -1113,6 +1225,8 @@
 .method static synthetic e(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)Lcom/tencent/bugly/crashreport/crash/b;
     .locals 1
 
+    .prologue
+    .line 31
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->n:Lcom/tencent/bugly/crashreport/crash/b;
 
     return-object v0
@@ -1121,6 +1235,8 @@
 .method public static declared-synchronized getInstance()Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
     .locals 2
 
+    .prologue
+    .line 164
     const-class v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
 
     monitor-enter v0
@@ -1145,6 +1261,8 @@
 .method public static declared-synchronized getInstance(Landroid/content/Context;Lcom/tencent/bugly/crashreport/common/info/a;Lcom/tencent/bugly/crashreport/crash/b;Lcom/tencent/bugly/crashreport/common/strategy/a;Lcom/tencent/bugly/proguard/v;ZLjava/lang/String;)Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
     .locals 8
 
+    .prologue
+    .line 156
     const-class v7, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
 
     monitor-enter v7
@@ -1154,6 +1272,7 @@
 
     if-nez v0, :cond_0
 
+    .line 157
     new-instance v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
 
     move-object v1, p0
@@ -1172,6 +1291,7 @@
 
     sput-object v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a:Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
 
+    .line 160
     :cond_0
     sget-object v0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a:Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;
     :try_end_0
@@ -1181,6 +1301,7 @@
 
     return-object v0
 
+    .line 156
     :catchall_0
     move-exception v0
 
@@ -1194,10 +1315,12 @@
 .method protected final a()V
     .locals 15
 
+    .prologue
     const/4 v14, 0x1
 
     const/4 v2, 0x0
 
+    .line 472
     invoke-static {}, Lcom/tencent/bugly/proguard/y;->b()J
 
     move-result-wide v0
@@ -1206,12 +1329,14 @@
 
     sub-long v4, v0, v4
 
+    .line 473
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->f:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 474
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -1224,29 +1349,36 @@
 
     if-eqz v1, :cond_0
 
+    .line 475
     invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v3
 
+    .line 476
     if-eqz v3, :cond_0
 
     array-length v0, v3
 
     if-nez v0, :cond_1
 
+    .line 508
     :cond_0
     :goto_0
     return-void
 
+    .line 480
     :cond_1
     const-string v6, "tomb_"
 
+    .line 481
     const-string v7, ".txt"
 
+    .line 482
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v8
 
+    .line 485
     array-length v9, v3
 
     move v1, v2
@@ -1258,23 +1390,28 @@
 
     aget-object v10, v3, v1
 
+    .line 486
     invoke-virtual {v10}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 487
     invoke-virtual {v11, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v12
 
     if-eqz v12, :cond_2
 
+    .line 489
     :try_start_0
     invoke-virtual {v11, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v12
 
+    .line 490
     if-lez v12, :cond_3
 
+    .line 491
     invoke-virtual {v11, v8, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v12
@@ -1285,16 +1422,19 @@
 
     move-result-wide v12
 
+    .line 492
     cmp-long v11, v12, v4
 
     if-ltz v11, :cond_3
 
+    .line 485
     :cond_2
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
+    .line 497
     :catch_0
     move-exception v12
 
@@ -1306,6 +1446,7 @@
 
     invoke-static {v12, v13}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 501
     :cond_3
     invoke-virtual {v10}, Ljava/io/File;->delete()Z
 
@@ -1313,10 +1454,12 @@
 
     if-eqz v10, :cond_2
 
+    .line 502
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
+    .line 506
     :cond_4
     const-string v1, "[Native] Clean tombs %d"
 
@@ -1336,8 +1479,10 @@
 .method public appendLogToNative(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 595
     iget-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
     if-eqz v1, :cond_0
@@ -1346,10 +1491,12 @@
 
     if-nez v1, :cond_1
 
+    .line 610
     :cond_0
     :goto_0
     return v0
 
+    .line 598
     :cond_1
     if-eqz p1, :cond_0
 
@@ -1357,6 +1504,7 @@
 
     if-eqz p3, :cond_0
 
+    .line 602
     :try_start_0
     invoke-virtual {p0, p1, p2, p3}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->appendNativeLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
@@ -1367,6 +1515,7 @@
 
     goto :goto_0
 
+    .line 604
     :catch_0
     move-exception v1
 
@@ -1374,15 +1523,18 @@
 
     goto :goto_0
 
+    .line 606
     :catch_1
     move-exception v1
 
+    .line 607
     invoke-static {v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 608
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
@@ -1397,6 +1549,8 @@
 .method public declared-synchronized getDumpFilePath()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 168
     monitor-enter p0
 
     :try_start_0
@@ -1419,6 +1573,8 @@
 .method public getNativeExceptionHandler()Lcom/tencent/bugly/crashreport/crash/jni/NativeExceptionHandler;
     .locals 1
 
+    .prologue
+    .line 465
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->e:Lcom/tencent/bugly/crashreport/crash/jni/NativeExceptionHandler;
 
     return-object v0
@@ -1433,6 +1589,8 @@
 .method public declared-synchronized isUserOpened()Z
     .locals 1
 
+    .prologue
+    .line 535
     monitor-enter p0
 
     :try_start_0
@@ -1455,10 +1613,12 @@
 .method public declared-synchronized onStrategyChanged(Lcom/tencent/bugly/crashreport/common/strategy/StrategyBean;)V
     .locals 6
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 573
     monitor-enter p0
 
     if-eqz p1, :cond_0
@@ -1470,6 +1630,7 @@
 
     if-eq v2, v3, :cond_0
 
+    .line 574
     const-string v2, "server native changed to %b"
 
     const/4 v3, 0x1
@@ -1488,6 +1649,7 @@
 
     invoke-static {v2, v3}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 577
     :cond_0
     invoke-static {}, Lcom/tencent/bugly/crashreport/common/strategy/a;->a()Lcom/tencent/bugly/crashreport/common/strategy/a;
 
@@ -1505,11 +1667,13 @@
 
     if-eqz v2, :cond_2
 
+    .line 579
     :goto_0
     iget-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
 
     if-eq v0, v1, :cond_1
 
+    .line 580
     const-string v1, "native changed to %b"
 
     const/4 v2, 0x1
@@ -1526,10 +1690,12 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 581
     invoke-direct {p0, v0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->b(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 584
     :cond_1
     monitor-exit p0
 
@@ -1538,8 +1704,10 @@
     :cond_2
     move v0, v1
 
+    .line 577
     goto :goto_0
 
+    .line 573
     :catchall_0
     move-exception v0
 
@@ -1551,8 +1719,10 @@
 .method public putKeyValueToNative(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 622
     iget-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
     if-eqz v1, :cond_0
@@ -1561,15 +1731,18 @@
 
     if-nez v1, :cond_1
 
+    .line 637
     :cond_0
     :goto_0
     return v0
 
+    .line 625
     :cond_1
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
+    .line 629
     :try_start_0
     invoke-virtual {p0, p1, p2}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->putNativeKeyValue(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
@@ -1580,6 +1753,7 @@
 
     goto :goto_0
 
+    .line 631
     :catch_0
     move-exception v1
 
@@ -1587,15 +1761,18 @@
 
     goto :goto_0
 
+    .line 633
     :catch_1
     move-exception v1
 
+    .line 634
     invoke-static {v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 635
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
@@ -1613,6 +1790,8 @@
 .method public declared-synchronized setDumpFilePath(Ljava/lang/String;)V
     .locals 1
 
+    .prologue
+    .line 172
     monitor-enter p0
 
     :try_start_0
@@ -1620,10 +1799,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 173
     monitor-exit p0
 
     return-void
 
+    .line 172
     :catchall_0
     move-exception v0
 
@@ -1635,6 +1816,8 @@
 .method public setNativeAppChannel(Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 683
     const/16 v0, 0xc
 
     invoke-direct {p0, v0, p1}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(ILjava/lang/String;)Z
@@ -1647,6 +1830,8 @@
 .method public setNativeAppPackage(Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 693
     const/16 v0, 0xd
 
     invoke-direct {p0, v0, p1}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(ILjava/lang/String;)Z
@@ -1659,6 +1844,8 @@
 .method public setNativeAppVersion(Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 673
     const/16 v0, 0xa
 
     invoke-direct {p0, v0, p1}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(ILjava/lang/String;)Z
@@ -1674,10 +1861,13 @@
 .method public setNativeIsAppForeground(Z)Z
     .locals 2
 
+    .prologue
+    .line 713
     if-eqz p1, :cond_0
 
     const-string v0, "true"
 
+    .line 714
     :goto_0
     const/16 v1, 0xe
 
@@ -1687,6 +1877,7 @@
 
     return v0
 
+    .line 713
     :cond_0
     const-string v0, "false"
 
@@ -1696,6 +1887,8 @@
 .method public setNativeLaunchTime(J)Z
     .locals 3
 
+    .prologue
+    .line 725
     const/16 v0, 0xf
 
     :try_start_0
@@ -1709,20 +1902,25 @@
 
     move-result v0
 
+    .line 730
     :goto_0
     return v0
 
+    .line 726
     :catch_0
     move-exception v0
 
+    .line 727
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 728
     invoke-virtual {v0}, Ljava/lang/NumberFormatException;->printStackTrace()V
 
+    .line 730
     :cond_0
     const/4 v0, 0x0
 
@@ -1732,6 +1930,8 @@
 .method public setNativeUserId(Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 703
     const/16 v0, 0xb
 
     invoke-direct {p0, v0, p1}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(ILjava/lang/String;)Z
@@ -1744,25 +1944,31 @@
 .method public declared-synchronized setUserOpened(Z)V
     .locals 5
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 553
     monitor-enter p0
 
     :try_start_0
     invoke-direct {p0, p1}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c(Z)V
 
+    .line 555
     invoke-virtual {p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->isUserOpened()Z
 
     move-result v2
 
+    .line 556
     invoke-static {}, Lcom/tencent/bugly/crashreport/common/strategy/a;->a()Lcom/tencent/bugly/crashreport/common/strategy/a;
 
     move-result-object v3
 
+    .line 557
     if-eqz v3, :cond_2
 
+    .line 558
     if-eqz v2, :cond_1
 
     invoke-virtual {v3}, Lcom/tencent/bugly/crashreport/common/strategy/a;->c()Lcom/tencent/bugly/crashreport/common/strategy/StrategyBean;
@@ -1773,11 +1979,13 @@
 
     if-eqz v2, :cond_1
 
+    .line 560
     :goto_0
     iget-boolean v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->j:Z
 
     if-eq v0, v1, :cond_0
 
+    .line 561
     const-string v1, "native changed to %b"
 
     const/4 v2, 0x1
@@ -1794,10 +2002,12 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 562
     invoke-direct {p0, v0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->b(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 565
     :cond_0
     monitor-exit p0
 
@@ -1806,8 +2016,10 @@
     :cond_1
     move v0, v1
 
+    .line 558
     goto :goto_0
 
+    .line 553
     :catchall_0
     move-exception v0
 
@@ -1824,6 +2036,8 @@
 .method public declared-synchronized startNativeMonitor()V
     .locals 2
 
+    .prologue
+    .line 321
     monitor-enter p0
 
     :try_start_0
@@ -1835,6 +2049,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 322
     :cond_0
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->g:Z
 
@@ -1842,12 +2057,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 399
     :cond_1
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 327
     :cond_2
     :try_start_1
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -1864,13 +2081,16 @@
 
     iget-object v0, v0, Lcom/tencent/bugly/crashreport/common/info/a;->m:Ljava/lang/String;
 
+    .line 328
     :cond_3
     const-string v0, "Bugly"
 
+    .line 329
     iget-object v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    .line 332
     iget-object v1, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
     iget-object v1, v1, Lcom/tencent/bugly/crashreport/common/info/a;->m:Ljava/lang/String;
@@ -1883,6 +2103,7 @@
 
     move-object v1, v0
 
+    .line 333
     :goto_1
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
@@ -1896,6 +2117,7 @@
 
     const/4 v0, 0x1
 
+    .line 334
     :goto_2
     invoke-static {v1, v0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(Ljava/lang/String;Z)Z
 
@@ -1903,6 +2125,7 @@
 
     iput-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
+    .line 347
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
     if-nez v0, :cond_4
@@ -1911,16 +2134,18 @@
 
     if-eqz v0, :cond_1
 
+    .line 351
     :cond_4
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->g:Z
 
     invoke-direct {p0, v0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->a(Z)V
 
+    .line 353
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->d:Lcom/tencent/bugly/proguard/v;
 
-    new-instance v1, Lcom/tencent/bugly/crashreport/crash/jni/c;
+    new-instance v1, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler$1;
 
-    invoke-direct {v1, p0}, Lcom/tencent/bugly/crashreport/crash/jni/c;-><init>(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)V
+    invoke-direct {v1, p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler$1;-><init>(Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;)V
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/proguard/v;->a(Ljava/lang/Runnable;)Z
     :try_end_1
@@ -1928,6 +2153,7 @@
 
     goto :goto_0
 
+    .line 321
     :catchall_0
     move-exception v0
 
@@ -1935,6 +2161,7 @@
 
     throw v0
 
+    .line 332
     :cond_5
     :try_start_2
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->c:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -1947,6 +2174,7 @@
 
     goto :goto_1
 
+    .line 333
     :cond_6
     const/4 v0, 0x0
 
@@ -1959,10 +2187,13 @@
 .method public testNativeCrash()V
     .locals 2
 
+    .prologue
+    .line 456
     iget-boolean v0, p0, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->i:Z
 
     if-nez v0, :cond_0
 
+    .line 457
     const-string v0, "[Native] Bugly SO file has not been load."
 
     const/4 v1, 0x0
@@ -1971,9 +2202,11 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 462
     :goto_0
     return-void
 
+    .line 461
     :cond_0
     invoke-virtual {p0}, Lcom/tencent/bugly/crashreport/crash/jni/NativeCrashHandler;->testCrash()V
 

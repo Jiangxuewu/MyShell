@@ -1,47 +1,58 @@
 .class public final Lcom/tencent/bugly/proguard/k;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/16 v5, 0x100
 
+    .line 370
     const/16 v0, 0x10
 
     new-array v1, v0, [B
 
     fill-array-data v1, :array_0
 
+    .line 373
     new-array v2, v5, [B
 
+    .line 374
     new-array v3, v5, [B
 
+    .line 376
     const/4 v0, 0x0
 
     :goto_0
     if-ge v0, v5, :cond_0
 
+    .line 377
     ushr-int/lit8 v4, v0, 0x4
 
     aget-byte v4, v1, v4
 
     aput-byte v4, v2, v0
 
+    .line 378
     and-int/lit8 v4, v0, 0xf
 
     aget-byte v4, v1, v4
 
     aput-byte v4, v3, v0
 
+    .line 376
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 381
     :cond_0
     return-void
 
+    .line 370
     :array_0
     .array-data 1
         0x30t
@@ -66,6 +77,8 @@
 .method public static a(II)Z
     .locals 1
 
+    .prologue
+    .line 36
     if-ne p0, p1, :cond_0
 
     const/4 v0, 0x1
@@ -82,6 +95,8 @@
 .method public static a(JJ)Z
     .locals 2
 
+    .prologue
+    .line 40
     cmp-long v0, p0, p2
 
     if-nez v0, :cond_0
@@ -100,6 +115,8 @@
 .method public static a(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 52
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -110,6 +127,8 @@
 .method public static a(ZZ)Z
     .locals 1
 
+    .prologue
+    .line 20
     if-ne p0, p1, :cond_0
 
     const/4 v0, 0x1
@@ -126,14 +145,17 @@
 .method public static a(Ljava/nio/ByteBuffer;)[B
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 359
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v0
 
     new-array v0, v0, [B
 
+    .line 360
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v1
@@ -142,5 +164,6 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 361
     return-object v0
 .end method

@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/jpay/sdk/IJpay;
 .super Ljava/lang/Object;
+.source "IJpay.java"
 
 
 # virtual methods

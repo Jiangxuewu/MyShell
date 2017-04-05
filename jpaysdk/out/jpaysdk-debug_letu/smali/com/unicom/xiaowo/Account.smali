@@ -2,6 +2,26 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/unicom/xiaowo/Account$AccountAlreadyLoggedInException;,
+        Lcom/unicom/xiaowo/Account$AlreadyInitializedException;,
+        Lcom/unicom/xiaowo/Account$BusyException;,
+        Lcom/unicom/xiaowo/Account$ClientInfo;,
+        Lcom/unicom/xiaowo/Account$InitState;,
+        Lcom/unicom/xiaowo/Account$NoAccountLoggedInException;,
+        Lcom/unicom/xiaowo/Account$NotInitializedException;,
+        Lcom/unicom/xiaowo/Account$OnAccountStatusChangedListener;,
+        Lcom/unicom/xiaowo/Account$OnInitResultListener;,
+        Lcom/unicom/xiaowo/Account$OnLoginResultListener;,
+        Lcom/unicom/xiaowo/Account$OnLogoutResultListener;,
+        Lcom/unicom/xiaowo/Account$OnSwitchAccountResultListener;,
+        Lcom/unicom/xiaowo/Account$UserInfo;
+    }
+.end annotation
+
+
 # static fields
 .field public static final API_VERSION:I = 0x3
 
@@ -123,6 +143,19 @@
 
 .method private callInnerMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -131,6 +164,18 @@
 
 .method private callInnerMethod(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -139,6 +184,19 @@
 
 .method private callLocalActivityMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -147,6 +205,19 @@
 
 .method private callLocalActivityMethod_self(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -155,6 +226,19 @@
 
 .method private callLocalServiceMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -163,6 +247,19 @@
 
 .method private callLocalServiceMethod_self(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Class",
+            "<*>;[",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -315,6 +412,11 @@
 
 .method public init(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/unicom/xiaowo/Account$OnInitResultListener;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/unicom/xiaowo/Account$BusyException;
+        }
+    .end annotation
 
     return-void
 .end method
@@ -345,6 +447,11 @@
 
 .method public login(Landroid/content/Context;Lcom/unicom/xiaowo/Account$OnLoginResultListener;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/unicom/xiaowo/Account$BusyException;
+        }
+    .end annotation
 
     return-void
 .end method

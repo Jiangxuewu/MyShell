@@ -1,5 +1,17 @@
 .class public interface abstract Lcom/tencent/bugly/crashreport/crash/anr/TraceFileHelper$b;
 .super Ljava/lang/Object;
+.source "BUGLY"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/tencent/bugly/crashreport/crash/anr/TraceFileHelper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "b"
+.end annotation
 
 
 # virtual methods

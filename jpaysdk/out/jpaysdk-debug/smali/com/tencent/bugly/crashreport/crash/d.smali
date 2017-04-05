@@ -1,5 +1,6 @@
 .class public final Lcom/tencent/bugly/crashreport/crash/d;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # static fields
@@ -20,6 +21,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 23
     const/4 v0, 0x0
 
     sput-object v0, Lcom/tencent/bugly/crashreport/crash/d;->a:Lcom/tencent/bugly/crashreport/crash/d;
@@ -30,17 +33,23 @@
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 2
 
+    .prologue
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 35
     invoke-static {}, Lcom/tencent/bugly/crashreport/crash/c;->a()Lcom/tencent/bugly/crashreport/crash/c;
 
     move-result-object v0
 
+    .line 36
     if-nez v0, :cond_0
 
+    .line 52
     :goto_0
     return-void
 
+    .line 39
     :cond_0
     invoke-static {}, Lcom/tencent/bugly/crashreport/common/strategy/a;->a()Lcom/tencent/bugly/crashreport/common/strategy/a;
 
@@ -48,25 +57,29 @@
 
     iput-object v1, p0, Lcom/tencent/bugly/crashreport/crash/d;->b:Lcom/tencent/bugly/crashreport/common/strategy/a;
 
+    .line 40
     invoke-static {p1}, Lcom/tencent/bugly/crashreport/common/info/a;->a(Landroid/content/Context;)Lcom/tencent/bugly/crashreport/common/info/a;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/tencent/bugly/crashreport/crash/d;->c:Lcom/tencent/bugly/crashreport/common/info/a;
 
+    .line 41
     iget-object v0, v0, Lcom/tencent/bugly/crashreport/crash/c;->n:Lcom/tencent/bugly/crashreport/crash/b;
 
     iput-object v0, p0, Lcom/tencent/bugly/crashreport/crash/d;->d:Lcom/tencent/bugly/crashreport/crash/b;
 
+    .line 42
     iput-object p1, p0, Lcom/tencent/bugly/crashreport/crash/d;->e:Landroid/content/Context;
 
+    .line 45
     invoke-static {}, Lcom/tencent/bugly/proguard/v;->a()Lcom/tencent/bugly/proguard/v;
 
     move-result-object v0
 
-    new-instance v1, Lcom/tencent/bugly/crashreport/crash/j;
+    new-instance v1, Lcom/tencent/bugly/crashreport/crash/d$1;
 
-    invoke-direct {v1, p0}, Lcom/tencent/bugly/crashreport/crash/j;-><init>(Lcom/tencent/bugly/crashreport/crash/d;)V
+    invoke-direct {v1, p0}, Lcom/tencent/bugly/crashreport/crash/d$1;-><init>(Lcom/tencent/bugly/crashreport/crash/d;)V
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/proguard/v;->a(Ljava/lang/Runnable;)Z
 
@@ -76,6 +89,8 @@
 .method static synthetic a()Lcom/tencent/bugly/crashreport/crash/d;
     .locals 1
 
+    .prologue
+    .line 22
     sget-object v0, Lcom/tencent/bugly/crashreport/crash/d;->a:Lcom/tencent/bugly/crashreport/crash/d;
 
     return-object v0
@@ -84,16 +99,20 @@
 .method public static a(Landroid/content/Context;)Lcom/tencent/bugly/crashreport/crash/d;
     .locals 1
 
+    .prologue
+    .line 60
     sget-object v0, Lcom/tencent/bugly/crashreport/crash/d;->a:Lcom/tencent/bugly/crashreport/crash/d;
 
     if-nez v0, :cond_0
 
+    .line 61
     new-instance v0, Lcom/tencent/bugly/crashreport/crash/d;
 
     invoke-direct {v0, p0}, Lcom/tencent/bugly/crashreport/crash/d;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/tencent/bugly/crashreport/crash/d;->a:Lcom/tencent/bugly/crashreport/crash/d;
 
+    .line 63
     :cond_0
     sget-object v0, Lcom/tencent/bugly/crashreport/crash/d;->a:Lcom/tencent/bugly/crashreport/crash/d;
 
@@ -103,8 +122,10 @@
 .method static synthetic a(Lcom/tencent/bugly/crashreport/crash/d;)V
     .locals 5
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 22
     const-string v0, "[ExtraCrashManager] Trying to notify Bugly agents."
 
     new-array v1, v4, [Ljava/lang/Object;
@@ -191,10 +212,12 @@
 .method static synthetic a(Lcom/tencent/bugly/crashreport/crash/d;Ljava/lang/Thread;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
     .locals 8
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v6, 0x0
 
+    .line 22
     packed-switch p2, :pswitch_data_0
 
     :pswitch_0
@@ -563,13 +586,37 @@
 
     iput-object v1, v5, Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;->m:Ljava/lang/String;
 
-    iput-object p3, v5, Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;->n:Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iput-object p4, v5, Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;->o:Ljava/lang/String;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v5, Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;->n:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v5, Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;->o:Ljava/lang/String;
 
     const-string v1, ""
 
-    if-eqz p5, :cond_a
+    if-eqz p5, :cond_9
 
     const-string v2, "\n"
 
@@ -759,6 +806,40 @@
     invoke-interface {v1, p6}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     :cond_8
+    if-nez v5, :cond_a
+
+    const-string v0, "[ExtraCrashManager] Failed to package crash data."
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    const-string v0, "[ExtraCrashManager] Successfully handled."
+
+    new-array v1, v6, [Ljava/lang/Object;
+
+    invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    :cond_9
+    :try_start_5
+    const-string v2, ""
+
+    move-object v7, v2
+
+    move-object v2, v1
+
+    move-object v1, v7
+
+    goto/16 :goto_2
+
+    :cond_a
     invoke-static {}, Lcom/tencent/bugly/proguard/y;->a()Ljava/lang/String;
 
     move-result-object v1
@@ -809,7 +890,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_b
 
     iget-object v0, p0, Lcom/tencent/bugly/crashreport/crash/d;->d:Lcom/tencent/bugly/crashreport/crash/b;
 
@@ -818,11 +899,11 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v5, v2, v3, v1}, Lcom/tencent/bugly/crashreport/crash/b;->a(Lcom/tencent/bugly/crashreport/crash/CrashDetailBean;JZ)V
-    :try_end_4
-    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5
+    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    :cond_9
+    :cond_b
     const-string v0, "[ExtraCrashManager] Successfully handled."
 
     new-array v1, v6, [Ljava/lang/Object;
@@ -830,21 +911,6 @@
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
     goto/16 :goto_0
-
-    :cond_a
-    :try_start_5
-    const-string v2, ""
-    :try_end_5
-    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    move-object v7, v2
-
-    move-object v2, v1
-
-    move-object v1, v7
-
-    goto/16 :goto_2
 
     :catch_0
     move-exception v0
@@ -854,13 +920,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_c
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    :cond_b
+    :cond_c
     const-string v0, "[ExtraCrashManager] Successfully handled."
 
     new-array v1, v6, [Ljava/lang/Object;
@@ -879,6 +945,8 @@
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
     throw v0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x4
@@ -900,12 +968,29 @@
 
 .method public static a(Ljava/lang/Thread;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
     .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Thread;",
+            "I",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
+    .prologue
+    .line 72
     invoke-static {}, Lcom/tencent/bugly/proguard/v;->a()Lcom/tencent/bugly/proguard/v;
 
     move-result-object v7
 
-    new-instance v0, Lcom/tencent/bugly/crashreport/crash/k;
+    new-instance v0, Lcom/tencent/bugly/crashreport/crash/d$2;
 
     move-object v1, p0
 
@@ -919,9 +1004,10 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/tencent/bugly/crashreport/crash/k;-><init>(Ljava/lang/Thread;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+    invoke-direct/range {v0 .. v6}, Lcom/tencent/bugly/crashreport/crash/d$2;-><init>(Ljava/lang/Thread;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
 
     invoke-virtual {v7, v0}, Lcom/tencent/bugly/proguard/v;->a(Ljava/lang/Runnable;)Z
 
+    .line 92
     return-void
 .end method

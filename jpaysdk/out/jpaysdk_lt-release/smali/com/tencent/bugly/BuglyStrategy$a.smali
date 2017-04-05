@@ -1,5 +1,17 @@
 .class public Lcom/tencent/bugly/BuglyStrategy$a;
 .super Ljava/lang/Object;
+.source "BUGLY"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/tencent/bugly/BuglyStrategy;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "a"
+.end annotation
 
 
 # static fields
@@ -28,6 +40,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 300
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,7 +51,23 @@
 # virtual methods
 .method public declared-synchronized onCrashHandleStart(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 
+    .prologue
+    .line 323
     monitor-enter p0
 
     const/4 v0, 0x0
@@ -50,6 +80,8 @@
 .method public declared-synchronized onCrashHandleStart2GetExtraDatas(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)[B
     .locals 1
 
+    .prologue
+    .line 337
     monitor-enter p0
 
     const/4 v0, 0x0

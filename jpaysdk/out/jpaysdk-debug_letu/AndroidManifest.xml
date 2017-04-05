@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.bb_sz.myshell.JApplication" android:supportsRtl="true">
         <activity android:name="com.jpay.main.DtActivity" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
         <receiver android:name="com.jpay.main.JPayReceiver">
@@ -59,13 +61,13 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
-        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="com.lyhtgh.pay.activity.SdkPayActivity" android:theme="@style/lttransparent"/>
-        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="com.lyhtgh.pay.activity.SdkShowActivity" android:theme="@style/lttransparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="com.lyhtgh.pay.activity.SdkPayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:name="com.lyhtgh.pay.activity.SdkShowActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="orientation" android:name="com.unicom.wostore.unipay.paysecurity.SecurityActivity" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
         <service android:name="com.unicom.wostore.unipay.paysecurity.SecurityServiceFramework"/>
         <meta-data android:name="lltt_merchantid" android:value="{$LTMID$}"/>
         <meta-data android:name="lltt_mappid" android:value="{$LTAppID$}"/>
-        <meta-data android:name="lltt_cpchannelid" android:value="{$LTCID$}"/>
+        <meta-data android:name="lltt_cpchannelid" android:value="{$CID$}"/>
         <meta-data android:name="BUGLY_APPID" android:value="{$BUGLYAPPID$}"/>
         <meta-data android:name="BUGLY_APP_CHANNEL" android:value="{$CID$}"/>
         <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="false"/>

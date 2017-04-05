@@ -1,5 +1,6 @@
 .class public abstract Lcom/umeng/analytics/social/d;
 .super Ljava/lang/Object;
+.source "UMSocialConstants.java"
 
 
 # static fields
@@ -50,10 +51,13 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 8
     const-string v0, "2"
 
     sput-object v0, Lcom/umeng/analytics/social/d;->d:Ljava/lang/String;
 
+    .line 43
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/umeng/analytics/social/d;->u:Z
@@ -64,6 +68,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

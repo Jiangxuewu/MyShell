@@ -1,8 +1,20 @@
 .class Lcom/umeng/analytics/game/b$a;
 .super Ljava/lang/Object;
+.source "GameState.java"
 
 # interfaces
 .implements Ljava/io/Serializable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/umeng/analytics/game/b;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "a"
+.end annotation
 
 
 # static fields
@@ -21,10 +33,14 @@
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 106
     iput-object p1, p0, Lcom/umeng/analytics/game/b$a;->b:Ljava/lang/String;
 
+    .line 107
     return-void
 .end method
 
@@ -33,18 +49,23 @@
 .method public a()V
     .locals 2
 
+    .prologue
+    .line 114
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/umeng/analytics/game/b$a;->d:J
 
+    .line 115
     return-void
 .end method
 
 .method public a(Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 110
     iget-object v0, p0, Lcom/umeng/analytics/game/b$a;->b:Ljava/lang/String;
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -57,6 +78,8 @@
 .method public b()V
     .locals 6
 
+    .prologue
+    .line 118
     iget-wide v0, p0, Lcom/umeng/analytics/game/b$a;->c:J
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -71,32 +94,42 @@
 
     iput-wide v0, p0, Lcom/umeng/analytics/game/b$a;->c:J
 
+    .line 119
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/umeng/analytics/game/b$a;->d:J
 
+    .line 120
     return-void
 .end method
 
 .method public c()V
     .locals 0
 
+    .prologue
+    .line 123
     invoke-virtual {p0}, Lcom/umeng/analytics/game/b$a;->a()V
 
+    .line 124
     return-void
 .end method
 
 .method public d()V
     .locals 0
 
+    .prologue
+    .line 127
     invoke-virtual {p0}, Lcom/umeng/analytics/game/b$a;->b()V
 
+    .line 128
     return-void
 .end method
 
 .method public e()J
     .locals 2
 
+    .prologue
+    .line 131
     iget-wide v0, p0, Lcom/umeng/analytics/game/b$a;->c:J
 
     return-wide v0
@@ -105,6 +138,8 @@
 .method public f()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 135
     iget-object v0, p0, Lcom/umeng/analytics/game/b$a;->b:Ljava/lang/String;
 
     return-object v0

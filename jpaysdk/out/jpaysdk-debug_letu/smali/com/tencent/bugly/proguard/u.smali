@@ -1,5 +1,6 @@
 .class public final Lcom/tencent/bugly/proguard/u;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,6 +36,16 @@
 .field private final n:Ljava/lang/String;
 
 .field private final o:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private p:I
 
@@ -50,105 +61,155 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;II[BLjava/lang/String;Ljava/lang/String;Lcom/tencent/bugly/proguard/s;ZIIZLjava/util/Map;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "II[B",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Lcom/tencent/bugly/proguard/s;",
+            "ZIIZ",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
+    .prologue
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 42
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/tencent/bugly/proguard/u;->a:I
 
+    .line 44
     const/16 v0, 0x7530
 
     iput v0, p0, Lcom/tencent/bugly/proguard/u;->b:I
 
+    .line 57
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->m:Ljava/lang/String;
 
+    .line 61
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/tencent/bugly/proguard/u;->p:I
 
+    .line 62
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
 
+    .line 63
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
+    .line 66
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
+    .line 67
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->t:Z
 
+    .line 106
     iput-object p1, p0, Lcom/tencent/bugly/proguard/u;->c:Landroid/content/Context;
 
+    .line 107
     invoke-static {p1}, Lcom/tencent/bugly/crashreport/common/info/a;->a(Landroid/content/Context;)Lcom/tencent/bugly/crashreport/common/info/a;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
 
+    .line 108
     iput-object p4, p0, Lcom/tencent/bugly/proguard/u;->e:[B
 
+    .line 109
     invoke-static {}, Lcom/tencent/bugly/crashreport/common/strategy/a;->a()Lcom/tencent/bugly/crashreport/common/strategy/a;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->g:Lcom/tencent/bugly/crashreport/common/strategy/a;
 
+    .line 110
     invoke-static {p1}, Lcom/tencent/bugly/proguard/r;->a(Landroid/content/Context;)Lcom/tencent/bugly/proguard/r;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->h:Lcom/tencent/bugly/proguard/r;
 
+    .line 111
     invoke-static {}, Lcom/tencent/bugly/proguard/t;->a()Lcom/tencent/bugly/proguard/t;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
+    .line 112
     iput p2, p0, Lcom/tencent/bugly/proguard/u;->j:I
 
+    .line 113
     iput-object p5, p0, Lcom/tencent/bugly/proguard/u;->m:Ljava/lang/String;
 
+    .line 114
     iput-object p6, p0, Lcom/tencent/bugly/proguard/u;->n:Ljava/lang/String;
 
+    .line 115
     iput-object p7, p0, Lcom/tencent/bugly/proguard/u;->k:Lcom/tencent/bugly/proguard/s;
+
+    .line 116
+    iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/u;->l:Lcom/tencent/bugly/proguard/s;
 
+    .line 118
     iput-boolean p8, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
+    .line 119
     iput p3, p0, Lcom/tencent/bugly/proguard/u;->d:I
 
+    .line 120
     if-lez p9, :cond_0
 
+    .line 121
     iput p9, p0, Lcom/tencent/bugly/proguard/u;->a:I
 
+    .line 123
     :cond_0
     if-lez p10, :cond_1
 
+    .line 124
     iput p10, p0, Lcom/tencent/bugly/proguard/u;->b:I
 
+    .line 127
     :cond_1
     iput-boolean p11, p0, Lcom/tencent/bugly/proguard/u;->t:Z
 
+    .line 128
     iput-object p12, p0, Lcom/tencent/bugly/proguard/u;->o:Ljava/util/Map;
 
+    .line 129
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;II[BLjava/lang/String;Ljava/lang/String;Lcom/tencent/bugly/proguard/s;ZZ)V
     .locals 13
 
+    .prologue
+    .line 85
     const/4 v9, 0x2
 
     const/16 v10, 0x7530
@@ -177,21 +238,26 @@
 
     invoke-direct/range {v0 .. v12}, Lcom/tencent/bugly/proguard/u;-><init>(Landroid/content/Context;II[BLjava/lang/String;Ljava/lang/String;Lcom/tencent/bugly/proguard/s;ZIIZLjava/util/Map;)V
 
+    .line 87
     return-void
 .end method
 
 .method private static a(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 504
     invoke-static {p0}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 511
     :goto_0
     return-object p0
 
+    .line 508
     :cond_0
     :try_start_0
     const-string v0, "%s?aid=%s"
@@ -224,9 +290,11 @@
 
     goto :goto_0
 
+    .line 509
     :catch_0
     move-exception v0
 
+    .line 510
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     goto :goto_0
@@ -235,23 +303,28 @@
 .method private a(Lcom/tencent/bugly/proguard/am;ZILjava/lang/String;I)V
     .locals 6
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 160
     iget v0, p0, Lcom/tencent/bugly/proguard/u;->d:I
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 170
     iget v0, p0, Lcom/tencent/bugly/proguard/u;->d:I
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 172
     :goto_0
     if-eqz p2, :cond_4
 
+    .line 173
     const-string v1, "[Upload] Success: %s"
 
     new-array v2, v5, [Ljava/lang/Object;
@@ -260,6 +333,7 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 181
     :cond_0
     :goto_1
     iget-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
@@ -274,6 +348,7 @@
 
     if-lez v0, :cond_1
 
+    .line 182
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget-boolean v1, p0, Lcom/tencent/bugly/proguard/u;->t:Z
@@ -290,43 +365,64 @@
 
     add-long/2addr v0, v2
 
+    .line 184
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget-boolean v3, p0, Lcom/tencent/bugly/proguard/u;->t:Z
 
     invoke-virtual {v2, v0, v1, v3}, Lcom/tencent/bugly/proguard/t;->a(JZ)V
 
+    .line 187
     :cond_1
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->k:Lcom/tencent/bugly/proguard/s;
 
     if-eqz v0, :cond_2
 
+    .line 188
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->k:Lcom/tencent/bugly/proguard/s;
+
+    iget v1, p0, Lcom/tencent/bugly/proguard/u;->d:I
+
+    iget-wide v2, p0, Lcom/tencent/bugly/proguard/u;->q:J
+
+    iget-wide v2, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
     invoke-interface {v0, p2}, Lcom/tencent/bugly/proguard/s;->a(Z)V
 
+    .line 190
     :cond_2
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->l:Lcom/tencent/bugly/proguard/s;
 
     if-eqz v0, :cond_3
 
+    .line 191
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->l:Lcom/tencent/bugly/proguard/s;
+
+    iget v1, p0, Lcom/tencent/bugly/proguard/u;->d:I
+
+    iget-wide v2, p0, Lcom/tencent/bugly/proguard/u;->q:J
+
+    iget-wide v2, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
     invoke-interface {v0, p2}, Lcom/tencent/bugly/proguard/s;->a(Z)V
 
+    .line 193
     :cond_3
     return-void
 
+    .line 163
     :sswitch_0
     const-string v0, "crash"
 
     goto :goto_0
 
+    .line 167
     :sswitch_1
     const-string v0, "userinfo"
 
     goto :goto_0
 
+    .line 175
     :cond_4
     const-string v1, "[Upload] Failed to upload(%d) %s: %s"
 
@@ -348,10 +444,12 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 176
     iget-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
     if-eqz v0, :cond_0
 
+    .line 177
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     const/4 v1, 0x0
@@ -360,6 +458,7 @@
 
     goto :goto_1
 
+    .line 160
     nop
 
     :sswitch_data_0
@@ -374,12 +473,15 @@
 .method private static a(Lcom/tencent/bugly/proguard/am;Lcom/tencent/bugly/crashreport/common/info/a;Lcom/tencent/bugly/crashreport/common/strategy/a;)Z
     .locals 8
 
+    .prologue
     const/4 v7, 0x1
 
     const/4 v6, 0x0
 
+    .line 200
     if-nez p0, :cond_0
 
+    .line 201
     const-string v0, "resp == null!"
 
     new-array v1, v6, [Ljava/lang/Object;
@@ -388,14 +490,17 @@
 
     move v0, v6
 
+    .line 245
     :goto_0
     return v0
 
+    .line 205
     :cond_0
     iget-byte v0, p0, Lcom/tencent/bugly/proguard/am;->a:B
 
     if-eqz v0, :cond_1
 
+    .line 206
     const-string v0, "resp result error %d"
 
     new-array v1, v7, [Ljava/lang/Object;
@@ -412,8 +517,10 @@
 
     move v0, v6
 
+    .line 207
     goto :goto_0
 
+    .line 210
     :cond_1
     :try_start_0
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->d:Ljava/lang/String;
@@ -440,6 +547,7 @@
 
     if-nez v0, :cond_2
 
+    .line 212
     invoke-static {}, Lcom/tencent/bugly/proguard/o;->a()Lcom/tencent/bugly/proguard/o;
 
     move-result-object v0
@@ -462,10 +570,12 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/bugly/proguard/o;->a(ILjava/lang/String;[BLcom/tencent/bugly/proguard/n;Z)Z
 
+    .line 215
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->d:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/tencent/bugly/crashreport/common/info/a;->d(Ljava/lang/String;)V
 
+    .line 217
     :cond_2
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->f:Ljava/lang/String;
 
@@ -491,6 +601,7 @@
 
     if-nez v0, :cond_3
 
+    .line 219
     invoke-static {}, Lcom/tencent/bugly/proguard/o;->a()Lcom/tencent/bugly/proguard/o;
 
     move-result-object v0
@@ -513,28 +624,33 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/tencent/bugly/proguard/o;->a(ILjava/lang/String;[BLcom/tencent/bugly/proguard/n;Z)Z
 
+    .line 221
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->f:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/tencent/bugly/crashreport/common/info/a;->e(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 226
     :cond_3
     :goto_1
     iget-wide v0, p0, Lcom/tencent/bugly/proguard/am;->e:J
 
     iput-wide v0, p1, Lcom/tencent/bugly/crashreport/common/info/a;->i:J
 
+    .line 229
     iget v0, p0, Lcom/tencent/bugly/proguard/am;->b:I
 
     const/16 v1, 0x1fe
 
     if-ne v0, v1, :cond_6
 
+    .line 230
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->c:[B
 
     if-nez v0, :cond_4
 
+    .line 231
     const-string v0, "[Upload] Strategy data is null. Response cmd: %d"
 
     new-array v1, v7, [Ljava/lang/Object;
@@ -551,15 +667,19 @@
 
     move v0, v6
 
+    .line 232
     goto/16 :goto_0
 
+    .line 223
     :catch_0
     move-exception v0
 
+    .line 224
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     goto :goto_1
 
+    .line 235
     :cond_4
     iget-object v0, p0, Lcom/tencent/bugly/proguard/am;->c:[B
 
@@ -571,8 +691,10 @@
 
     check-cast v0, Lcom/tencent/bugly/proguard/ao;
 
+    .line 237
     if-nez v0, :cond_5
 
+    .line 238
     const-string v0, "[Upload] Failed to decode strategy from server. Response cmd: %d"
 
     new-array v1, v7, [Ljava/lang/Object;
@@ -589,14 +711,17 @@
 
     move v0, v6
 
+    .line 240
     goto/16 :goto_0
 
+    .line 242
     :cond_5
     invoke-virtual {p2, v0}, Lcom/tencent/bugly/crashreport/common/strategy/a;->a(Lcom/tencent/bugly/proguard/ao;)V
 
     :cond_6
     move v0, v7
 
+    .line 245
     goto/16 :goto_0
 .end method
 
@@ -605,51 +730,64 @@
 .method public final a(J)V
     .locals 3
 
+    .prologue
+    .line 495
     iget v0, p0, Lcom/tencent/bugly/proguard/u;->p:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/tencent/bugly/proguard/u;->p:I
 
+    .line 496
     iget-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
 
     add-long/2addr v0, p1
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
 
+    .line 497
     return-void
 .end method
 
 .method public final b(J)V
     .locals 3
 
+    .prologue
+    .line 500
     iget-wide v0, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
     add-long/2addr v0, p1
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
+    .line 501
     return-void
 .end method
 
 .method public final run()V
     .locals 11
 
+    .prologue
+    .line 251
     const/4 v0, 0x0
 
     :try_start_0
     iput v0, p0, Lcom/tencent/bugly/proguard/u;->p:I
 
+    .line 252
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
 
+    .line 253
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/tencent/bugly/proguard/u;->r:J
 
+    .line 254
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->e:[B
 
+    .line 257
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->c:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/tencent/bugly/crashreport/common/info/b;->e(Landroid/content/Context;)Ljava/lang/String;
@@ -658,6 +796,7 @@
 
     if-nez v1, :cond_1
 
+    .line 258
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -672,10 +811,12 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/tencent/bugly/proguard/u;->a(Lcom/tencent/bugly/proguard/am;ZILjava/lang/String;I)V
 
+    .line 492
     :cond_0
     :goto_0
     return-void
 
+    .line 261
     :cond_1
     if-eqz v0, :cond_2
 
@@ -683,6 +824,7 @@
 
     if-nez v1, :cond_3
 
+    .line 262
     :cond_2
     const/4 v1, 0x0
 
@@ -702,19 +844,23 @@
 
     goto :goto_0
 
+    .line 487
     :catch_0
     move-exception v0
 
+    .line 488
     invoke-static {v0}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/Throwable;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 489
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 265
     :cond_3
     :try_start_1
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
@@ -725,6 +871,7 @@
 
     move-result-wide v2
 
+    .line 266
     array-length v1, v0
 
     int-to-long v4, v1
@@ -737,6 +884,7 @@
 
     if-ltz v1, :cond_4
 
+    .line 268
     const-string v0, "[Upload] Upload too much data, try next time: %d/%d"
 
     const/4 v1, 0x2
@@ -763,6 +911,7 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 270
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -771,9 +920,15 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v4, "over net consume: 2048"
+    const-string v4, "over net consume: "
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-wide/16 v4, 0x800
+
+    invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v4, "K"
 
@@ -793,6 +948,7 @@
 
     goto :goto_0
 
+    .line 275
     :cond_4
     const-string v1, "[Upload] Run upload task with cmd: %d"
 
@@ -812,6 +968,7 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 277
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->c:Landroid/content/Context;
 
     if-eqz v1, :cond_5
@@ -828,6 +985,7 @@
 
     if-nez v1, :cond_6
 
+    .line 279
     :cond_5
     const/4 v1, 0x0
 
@@ -845,6 +1003,7 @@
 
     goto/16 :goto_0
 
+    .line 283
     :cond_6
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->g:Lcom/tencent/bugly/crashreport/common/strategy/a;
 
@@ -852,8 +1011,10 @@
 
     move-result-object v1
 
+    .line 284
     if-nez v1, :cond_7
 
+    .line 285
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -870,13 +1031,16 @@
 
     goto/16 :goto_0
 
+    .line 289
     :cond_7
     const/4 v3, 0x0
 
+    .line 291
     new-instance v7, Ljava/util/HashMap;
 
     invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
 
+    .line 292
     const-string v2, "prodId"
 
     iget-object v4, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -887,6 +1051,7 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 293
     const-string v2, "bundleId"
 
     iget-object v4, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -895,6 +1060,7 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 294
     const-string v2, "appVer"
 
     iget-object v4, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -903,19 +1069,23 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 297
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->o:Ljava/util/Map;
 
     if-eqz v2, :cond_8
 
+    .line 298
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->o:Ljava/util/Map;
 
     invoke-interface {v7, v2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
+    .line 302
     :cond_8
     iget-boolean v2, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
     if-eqz v2, :cond_b
 
+    .line 304
     const-string v2, "cmd"
 
     iget v4, p0, Lcom/tencent/bugly/proguard/u;->d:I
@@ -926,6 +1096,7 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 305
     const-string v2, "platformId"
 
     const/4 v4, 0x1
@@ -936,6 +1107,7 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 307
     const-string v2, "sdkVer"
 
     iget-object v4, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
@@ -946,6 +1118,7 @@
 
     invoke-interface {v7, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 308
     const-string v2, "strategylastUpdateTime"
 
     iget-wide v4, v1, Lcom/tencent/bugly/crashreport/common/strategy/StrategyBean;->p:J
@@ -956,6 +1129,7 @@
 
     invoke-interface {v7, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 311
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     invoke-virtual {v1, v7}, Lcom/tencent/bugly/proguard/t;->a(Ljava/util/Map;)Z
@@ -964,6 +1138,7 @@
 
     if-nez v1, :cond_9
 
+    .line 312
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -980,6 +1155,7 @@
 
     goto/16 :goto_0
 
+    .line 317
     :cond_9
     const/4 v1, 0x2
 
@@ -987,8 +1163,10 @@
 
     move-result-object v0
 
+    .line 318
     if-nez v0, :cond_a
 
+    .line 319
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1005,6 +1183,7 @@
 
     goto/16 :goto_0
 
+    .line 323
     :cond_a
     iget-object v1, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
@@ -1012,8 +1191,10 @@
 
     move-result-object v0
 
+    .line 324
     if-nez v0, :cond_b
 
+    .line 325
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1033,6 +1214,7 @@
     :cond_b
     move-object v6, v0
 
+    .line 331
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget v1, p0, Lcom/tencent/bugly/proguard/u;->j:I
@@ -1043,27 +1225,51 @@
 
     invoke-virtual {v0, v1, v4, v5}, Lcom/tencent/bugly/proguard/t;->a(IJ)V
 
+    iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->k:Lcom/tencent/bugly/proguard/s;
+
+    if-eqz v0, :cond_c
+
+    iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->k:Lcom/tencent/bugly/proguard/s;
+
+    iget v0, p0, Lcom/tencent/bugly/proguard/u;->d:I
+
+    :cond_c
+    iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->l:Lcom/tencent/bugly/proguard/s;
+
+    if-eqz v0, :cond_d
+
+    iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->l:Lcom/tencent/bugly/proguard/s;
+
+    iget v0, p0, Lcom/tencent/bugly/proguard/u;->d:I
+
+    .line 333
+    :cond_d
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->m:Ljava/lang/String;
 
+    .line 334
     const/4 v5, -0x1
 
+    .line 335
     const/4 v0, 0x0
 
     move v1, v0
 
     move-object v0, v2
 
+    .line 336
     :goto_1
     add-int/lit8 v4, v1, 0x1
 
     iget v2, p0, Lcom/tencent/bugly/proguard/u;->a:I
 
-    if-ge v1, v2, :cond_21
+    if-ge v1, v2, :cond_23
 
+    .line 337
     const/4 v1, 0x1
 
-    if-le v4, v1, :cond_c
+    if-le v4, v1, :cond_e
 
+    .line 338
     const-string v1, "[Upload] Failed to upload last time, wait and try(%d) again."
 
     const/4 v2, 0x1
@@ -1080,16 +1286,19 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 340
     iget v1, p0, Lcom/tencent/bugly/proguard/u;->b:I
 
     int-to-long v2, v1
 
     invoke-static {v2, v3}, Lcom/tencent/bugly/proguard/y;->b(J)V
 
+    .line 341
     iget v1, p0, Lcom/tencent/bugly/proguard/u;->a:I
 
-    if-ne v4, v1, :cond_c
+    if-ne v4, v1, :cond_e
 
+    .line 342
     const-string v0, "[Upload] Use the back-up url at the last time: %s"
 
     const/4 v1, 0x1
@@ -1104,9 +1313,11 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 345
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->n:Ljava/lang/String;
 
-    :cond_c
+    .line 349
+    :cond_e
     const-string v1, "[Upload] Send %d bytes"
 
     const/4 v2, 0x1
@@ -1125,16 +1336,19 @@
 
     invoke-static {v1, v2}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 350
     iget-boolean v1, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_24
 
+    .line 351
     invoke-static {v0}, Lcom/tencent/bugly/proguard/u;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     move-object v2, v0
 
+    .line 353
     :goto_2
     const-string v0, "[Upload] Upload to %s with cmd %d (pid=%d | tid=%d)."
 
@@ -1182,14 +1396,17 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 355
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->h:Lcom/tencent/bugly/proguard/r;
 
     invoke-virtual {v0, v2, v6, p0, v7}, Lcom/tencent/bugly/proguard/r;->a(Ljava/lang/String;[BLcom/tencent/bugly/proguard/u;Ljava/util/Map;)[B
 
     move-result-object v1
 
-    if-nez v1, :cond_d
+    .line 356
+    if-nez v1, :cond_f
 
+    .line 357
     const-string v0, "Failed to upload for no response!"
 
     const-string v1, "[Upload] Failed to upload(%d): %s"
@@ -1214,32 +1431,37 @@
 
     invoke-static {v1, v3}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 359
     const/4 v3, 0x1
 
     move v1, v4
 
     move-object v0, v2
 
+    .line 360
     goto/16 :goto_1
 
-    :cond_d
+    .line 363
+    :cond_f
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->h:Lcom/tencent/bugly/proguard/r;
 
     iget-object v3, v0, Lcom/tencent/bugly/proguard/r;->a:Ljava/util/Map;
 
+    .line 364
     iget-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_19
 
-    if-eqz v3, :cond_e
+    .line 365
+    if-eqz v3, :cond_10
 
     invoke-interface {v3}, Ljava/util/Map;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_11
 
-    :cond_e
+    :cond_10
     const-string v0, "[Upload] Headers is empty."
 
     const/4 v8, 0x0
@@ -1251,8 +1473,9 @@
     const/4 v0, 0x0
 
     :goto_3
-    if-nez v0, :cond_14
+    if-nez v0, :cond_16
 
+    .line 366
     const-string v0, "[Upload] Headers from server is not valid, just try again (pid=%d | tid=%d)."
 
     const/4 v1, 0x2
@@ -1285,6 +1508,7 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 369
     const-string v0, "[Upload] Failed to upload for no status header."
 
     const-string v1, "[Upload] Failed to upload(%d): %s"
@@ -1309,8 +1533,10 @@
 
     invoke-static {v1, v8}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_13
+    .line 371
+    if-eqz v3, :cond_15
 
+    .line 372
     invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -1324,7 +1550,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_15
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1332,6 +1558,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 373
     const-string v3, "[key]: %s, [value]: %s"
 
     const/4 v8, 0x2
@@ -1366,14 +1593,15 @@
 
     goto :goto_4
 
-    :cond_f
+    .line 365
+    :cond_11
     const-string v0, "status"
 
     invoke-interface {v3, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_12
 
     const-string v0, "[Upload] Headers does not contain %s"
 
@@ -1393,14 +1621,14 @@
 
     goto :goto_3
 
-    :cond_10
+    :cond_12
     const-string v0, "Bugly-Version"
 
     invoke-interface {v3, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_13
 
     const-string v0, "[Upload] Headers does not contain %s"
 
@@ -1420,7 +1648,7 @@
 
     goto/16 :goto_3
 
-    :cond_11
+    :cond_13
     const-string v0, "Bugly-Version"
 
     invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1435,7 +1663,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_12
+    if-nez v8, :cond_14
 
     const-string v8, "[Upload] Bugly version is not valid: %s"
 
@@ -1453,7 +1681,7 @@
 
     goto/16 :goto_3
 
-    :cond_12
+    :cond_14
     const-string v8, "[Upload] Bugly version from headers is: %s"
 
     const/4 v9, 0x1
@@ -1470,7 +1698,8 @@
 
     goto/16 :goto_3
 
-    :cond_13
+    .line 377
+    :cond_15
     const-string v0, "[Upload] Failed to upload for no status header."
 
     const/4 v1, 0x0
@@ -1481,15 +1710,18 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 378
     const/4 v3, 0x1
 
     move v1, v4
 
     move-object v0, v2
 
+    .line 379
     goto/16 :goto_1
 
-    :cond_14
+    .line 383
+    :cond_16
     :try_start_2
     const-string v0, "status"
 
@@ -1503,6 +1735,7 @@
 
     move-result v5
 
+    .line 385
     const-string v0, "[Upload] Status from server is %d (pid=%d | tid=%d)."
 
     const/4 v8, 0x3
@@ -1545,12 +1778,15 @@
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
-    if-eqz v5, :cond_17
+    .line 397
+    if-eqz v5, :cond_19
 
+    .line 399
     const/4 v0, 0x2
 
-    if-ne v5, v0, :cond_16
+    if-ne v5, v0, :cond_18
 
+    .line 401
     :try_start_3
     iget-wide v0, p0, Lcom/tencent/bugly/proguard/u;->q:J
 
@@ -1562,8 +1798,9 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_17
 
+    .line 402
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget-boolean v1, p0, Lcom/tencent/bugly/proguard/u;->t:Z
@@ -1580,19 +1817,22 @@
 
     add-long/2addr v0, v2
 
+    .line 404
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget-boolean v3, p0, Lcom/tencent/bugly/proguard/u;->t:Z
 
     invoke-virtual {v2, v0, v1, v3}, Lcom/tencent/bugly/proguard/t;->a(JZ)V
 
-    :cond_15
+    .line 407
+    :cond_17
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v5, v1}, Lcom/tencent/bugly/proguard/t;->a(ILcom/tencent/bugly/proguard/am;)V
 
+    .line 409
     const-string v0, "[Upload] Session ID is invalid, will try again immediately (pid=%d | tid=%d)."
 
     const/4 v1, 0x2
@@ -1625,6 +1865,7 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->a(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 412
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     iget v1, p0, Lcom/tencent/bugly/proguard/u;->j:I
@@ -1651,6 +1892,7 @@
 
     goto/16 :goto_0
 
+    .line 390
     :catch_1
     move-exception v0
 
@@ -1694,15 +1936,18 @@
 
     invoke-static {v1, v3}, Lcom/tencent/bugly/proguard/w;->e(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 393
     const/4 v3, 0x1
 
     move v1, v4
 
     move-object v0, v2
 
+    .line 394
     goto/16 :goto_1
 
-    :cond_16
+    .line 416
+    :cond_18
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1729,7 +1974,8 @@
 
     goto/16 :goto_0
 
-    :cond_17
+    .line 425
+    :cond_19
     const-string v0, "[Upload] Received %d bytes"
 
     const/4 v2, 0x1
@@ -1748,14 +1994,17 @@
 
     invoke-static {v0, v2}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 427
     iget-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1d
 
+    .line 428
     array-length v0, v1
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
+    .line 430
     invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -1769,7 +2018,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1777,6 +2026,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
+    .line 431
     const-string v2, "[Upload] HTTP headers from server: key = %s, value = %s"
 
     const/4 v3, 0x2
@@ -1803,7 +2053,8 @@
 
     goto :goto_5
 
-    :cond_18
+    .line 434
+    :cond_1a
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1820,15 +2071,18 @@
 
     goto/16 :goto_0
 
-    :cond_19
+    .line 440
+    :cond_1b
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/proguard/t;->b([B)[B
 
     move-result-object v0
 
-    if-nez v0, :cond_1a
+    .line 441
+    if-nez v0, :cond_1c
 
+    .line 442
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1845,15 +2099,18 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    .line 448
+    :cond_1c
     const/4 v1, 0x2
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/y;->b([BI)[B
 
     move-result-object v0
 
-    if-nez v0, :cond_1c
+    .line 449
+    if-nez v0, :cond_1e
 
+    .line 450
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1870,18 +2127,21 @@
 
     goto/16 :goto_0
 
-    :cond_1b
+    :cond_1d
     move-object v0, v1
 
-    :cond_1c
+    .line 457
+    :cond_1e
     iget-boolean v1, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/a;->a([BZ)Lcom/tencent/bugly/proguard/am;
 
     move-result-object v1
 
-    if-nez v1, :cond_1d
+    .line 460
+    if-nez v1, :cond_1f
 
+    .line 461
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1898,16 +2158,19 @@
 
     goto/16 :goto_0
 
-    :cond_1d
+    .line 467
+    :cond_1f
     iget-boolean v0, p0, Lcom/tencent/bugly/proguard/u;->s:Z
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_20
 
+    .line 469
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->i:Lcom/tencent/bugly/proguard/t;
 
     invoke-virtual {v0, v5, v1}, Lcom/tencent/bugly/proguard/t;->a(ILcom/tencent/bugly/proguard/am;)V
 
-    :cond_1e
+    .line 472
+    :cond_20
     const-string v2, "[Upload] Response cmd is: %d, length of sBuffer is: %d"
 
     const/4 v0, 0x2
@@ -1928,7 +2191,7 @@
 
     iget-object v0, v1, Lcom/tencent/bugly/proguard/am;->c:[B
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_21
 
     const/4 v0, 0x0
 
@@ -1941,6 +2204,7 @@
 
     invoke-static {v2, v3}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 475
     iget-object v0, p0, Lcom/tencent/bugly/proguard/u;->f:Lcom/tencent/bugly/crashreport/common/info/a;
 
     iget-object v2, p0, Lcom/tencent/bugly/proguard/u;->g:Lcom/tencent/bugly/crashreport/common/strategy/a;
@@ -1949,8 +2213,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_22
 
+    .line 476
     const/4 v2, 0x0
 
     const/4 v3, 0x2
@@ -1965,14 +2230,16 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    .line 472
+    :cond_21
     iget-object v0, v1, Lcom/tencent/bugly/proguard/am;->c:[B
 
     array-length v0, v0
 
     goto :goto_6
 
-    :cond_20
+    .line 482
+    :cond_22
     const/4 v2, 0x1
 
     const/4 v3, 0x2
@@ -1987,7 +2254,8 @@
 
     goto/16 :goto_0
 
-    :cond_21
+    .line 486
+    :cond_23
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -2004,7 +2272,7 @@
 
     goto/16 :goto_0
 
-    :cond_22
+    :cond_24
     move-object v2, v0
 
     goto/16 :goto_2

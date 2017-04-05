@@ -1,5 +1,6 @@
 .class public final Lcom/tencent/bugly/proguard/w;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # static fields
@@ -14,14 +15,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 14
     const-string v0, "CrashReportInfo"
 
     sput-object v0, Lcom/tencent/bugly/proguard/w;->c:Ljava/lang/String;
 
+    .line 15
     const-string v0, "CrashReport"
 
     sput-object v0, Lcom/tencent/bugly/proguard/w;->a:Ljava/lang/String;
 
+    .line 22
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/tencent/bugly/proguard/w;->b:Z
@@ -32,22 +37,27 @@
 .method private static varargs a(ILjava/lang/String;[Ljava/lang/Object;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 38
     sget-boolean v2, Lcom/tencent/bugly/proguard/w;->b:Z
 
     if-nez v2, :cond_0
 
+    .line 65
     :goto_0
     return v0
 
+    .line 41
     :cond_0
     if-nez p1, :cond_2
 
     const-string p1, "null"
 
+    .line 43
     :cond_1
     :goto_1
     packed-switch p0, :pswitch_data_0
@@ -55,6 +65,7 @@
     :pswitch_0
     goto :goto_0
 
+    .line 45
     :pswitch_1
     sget-object v0, Lcom/tencent/bugly/proguard/w;->a:Ljava/lang/String;
 
@@ -62,8 +73,10 @@
 
     move v0, v1
 
+    .line 46
     goto :goto_0
 
+    .line 41
     :cond_2
     if-eqz p2, :cond_1
 
@@ -79,6 +92,7 @@
 
     goto :goto_1
 
+    .line 48
     :pswitch_2
     sget-object v0, Lcom/tencent/bugly/proguard/w;->c:Ljava/lang/String;
 
@@ -86,8 +100,10 @@
 
     move v0, v1
 
+    .line 50
     goto :goto_0
 
+    .line 52
     :pswitch_3
     sget-object v0, Lcom/tencent/bugly/proguard/w;->a:Ljava/lang/String;
 
@@ -95,8 +111,10 @@
 
     move v0, v1
 
+    .line 53
     goto :goto_0
 
+    .line 55
     :pswitch_4
     sget-object v0, Lcom/tencent/bugly/proguard/w;->a:Ljava/lang/String;
 
@@ -104,8 +122,10 @@
 
     move v0, v1
 
+    .line 57
     goto :goto_0
 
+    .line 59
     :pswitch_5
     sget-object v0, Lcom/tencent/bugly/proguard/w;->a:Ljava/lang/String;
 
@@ -113,8 +133,10 @@
 
     move v0, v1
 
+    .line 61
     goto :goto_0
 
+    .line 43
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -129,8 +151,10 @@
 .method public static varargs a(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 6
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 94
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v1, "[%s] %s"
@@ -153,6 +177,7 @@
 
     move-result-object v0
 
+    .line 95
     invoke-static {v5, v0, p2}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
 
     move-result v0
@@ -163,6 +188,8 @@
 .method public static varargs a(Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 77
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
@@ -175,11 +202,15 @@
 .method public static a(Ljava/lang/Throwable;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
-    sget-boolean v1, Lcom/tencent/bugly/proguard/w;->b:Z
+    .line 108
+    const/4 v1, 0x2
 
-    if-nez v1, :cond_0
+    sget-boolean v2, Lcom/tencent/bugly/proguard/w;->b:Z
+
+    if-nez v2, :cond_0
 
     :goto_0
     return v0
@@ -187,13 +218,11 @@
     :cond_0
     invoke-static {p0}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v1
-
-    const/4 v2, 0x2
+    move-result-object v2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v2, v1, v0}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
+    invoke-static {v1, v2, v0}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -203,6 +232,8 @@
 .method public static varargs b(Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 86
     const/4 v0, 0x5
 
     invoke-static {v0, p0, p1}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
@@ -215,11 +246,15 @@
 .method public static b(Ljava/lang/Throwable;)Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
-    sget-boolean v1, Lcom/tencent/bugly/proguard/w;->b:Z
+    .line 121
+    const/4 v1, 0x3
 
-    if-nez v1, :cond_0
+    sget-boolean v2, Lcom/tencent/bugly/proguard/w;->b:Z
+
+    if-nez v2, :cond_0
 
     :goto_0
     return v0
@@ -227,13 +262,11 @@
     :cond_0
     invoke-static {p0}, Lcom/tencent/bugly/proguard/y;->a(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v1
-
-    const/4 v2, 0x3
+    move-result-object v2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v2, v1, v0}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
+    invoke-static {v1, v2, v0}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -243,6 +276,8 @@
 .method public static varargs c(Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 90
     const/4 v0, 0x1
 
     invoke-static {v0, p0, p1}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
@@ -255,6 +290,8 @@
 .method public static varargs d(Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 99
     const/4 v0, 0x2
 
     invoke-static {v0, p0, p1}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z
@@ -267,6 +304,8 @@
 .method public static varargs e(Ljava/lang/String;[Ljava/lang/Object;)Z
     .locals 1
 
+    .prologue
+    .line 112
     const/4 v0, 0x3
 
     invoke-static {v0, p0, p1}, Lcom/tencent/bugly/proguard/w;->a(ILjava/lang/String;[Ljava/lang/Object;)Z

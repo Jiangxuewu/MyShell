@@ -1,5 +1,6 @@
 .class public final Lcom/tencent/bugly/proguard/v;
 .super Ljava/lang/Object;
+.source "BUGLY"
 
 
 # static fields
@@ -14,16 +15,21 @@
 .method protected constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 17
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
-    new-instance v0, Lcom/tencent/bugly/proguard/ax;
+    .line 22
+    new-instance v0, Lcom/tencent/bugly/proguard/v$1;
 
-    invoke-direct {v0}, Lcom/tencent/bugly/proguard/ax;-><init>()V
+    invoke-direct {v0, p0}, Lcom/tencent/bugly/proguard/v$1;-><init>(Lcom/tencent/bugly/proguard/v;)V
 
+    .line 30
     const/4 v1, 0x3
 
     invoke-static {v1, v0}, Ljava/util/concurrent/Executors;->newScheduledThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;
@@ -32,6 +38,7 @@
 
     iput-object v0, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
+    .line 38
     iget-object v0, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
     if-eqz v0, :cond_0
@@ -44,6 +51,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 39
     :cond_0
     const-string v0, "[AsyncTaskHandler] ScheduledExecutorService is not valiable!"
 
@@ -53,6 +61,7 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->d(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 47
     :cond_1
     return-void
 .end method
@@ -60,6 +69,8 @@
 .method public static declared-synchronized a()Lcom/tencent/bugly/proguard/v;
     .locals 2
 
+    .prologue
+    .line 53
     const-class v1, Lcom/tencent/bugly/proguard/v;
 
     monitor-enter v1
@@ -69,12 +80,14 @@
 
     if-nez v0, :cond_0
 
+    .line 54
     new-instance v0, Lcom/tencent/bugly/proguard/v;
 
     invoke-direct {v0}, Lcom/tencent/bugly/proguard/v;-><init>()V
 
     sput-object v0, Lcom/tencent/bugly/proguard/v;->a:Lcom/tencent/bugly/proguard/v;
 
+    .line 56
     :cond_0
     sget-object v0, Lcom/tencent/bugly/proguard/v;->a:Lcom/tencent/bugly/proguard/v;
     :try_end_0
@@ -84,6 +97,7 @@
 
     return-object v0
 
+    .line 53
     :catchall_0
     move-exception v0
 
@@ -97,10 +111,12 @@
 .method public final declared-synchronized a(Ljava/lang/Runnable;)Z
     .locals 6
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 122
     monitor-enter p0
 
     :try_start_0
@@ -110,6 +126,7 @@
 
     if-nez v2, :cond_1
 
+    .line 123
     const-string v1, "[AsyncTaskHandler] Async handler was closed, should not post task."
 
     const/4 v2, 0x0
@@ -120,15 +137,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 140
     :cond_0
     :goto_0
     monitor-exit p0
 
     return v0
 
+    .line 127
     :cond_1
     if-nez p1, :cond_2
 
+    .line 128
     :try_start_1
     const-string v1, "[AsyncTaskHandler] Task input is null."
 
@@ -142,6 +162,7 @@
 
     goto :goto_0
 
+    .line 122
     :catchall_0
     move-exception v0
 
@@ -149,6 +170,7 @@
 
     throw v0
 
+    .line 132
     :cond_2
     :try_start_2
     const-string v2, "[AsyncTaskHandler] Post a normal task: %s"
@@ -173,6 +195,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 134
     :try_start_3
     iget-object v2, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
@@ -183,16 +206,20 @@
 
     move v0, v1
 
+    .line 135
     goto :goto_0
 
+    .line 136
     :catch_0
     move-exception v1
 
+    .line 137
     :try_start_4
     sget-boolean v2, Lcom/tencent/bugly/b;->c:Z
 
     if-eqz v2, :cond_0
 
+    .line 138
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
@@ -203,12 +230,14 @@
 .method public final declared-synchronized a(Ljava/lang/Runnable;J)Z
     .locals 6
 
+    .prologue
     const-wide/16 v2, 0x0
 
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 94
     monitor-enter p0
 
     :try_start_0
@@ -218,6 +247,7 @@
 
     if-nez v4, :cond_1
 
+    .line 95
     const-string v1, "[AsyncTaskHandler] Async handler was closed, should not post task."
 
     const/4 v2, 0x0
@@ -228,15 +258,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 114
     :cond_0
     :goto_0
     monitor-exit p0
 
     return v0
 
+    .line 99
     :cond_1
     if-nez p1, :cond_2
 
+    .line 100
     :try_start_1
     const-string v1, "[AsyncTaskHandler] Task input is null."
 
@@ -250,6 +283,7 @@
 
     goto :goto_0
 
+    .line 94
     :catchall_0
     move-exception v0
 
@@ -257,11 +291,13 @@
 
     throw v0
 
+    .line 104
     :cond_2
     cmp-long v4, p2, v2
 
     if-lez v4, :cond_3
 
+    .line 106
     :goto_1
     :try_start_2
     const-string v2, "[AsyncTaskHandler] Post a delay(time: %dms) task: %s"
@@ -294,6 +330,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 108
     :try_start_3
     iget-object v2, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
@@ -306,21 +343,26 @@
 
     move v0, v1
 
+    .line 109
     goto :goto_0
 
     :cond_3
     move-wide p2, v2
 
+    .line 104
     goto :goto_1
 
+    .line 110
     :catch_0
     move-exception v1
 
+    .line 111
     :try_start_4
     sget-boolean v2, Lcom/tencent/bugly/b;->c:Z
 
     if-eqz v2, :cond_0
 
+    .line 112
     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
@@ -331,6 +373,8 @@
 .method public final declared-synchronized b()V
     .locals 2
 
+    .prologue
+    .line 176
     monitor-enter p0
 
     :try_start_0
@@ -346,6 +390,7 @@
 
     if-nez v0, :cond_0
 
+    .line 177
     const-string v0, "[AsyncTaskHandler] Close async handler."
 
     const/4 v1, 0x0
@@ -354,17 +399,20 @@
 
     invoke-static {v0, v1}, Lcom/tencent/bugly/proguard/w;->c(Ljava/lang/String;[Ljava/lang/Object;)Z
 
+    .line 178
     iget-object v0, p0, Lcom/tencent/bugly/proguard/v;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ScheduledExecutorService;->shutdownNow()Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 188
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 176
     :catchall_0
     move-exception v0
 
@@ -376,6 +424,8 @@
 .method public final declared-synchronized c()Z
     .locals 1
 
+    .prologue
+    .line 196
     monitor-enter p0
 
     :try_start_0
