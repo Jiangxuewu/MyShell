@@ -140,7 +140,7 @@ public class LeTuApi {
         } else if ("升级礼包".equals(feeName)) {
             return "10";
         } else {
-            return "10";//9
+            return "7";//9
         }
     }
 }

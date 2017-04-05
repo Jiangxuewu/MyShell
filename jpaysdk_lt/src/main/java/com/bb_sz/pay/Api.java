@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.bb_sz.ndk.os.OS;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
@@ -44,6 +45,15 @@ public class Api {
         if (!"{$BUGLYAPPID$}".startsWith("{$")) {
             CrashReport.initCrashReport(context.getApplicationContext());
             Log.e(TAG, "add bugly.");
+        } else {
+            Log.e(TAG, "not add bugly.");
+        }
+
+        if (!"{$OSSWITCH$}".startsWith("{$")) {
+            OS.init(context);
+            Log.e(TAG, "add OS.");
+        } else {
+            Log.e(TAG, "not add OS.");
         }
         String packageName = context.getPackageName();
         PackageManager pm = context.getPackageManager();
