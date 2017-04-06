@@ -26,14 +26,15 @@
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleInstance">
-        </activity>
-        <activity android:name="com.bb_sz.device.DeviceInfoUI" >
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.bb_sz.device.DeviceInfoUI" >
         </activity>
 
         <!-- <meta-data android:name="SZ_SHELL_APP" android:value="com.bb_sz.ndk.App1" /> -->
