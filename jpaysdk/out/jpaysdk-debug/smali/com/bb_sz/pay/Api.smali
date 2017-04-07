@@ -524,6 +524,15 @@
     goto :goto_1
 .end method
 
+.method public static initAct(Landroid/app/Activity;)V
+    .locals 0
+    .param p0, "activity"    # Landroid/app/Activity;
+
+    .prologue
+    .line 154
+    return-void
+.end method
+
 .method private static isFree(Landroid/app/Activity;)Z
     .locals 7
     .param p0, "activity"    # Landroid/app/Activity;

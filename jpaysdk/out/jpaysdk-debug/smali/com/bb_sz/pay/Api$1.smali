@@ -38,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 77
+    .line 82
     iput-object p1, p0, Lcom/bb_sz/pay/Api$1;->val$activity:Landroid/app/Activity;
 
     iput-object p2, p0, Lcom/bb_sz/pay/Api$1;->val$price:Ljava/lang/String;
@@ -64,7 +64,7 @@
     .locals 7
 
     .prologue
-    .line 80
+    .line 85
     iget-object v0, p0, Lcom/bb_sz/pay/Api$1;->val$activity:Landroid/app/Activity;
 
     iget-object v1, p0, Lcom/bb_sz/pay/Api$1;->val$price:Ljava/lang/String;
@@ -81,6 +81,6 @@
 
     invoke-static/range {v0 .. v6}, Lcom/bb_sz/pay/Api;->_charge(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/jpay/sdk/IChargeResult;)V
 
-    .line 81
+    .line 86
     return-void
 .end method

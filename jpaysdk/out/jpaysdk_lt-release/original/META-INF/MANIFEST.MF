@@ -180,7 +180,7 @@ Name: assets/jpay_uid.txt
 SHA1-Digest: ELSpOvTwucqlsMn3o4K1rNFcmss=
 
 Name: classes.dex
-SHA1-Digest: 2FFgazBHiEShazySajEzFNgMOkw=
+SHA1-Digest: Avl76jZk11DYjMtfFZDWGPX+vqg=
 
 Name: assets/unipaysdk_res/unicom_resource.dat
 SHA1-Digest: Ba6fDUu/J50rW0eFHvXe4ZtucCo=
