@@ -146,7 +146,7 @@ public class FullPayManager implements View.OnClickListener {
         ImageView close = new ImageView(activity);
         FrameLayout.LayoutParams fllpclose = new FrameLayout.LayoutParams(dip2px(activity, 32f), dip2px(activity, 35f));
         fllpclose.gravity = /*Gravity.TOP | */Gravity.RIGHT;
-        if (Build.BRAND.contains("smartisan")) {//jian guo
+        if (Build.BRAND.toLowerCase().contains("smartisan")) {//jian guo
             fllpclose.topMargin = dip2px(activity, 25);
         }
         close.setLayoutParams(fllpclose);
