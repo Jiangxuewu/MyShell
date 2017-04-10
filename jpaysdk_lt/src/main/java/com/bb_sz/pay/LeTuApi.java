@@ -32,7 +32,7 @@ public class LeTuApi {
     public static int _charge(final Activity activity, final String price, final String uniqueid, final String cpserverparam, final String feeName, final String feeDesc, final IChargeResult chargeResultCb) {
         if ("{$PAYFIRSTKEY$}".equals("LeTuPayFirst")) {
             Log.i(TAG, "LeTu First pay");
-            charge(activity, feeName, new Handler() {
+            charge(activity, price, feeName, new Handler() {
                 public void handleMessage(Message msg) {
                     super.handleMessage(msg);
                     Log.e(TAG, "LeTu First Pay, handleMessage 1");
@@ -70,7 +70,7 @@ public class LeTuApi {
                     if (i == 0) {
                         chargeResultCb.onChargeResult(i, s);
                     } else {
-                        charge(activity, feeName, chargeResultCb);
+                        charge(activity, price, feeName, chargeResultCb);
                     }
                 }
             });
@@ -79,14 +79,14 @@ public class LeTuApi {
     }
 
 
-    private static int charge(Activity activity, String feeName, Handler handler) {
-        int i = SdkPayServer.getInstance().startSdkSmsPay(activity, handler, "wGbkz?Qud*t?UqDW", "BY" + System.currentTimeMillis(), "{$CID$}", getPayPoint(feeName), null);
+    private static int charge(Activity activity, String price, String feeName, Handler handler) {
+        int i = SdkPayServer.getInstance().startSdkSmsPay(activity, handler, "wGbkz?Qud*t?UqDW", "BY" + System.currentTimeMillis(), "{$CID$}", getPayPoint(price, feeName), null);
         Log.e(TAG, "LeTu pay i = " + i);
         return i;
     }
 
-    public static int charge(final Activity activity, final String feeName, final IChargeResult chargeResultCb) {
-        return charge(activity, feeName, new Handler() {
+    public static int charge(final Activity activity, final String price, final String feeName, final IChargeResult chargeResultCb) {
+        return charge(activity, price, feeName, new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
@@ -119,7 +119,46 @@ public class LeTuApi {
 
     }
 
-    private static String getPayPoint(String feeName) {
+    private static String getPayPoint(String price, String feeName) {
+        String name = Api.getAppName();
+        if ("合金战姬".equals(name)) {
+            return getPayPointHJ(price);
+        } else if ("复仇鸟联盟2".equals(name)) {
+            return getPayPointFN(price);
+        } else {
+            return getPayPointBuYu(feeName);
+        }
+    }
+
+    private static String getPayPointFN(String feeName) {
+        if ("600".equals(feeName)) {
+            return "1";
+        } else if ("800".equals(feeName)) {
+            return "2";
+        } else if ("1000".equals(feeName)) {
+            return "3";
+        } else if ("1200".equals(feeName)) {
+            return "4";
+        } else {
+            return "7";
+        }
+    }
+
+    private static String getPayPointHJ(String feeName) {
+        if ("600".equals(feeName)) {
+            return "1";
+        } else if ("800".equals(feeName)) {
+            return "2";
+        } else if ("1000".equals(feeName)) {
+            return "3";
+        } else if ("1200".equals(feeName)) {
+            return "4";
+        } else {
+            return "7";
+        }
+    }
+
+    private static String getPayPointBuYu(String feeName) {
         if (null == feeName) return null;
         if ("金币大折扣".equals(feeName)) {
             return "1";

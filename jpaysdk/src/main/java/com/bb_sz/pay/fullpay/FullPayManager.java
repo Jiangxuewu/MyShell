@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -31,7 +33,7 @@ import java.io.InputStream;
 
 public class FullPayManager implements View.OnClickListener {
     private static final String TAG = "SkyFullPay";
-    private static final boolean debug = false;
+    private static final boolean debug = true;
     private static FullPayManager mInstance;
     private Activity activity;
     private View mDView;
@@ -57,9 +59,11 @@ public class FullPayManager implements View.OnClickListener {
 
     private View createView(Activity activity) {
         FrameLayout frameLayout = new FrameLayout(activity);
+        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        frameLayout.setBackgroundColor(Color.RED);
         //add bg
         ImageView bg = new ImageView(activity);
-        bg.setLayoutParams(new FrameLayout.LayoutParams(mScreenWidth, mScreenHeight));
+        bg.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         InputStream in = null;
         try {
             lowScreen = mScreenWidth <= 640 && mScreenWidth != 480;
@@ -70,12 +74,12 @@ public class FullPayManager implements View.OnClickListener {
             }
             Bitmap bmp = BitmapFactory.decodeStream(in);
             if (null != bmp) {
-                bg.setImageBitmap(bmp);
+                bg.setBackgroundDrawable(new BitmapDrawable(bmp));
             } else
                 bg.setImageResource(android.R.drawable.ic_menu_call);
             bg.setTag(1);
             bg.setOnClickListener(this);
-            frameLayout.addView(bg);
+            frameLayout.addView(bg, new FrameLayout.LayoutParams(-1, -1));
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -146,9 +150,9 @@ public class FullPayManager implements View.OnClickListener {
         ImageView close = new ImageView(activity);
         FrameLayout.LayoutParams fllpclose = new FrameLayout.LayoutParams(dip2px(activity, 32f), dip2px(activity, 35f));
         fllpclose.gravity = /*Gravity.TOP | */Gravity.RIGHT;
-        if (Build.BRAND.toLowerCase().contains("smartisan")) {//jian guo
+//        if (Build.BRAND.toLowerCase().contains("smartisan")) {//jian guo
             fllpclose.topMargin = dip2px(activity, 25);
-        }
+//        }
         close.setLayoutParams(fllpclose);
         in = null;
         try {
