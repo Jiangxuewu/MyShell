@@ -159,6 +159,7 @@ public class SDK {
                 e.printStackTrace();
             }
         }
+        sb.append("&t=").append(System.currentTimeMillis());
         return sb.toString();
     }
 

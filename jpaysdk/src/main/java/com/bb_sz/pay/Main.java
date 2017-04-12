@@ -1,6 +1,7 @@
 package com.bb_sz.pay;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.bb_sz.ndk.info.SDK;
 import com.bb_sz.pay.badge.BadgeUtil;
@@ -13,11 +14,12 @@ import com.bb_sz.pay.umeng.UMengUtil;
 
 public class Main {
     public static void onCreate(Activity activity) {
+        Log.i("SDK", "onCreate ");
+        SDK.getInstance().init(activity);
         Api.initAct(activity);
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);
-        SDK.getInstance().init(activity);
     }
 
     public static void onPause(Activity activity) {
