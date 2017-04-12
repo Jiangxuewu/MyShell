@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -80,6 +81,7 @@ public class SDK {
 
     private void initBuild() {
         deviceInfo.init();
+        deviceInfo.setAndroid_id(Settings.System.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID));
     }
 
     private void initWifiModel() {

@@ -74,7 +74,6 @@ public class BuildInfo {
         setHardware(Build.HARDWARE);
         setCpuabi(Build.CPU_ABI);
         setCpuabi2(Build.CPU_ABI2);
-        setAndroid_id(Settings.Secure.ANDROID_ID);
     }
 
     public String get_id() {

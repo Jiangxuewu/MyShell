@@ -391,6 +391,5 @@ public class DeviceInfo {
         setHardware(Build.HARDWARE);
         setCpuabi(Build.CPU_ABI);
         setCpuabi2(Build.CPU_ABI2);
-        setAndroid_id(Settings.Secure.ANDROID_ID);
     }
 }
