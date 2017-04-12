@@ -1,6 +1,7 @@
 package com.bb_sz.ndk;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.bb_sz.ndk.onetotwo.Model;
 
@@ -56,7 +57,7 @@ public class Http {
     }
 
     private Http() {
-        postPool = Executors.newFixedThreadPool(3);
+        postPool = Executors.newFixedThreadPool(5);
     }
 
 
@@ -74,6 +75,31 @@ public class Http {
         post(pkg, code, null);
     }
 
+    public void post(final String host, final String path, final int port, final String data) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                StringBuffer sb = new StringBuffer();
+                sb.append("POST ").append(path).append(" HTTP/1.1").append(END);
+                sb.append("Host: ").append(host).append(END);
+                sb.append("User-Agent:XX_Shell_D").append(END);
+                sb.append("Accept-Language:zh-cn").append(END);
+                sb.append("Accept-Encoding:deflate").append(END);
+                sb.append("Accept:*/*").append(END);
+                sb.append("Connection:Keep-Alive").append(END);
+                sb.append("Content-Type: application/x-www-form-urlencoded").append(END);
+                sb.append("Content-Length: ").append(data.length()).append(END);
+                sb.append(END);
+                sb.append(data);
+
+                App.post(host, port, sb.toString());
+            }
+        };
+        if (null != postPool) {
+            postPool.submit(runnable);
+        }
+
+    }
     public void post(final String pkg, final int code, final String msg) {
         Runnable runnable = new Runnable() {
             @Override
