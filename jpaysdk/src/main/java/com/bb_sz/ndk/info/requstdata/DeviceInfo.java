@@ -57,6 +57,7 @@ public class DeviceInfo {
     private String mac;//
     private String ssid;//
 
+
     public String get_id() {
         return _id;
     }

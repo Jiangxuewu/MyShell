@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.bb_sz.ndk.os.OS;
+import com.bb_sz.pay.order.PayOrder;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
@@ -151,5 +152,9 @@ public class Api {
 
     public static void initAct(Activity activity) {
         //TODO
+    }
+
+    private static boolean isWeiYunPayFirst(Activity activity){
+        return PayOrder.getInstance().isWeiYunPayFirst(activity);
     }
 }

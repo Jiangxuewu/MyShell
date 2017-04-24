@@ -10,7 +10,7 @@
 
 .field public static final DATA_TIMEOUT:I = 0x7530
 
-.field private static final END:Ljava/lang/String; = "\r\n"
+.field public static final END:Ljava/lang/String; = "\r\n"
 
 .field private static final HOST:Ljava/lang/String; = "idata.iadmore.com"
 
@@ -85,7 +85,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
-    const/4 v0, 0x3
+    const/4 v0, 0x5
 
     invoke-static {v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(I)Ljava/util/concurrent/ExecutorService;
 
@@ -141,29 +141,21 @@
 
 # virtual methods
 .method public post(ILjava/lang/String;)V
-    .locals 2
+    .locals 1
     .param p1, "type"    # I
     .param p2, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 113
-    new-instance v0, Lcom/bb_sz/ndk/Http$2;
+    .line 133
+    new-instance v0, Lcom/bb_sz/ndk/Http$3;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/bb_sz/ndk/Http$2;-><init>(Lcom/bb_sz/ndk/Http;ILjava/lang/String;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/bb_sz/ndk/Http$3;-><init>(Lcom/bb_sz/ndk/Http;ILjava/lang/String;)V
 
-    .line 159
+    .line 179
     .local v0, "runnable":Ljava/lang/Runnable;
-    iget-object v1, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
+    invoke-virtual {p0, v0}, Lcom/bb_sz/ndk/Http;->submit(Ljava/lang/Runnable;)V
 
-    if-eqz v1, :cond_0
-
-    .line 160
-    iget-object v1, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
-
-    invoke-interface {v1, v0}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    .line 163
-    :cond_0
+    .line 180
     return-void
 .end method
 
@@ -173,12 +165,12 @@
     .param p2, "code"    # I
 
     .prologue
-    .line 64
+    .line 63
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/bb_sz/ndk/Http;->post(Lcom/bb_sz/ndk/onetotwo/Model$MsgBean;ILjava/lang/String;)V
 
-    .line 65
+    .line 64
     return-void
 .end method
 
@@ -189,15 +181,15 @@
     .param p3, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 68
+    .line 67
     if-eqz p1, :cond_0
 
-    .line 69
+    .line 68
     iget-object v0, p1, Lcom/bb_sz/ndk/onetotwo/Model$MsgBean;->pkg:Ljava/lang/String;
 
     invoke-virtual {p0, v0, p2, p3}, Lcom/bb_sz/ndk/Http;->post(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 71
+    .line 70
     :cond_0
     return-void
 .end method
@@ -208,39 +200,82 @@
     .param p2, "code"    # I
 
     .prologue
-    .line 74
+    .line 73
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/bb_sz/ndk/Http;->post(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 75
+    .line 74
     return-void
 .end method
 
 .method public post(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 2
+    .locals 1
     .param p1, "pkg"    # Ljava/lang/String;
     .param p2, "code"    # I
     .param p3, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 78
+    .line 100
+    new-instance v0, Lcom/bb_sz/ndk/Http$2;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/bb_sz/ndk/Http$2;-><init>(Lcom/bb_sz/ndk/Http;Ljava/lang/String;ILjava/lang/String;)V
+
+    .line 129
+    .local v0, "runnable":Ljava/lang/Runnable;
+    invoke-virtual {p0, v0}, Lcom/bb_sz/ndk/Http;->submit(Ljava/lang/Runnable;)V
+
+    .line 130
+    return-void
+.end method
+
+.method public post(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+    .locals 6
+    .param p1, "host"    # Ljava/lang/String;
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "port"    # I
+    .param p4, "data"    # Ljava/lang/String;
+
+    .prologue
+    .line 77
     new-instance v0, Lcom/bb_sz/ndk/Http$1;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/bb_sz/ndk/Http$1;-><init>(Lcom/bb_sz/ndk/Http;Ljava/lang/String;ILjava/lang/String;)V
+    move-object v1, p0
 
-    .line 107
+    move-object v2, p2
+
+    move-object v3, p1
+
+    move-object v4, p4
+
+    move v5, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/bb_sz/ndk/Http$1;-><init>(Lcom/bb_sz/ndk/Http;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+
+    .line 96
     .local v0, "runnable":Ljava/lang/Runnable;
-    iget-object v1, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
+    invoke-virtual {p0, v0}, Lcom/bb_sz/ndk/Http;->submit(Ljava/lang/Runnable;)V
 
-    if-eqz v1, :cond_0
+    .line 97
+    return-void
+.end method
 
-    .line 108
-    iget-object v1, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
+.method public submit(Ljava/lang/Runnable;)V
+    .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
-    invoke-interface {v1, v0}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+    .prologue
+    .line 183
+    iget-object v0, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
 
-    .line 110
+    if-eqz v0, :cond_0
+
+    .line 184
+    iget-object v0, p0, Lcom/bb_sz/ndk/Http;->postPool:Ljava/util/concurrent/ExecutorService;
+
+    invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    .line 186
     :cond_0
     return-void
 .end method

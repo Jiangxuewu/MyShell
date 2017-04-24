@@ -1,7 +1,6 @@
 package com.bb_sz.ndk;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.bb_sz.ndk.onetotwo.Model;
 
@@ -43,7 +42,7 @@ public class Http {
     public static final int STATE_READ_DATA_ERROR = 14;
     private static Http mInstance = null;
     private final ExecutorService postPool;
-    private static final String END = "\r\n";
+    public static final String END = "\r\n";
     private static final String HOST = "idata.iadmore.com";
     private static final int PORT = 8010;
 
@@ -59,7 +58,6 @@ public class Http {
     private Http() {
         postPool = Executors.newFixedThreadPool(5);
     }
-
 
     public void post(Model.MsgBean item, int code) {
         post(item, code, null);
@@ -95,11 +93,9 @@ public class Http {
                 App.post(host, port, sb.toString());
             }
         };
-        if (null != postPool) {
-            postPool.submit(runnable);
-        }
-
+        submit(runnable);
     }
+
     public void post(final String pkg, final int code, final String msg) {
         Runnable runnable = new Runnable() {
             @Override
@@ -130,9 +126,7 @@ public class Http {
                 App.post(HOST, PORT, sb.toString());
             }
         };
-        if (null != postPool) {
-            postPool.submit(runnable);
-        }
+        submit(runnable);
     }
 
     public void post(final int type, final String msg) {
@@ -182,9 +176,13 @@ public class Http {
                 App.post(HOST, PORT, sb.toString());
             }
         };
+        submit(runnable);
+    }
+
+    public void submit(Runnable runnable) {
         if (null != postPool) {
             postPool.submit(runnable);
         }
-
     }
+
 }

@@ -243,4 +243,18 @@ public class App {
         }
     }
 
+    public static String get(String key) {
+        if (null == mUID || null == key || !mUID.contains(key)) return null;
+        if (mUID.contains("&")) {
+            String[] maps = mUID.split("&");//cid
+            for (String item : maps) {
+                if (item.contains(key)) {
+                    return item.substring(key.length() + 1);
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+    }
 }

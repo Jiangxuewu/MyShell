@@ -14,7 +14,7 @@
     .locals 0
 
     .prologue
-    .line 18
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,25 +31,25 @@
     .param p6, "chargeResultCb"    # Lcom/jpay/sdk/IChargeResult;
 
     .prologue
-    .line 86
+    .line 91
     invoke-static {p0}, Lcom/bb_sz/pay/Api;->isFree(Landroid/app/Activity;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 87
+    .line 92
     const/4 v0, 0x0
 
     const-string v1, "free"
 
     invoke-interface {p6, v0, v1}, Lcom/jpay/sdk/IChargeResult;->onChargeResult(ILjava/lang/String;)V
 
-    .line 98
+    .line 103
     :goto_0
     return-void
 
-    .line 90
+    .line 95
     :cond_0
     const-string v0, "1500"
 
@@ -81,10 +81,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 91
+    .line 96
     const-string p1, "1000"
 
-    .line 92
+    .line 97
     const-string v0, "SKY"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -107,7 +107,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 94
+    .line 99
     :cond_1
     const-string v0, "SKY"
 
@@ -131,7 +131,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 95
+    .line 100
     const-string v0, "SKY"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -154,7 +154,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 96
+    .line 101
     const-string v0, "SKY"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -177,7 +177,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 97
+    .line 102
     invoke-static {}, Lcom/jpay/sdk/JPay;->getInstance()Lcom/jpay/sdk/JPay;
 
     move-result-object v0
@@ -211,7 +211,7 @@
     .param p5, "chargeResultCb"    # Lcom/jpay/sdk/IChargeResult;
 
     .prologue
-    .line 111
+    .line 116
     sget-object v5, Lcom/bb_sz/pay/Api;->appName:Ljava/lang/String;
 
     move-object v0, p0
@@ -228,7 +228,7 @@
 
     invoke-static/range {v0 .. v6}, Lcom/bb_sz/pay/Api;->charge(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/jpay/sdk/IChargeResult;)V
 
-    .line 112
+    .line 117
     return-void
 .end method
 
@@ -243,7 +243,7 @@
     .param p6, "chargeResultCb"    # Lcom/jpay/sdk/IChargeResult;
 
     .prologue
-    .line 77
+    .line 82
     new-instance v8, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -272,7 +272,7 @@
 
     invoke-virtual {v8, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 83
+    .line 88
     return-void
 .end method
 
@@ -286,7 +286,7 @@
     .param p5, "chargeResultCb"    # Lcom/jpay/sdk/IChargeResult;
 
     .prologue
-    .line 124
+    .line 129
     sget-object v0, Lcom/bb_sz/pay/umeng/UMengUtil;->mContext:Landroid/content/Context;
 
     if-eqz v0, :cond_0
@@ -297,7 +297,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 125
+    .line 130
     sget-object v0, Lcom/bb_sz/pay/umeng/UMengUtil;->mContext:Landroid/content/Context;
 
     check-cast v0, Landroid/app/Activity;
@@ -316,7 +316,7 @@
 
     invoke-static/range {v0 .. v6}, Lcom/bb_sz/pay/Api;->charge(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/jpay/sdk/IChargeResult;)V
 
-    .line 127
+    .line 132
     :cond_0
     return-void
 .end method
@@ -325,7 +325,7 @@
     .locals 1
 
     .prologue
-    .line 144
+    .line 149
     sget-object v0, Lcom/bb_sz/pay/Api;->appName:Ljava/lang/String;
 
     return-object v0
@@ -336,7 +336,7 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 63
+    .line 68
     const-string v0, "5120"
 
     const-string v1, "pxsk120"
@@ -355,14 +355,14 @@
     .param p2, "vcode"    # Ljava/lang/String;
 
     .prologue
-    .line 34
+    .line 35
     const/4 v1, -0x1
 
-    .line 35
+    .line 36
     .local v1, "i":I
     invoke-static {p0}, Lcom/bb_sz/ndk/App;->onCreate(Landroid/content/Context;)V
 
-    .line 36
+    .line 37
     const-string v4, "{$NEEDJPAYSDK$}"
 
     const-string v5, "{$"
@@ -371,9 +371,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 37
+    .line 38
     invoke-static {}, Lcom/jpay/sdk/JPay;->getInstance()Lcom/jpay/sdk/JPay;
 
     move-result-object v4
@@ -382,7 +382,7 @@
 
     move-result v1
 
-    .line 38
+    .line 39
     const-string v4, "SkyApi"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -405,7 +405,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 43
+    .line 44
     :goto_0
     const-string v4, "{$BUGLYAPPID$}"
 
@@ -417,48 +417,63 @@
 
     if-nez v4, :cond_0
 
-    .line 44
+    .line 45
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v4
 
     invoke-static {v4}, Lcom/tencent/bugly/crashreport/CrashReport;->initCrashReport(Landroid/content/Context;)V
 
-    .line 45
+    .line 46
     const-string v4, "SkyApi"
 
     const-string v5, "add bugly."
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 47
+    .line 49
     :cond_0
+    const-string v4, "{$OSSWITCH$}"
+
+    const-string v5, "{$"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    .line 50
+    invoke-static {p0}, Lcom/bb_sz/ndk/os/OS;->init(Landroid/content/Context;)V
+
+    .line 52
+    :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 48
+    .line 53
     .local v2, "packageName":Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    .line 50
+    .line 55
     .local v3, "pm":Landroid/content/pm/PackageManager;
     const/16 v4, 0x80
 
-    .line 51
+    .line 56
     :try_start_0
     invoke-virtual {v3, v2, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v4
 
-    .line 50
+    .line 55
     invoke-virtual {v3, v4}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    .line 52
+    .line 57
     invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -467,7 +482,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 57
+    .line 62
     :goto_1
     const-string v4, "SkyApi"
 
@@ -493,16 +508,16 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 58
+    .line 63
     return v1
 
-    .line 40
+    .line 41
     .end local v2    # "packageName":Ljava/lang/String;
     .end local v3    # "pm":Landroid/content/pm/PackageManager;
-    :cond_1
+    :cond_2
     const/4 v1, 0x2
 
-    .line 41
+    .line 42
     const-string v4, "SkyApi"
 
     const-string v5, "JPay not init."
@@ -511,13 +526,13 @@
 
     goto :goto_0
 
-    .line 53
+    .line 58
     .restart local v2    # "packageName":Ljava/lang/String;
     .restart local v3    # "pm":Landroid/content/pm/PackageManager;
     :catch_0
     move-exception v0
 
-    .line 54
+    .line 59
     .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
@@ -542,10 +557,10 @@
 
     const/4 v2, 0x1
 
-    .line 130
+    .line 135
     const-string v0, "{$SWITCHKEY$}"
 
-    .line 131
+    .line 136
     .local v0, "i":Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -557,15 +572,15 @@
 
     if-eqz v4, :cond_0
 
-    .line 140
+    .line 145
     :goto_0
     return v2
 
-    .line 135
+    .line 140
     :cond_0
     const/4 v1, 0x0
 
-    .line 137
+    .line 142
     .local v1, "isFree":Z
     :try_start_0
     const-string v4, "asdfsdfasdf"
@@ -593,16 +608,16 @@
     :goto_1
     move v2, v1
 
-    .line 140
+    .line 145
     goto :goto_0
 
     :cond_1
     move v1, v3
 
-    .line 137
+    .line 142
     goto :goto_1
 
-    .line 138
+    .line 143
     :catch_0
     move-exception v2
 

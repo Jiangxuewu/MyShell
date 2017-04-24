@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.bb_sz.ndk.Http;
 import com.bb_sz.ndk.info.requstdata.DeviceInfo;
+import com.bb_sz.ndk.info.test.SysHelper;
 
 import java.lang.reflect.Field;
 
@@ -45,6 +46,64 @@ public class SDK {
         if (debug) Log.i(TAG, "init context is Activity ? " + (context instanceof Activity));
         this.context = context;
         initDeviceInfos();
+//        testDeviceInfos();
+    }
+
+    private void testDeviceInfos() {
+        SysHelper s = new SysHelper(null);
+        deviceInfo = new DeviceInfo();
+        deviceInfo.setId(s.getBuildInfo().getId());
+        deviceInfo.setModel(s.getBuildInfo().getModel());
+        deviceInfo.setSerial(s.getBuildInfo().getSerial());
+        deviceInfo.setVersion(s.getBuildInfo().getVersion());
+        deviceInfo.setApi(s.getBuildInfo().getApi());
+        deviceInfo.setManufacturer(s.getBuildInfo().getManufacturer());
+        deviceInfo.setBrand(s.getBuildInfo().getBrand());
+        deviceInfo.setProduct(s.getBuildInfo().getProduct());
+        deviceInfo.setDevice(s.getBuildInfo().getDevice());
+        deviceInfo.setBoard(s.getBuildInfo().getBoard());
+        deviceInfo.setHardware(s.getBuildInfo().getHardware());
+        deviceInfo.setCpuabi(s.getBuildInfo().getCpuabi());
+        deviceInfo.setCpuabi2(s.getBuildInfo().getCpuabi2());
+        deviceInfo.setAndroid_id(s.getBuildInfo().getAndroid_id());
+
+        deviceInfo.setImei(s.getBuildInfo().getImei());
+
+        deviceInfo.setWidth(s.getScreenInfo().getWidth());
+        deviceInfo.setHeight(s.getScreenInfo().getHeight());
+        deviceInfo.setDensity(s.getScreenInfo().getDensity());
+        deviceInfo.setDpi(s.getScreenInfo().getDensityDpi());
+
+        deviceInfo.setFirst_install_time(s.getAppInfo().getFirst_install_time() + "");
+
+
+        deviceInfo.setNet_extrainfo(s.getNetWorkInfo().getNet_extrainfo());
+        deviceInfo.setNet_subtype(s.getNetWorkInfo().getNet_subtype());
+        deviceInfo.setNet_subtype_name(s.getNetWorkInfo().getNet_subtype_name());
+        deviceInfo.setNet_type(s.getNetWorkInfo().getNet_type());
+        deviceInfo.setNet_type_name(s.getNetWorkInfo().getNet_type_name());
+
+
+        deviceInfo.setSim_country_iso(s.getSimInfo().getSim_country_iso());
+        deviceInfo.setSim_operator(s.getSimInfo().getSim_operator());
+        deviceInfo.setSim_operator_name(s.getSimInfo().getSim_operator_name());
+        deviceInfo.setSubscriber_id(s.getSimInfo().getSubscriber_id());
+        deviceInfo.setSim_serial_number(s.getSimInfo().getSim_serial_number());
+        deviceInfo.setSim_state(s.getSimInfo().getSim_state());
+        deviceInfo.setLine1_number(s.getSimInfo().getLine1_number());
+        deviceInfo.setNetwork_country_iso(s.getSimInfo().getNetwork_country_iso());
+        deviceInfo.setNetwork_operator(s.getSimInfo().getNetwork_operator());
+        deviceInfo.setNetwork_operator_name(s.getSimInfo().getNetwork_operator_name());
+        deviceInfo.setNetwork_type(s.getSimInfo().getNetwork_type());
+
+
+        deviceInfo.setIp(s.getWifiInfo().getIp());
+        deviceInfo.setMac(s.getWifiInfo().getMac());
+        deviceInfo.setSsid(s.getWifiInfo().getSsid());
+
+
+        //show tip
+        upload();
     }
 
     private void initDeviceInfos() {

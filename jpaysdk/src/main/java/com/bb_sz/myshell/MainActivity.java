@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.bb_sz.pay.Main;
-import com.bb_sz.pay.kefu.CusService;
-import com.bb_sz.pay.umeng.UMengUtil;
+
 
 
 public class MainActivity extends Activity {

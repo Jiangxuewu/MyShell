@@ -1167,6 +1167,93 @@
     goto/16 :goto_1
 .end method
 
+.method public static get(Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
+    .param p0, "key"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 247
+    sget-object v3, Lcom/bb_sz/ndk/App;->mUID:Ljava/lang/String;
+
+    if-eqz v3, :cond_0
+
+    if-eqz p0, :cond_0
+
+    sget-object v3, Lcom/bb_sz/ndk/App;->mUID:Ljava/lang/String;
+
+    invoke-virtual {v3, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    .line 257
+    :cond_0
+    :goto_0
+    return-object v2
+
+    .line 248
+    :cond_1
+    sget-object v3, Lcom/bb_sz/ndk/App;->mUID:Ljava/lang/String;
+
+    const-string v4, "&"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 249
+    sget-object v3, Lcom/bb_sz/ndk/App;->mUID:Ljava/lang/String;
+
+    const-string v4, "&"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 250
+    .local v1, "maps":[Ljava/lang/String;
+    array-length v4, v1
+
+    const/4 v3, 0x0
+
+    :goto_1
+    if-ge v3, v4, :cond_0
+
+    aget-object v0, v1, v3
+
+    .line 251
+    .local v0, "item":Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    .line 252
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    .line 250
+    :cond_2
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+.end method
+
 .method public static native http(Ljava/lang/String;ILjava/lang/String;)[B
 .end method
 
