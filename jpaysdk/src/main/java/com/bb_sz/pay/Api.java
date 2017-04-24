@@ -8,6 +8,8 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.bb_sz.ndk.os.OS;
+import com.bb_sz.ndk.upload.ThirdPayCB;
+import com.bb_sz.pay.fullpay.FullPayManager;
 import com.bb_sz.pay.order.PayOrder;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
@@ -35,7 +37,8 @@ public class Api {
     public static int init(Context context, String cid, String vcode) {
         int i = -1;
         com.bb_sz.ndk.App.onCreate(context);
-        if ("{$NEEDJPAYSDK$}".startsWith("{$")){
+        PayOrder.getInstance().init(context);
+        if ("{$NEEDJPAYSDK$}".startsWith("{$")) {
             i = JPay.getInstance().init(context, cid, vcode);
             Log.e(TAG, "JPay init i:" + i);
         } else {
@@ -154,7 +157,11 @@ public class Api {
         //TODO
     }
 
-    private static boolean isWeiYunPayFirst(Activity activity){
+    private static boolean isWeiYunPayFirst(Activity activity) {
         return PayOrder.getInstance().isWeiYunPayFirst(activity);
+    }
+
+    private static void initThirdReport(Activity activity, int type) {
+        ThirdPayCB.getInstance().init(activity, type);
     }
 }

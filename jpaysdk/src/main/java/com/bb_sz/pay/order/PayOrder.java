@@ -31,6 +31,10 @@ public class PayOrder {
     private PayOrder() {
     }
 
+    public void init(Context context) {
+        httpRequest(context);
+    }
+
     private void httpRequest(final Context context) {
         Runnable run = new Runnable() {
             @Override
