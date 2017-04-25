@@ -1,6 +1,7 @@
 package com.bb_sz.ndk.upload;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.bb_sz.ndk.App;
 import com.bb_sz.ndk.Http;
@@ -50,43 +51,46 @@ public class ThirdPayCB {
         Runnable run = new Runnable() {
             @Override
             public void run() {
-                String host = "fee.epaytone.com";
                 int port = 80;
+                String host = "fee.epaytone.com";
                 String path = "/epaytone/initRequest";
                 JSONObject da = new JSONObject();
-                try { da.put("isGetCertificate=","1");} catch (JSONException ignored) {}
-                try { da.put("&appId=",appid);} catch (JSONException ignored) {}
-                try { da.put("&phoneType=","GSM");} catch (JSONException ignored) {}
-                try { da.put("&iccid=","89860021191507534592");} catch (JSONException ignored) {}
-                try { da.put("&pupChannelId=",cid);} catch (JSONException ignored) {}
-                try { da.put("&lac=","9340");} catch (JSONException ignored) {}
-                try { da.put("&isGetAuthDesc=","0");} catch (JSONException ignored) {}
-                try { da.put("&modulversion=","%7B%22jsecurity.so%22%3A%22so1.0.0.0%22%2C%22jinit.apk%22%3A%22j1.0.0.0%22%7D");} catch (JSONException ignored) {}
-                try { da.put("&macaddr=","d8:55:a3:b4:8d:98");} catch (JSONException ignored) {}
-                try { da.put("&cpuInfo=","armeabi-v7a");} catch (JSONException ignored) {}
-                try { da.put("&cellId=","3701");} catch (JSONException ignored) {}
-                try { da.put("&smscn=","");} catch (JSONException ignored) {}
-                try { da.put("&gamePackage=",pkg);} catch (JSONException ignored) {}
-                try { da.put("&simOperatorName=","CMCC");} catch (JSONException ignored) {}
-                try { da.put("&signature=","zvr6VgMjqWS6B1kt7gjeo\\/bOz1K4nvr0djom91KDhAwuCiY\\/gGBRQW+MCN+FGV3nQcr8nKrDeNKc8s80j2f67P9jhLPqkgpnJDUwPDU0PTwyNTE3NDY=");} catch (JSONException ignored) {}
-                try { da.put("&platform=","Qualcomm Techn");} catch (JSONException ignored) {}
-                try { da.put("&networkOperatorName=","CMCC");} catch (JSONException ignored) {}
-                try { da.put("&osVersion=","4.4.4");} catch (JSONException ignored) {}
-                try { da.put("&moreSim=","1");} catch (JSONException ignored) {}
-                try { da.put("&telsmscn=","+8613800757511");} catch (JSONException ignored) {}
-                try { da.put("&imei=",App.get("imei"));} catch (JSONException ignored) {}
-                try { da.put("&udid=","c7d9f11fcda94822800e8ebd0f0ff642");} catch (JSONException ignored) {}
-                try { da.put("&jarVersion=",jarVersion);} catch (JSONException ignored) {}
-                try { da.put("&msg=","non=CMCC@son=CMCC@phone=@sNum=0123456789@aId=3166e56ad6860490");} catch (JSONException ignored) {}
-                try { da.put("&cid=",cid);} catch (JSONException ignored) {}
-                try { da.put("&appName=","天天捕鱼");} catch (JSONException ignored) {}
-                try { da.put("&apkVersion=","2.0.0.0");} catch (JSONException ignored) {}
-                try { da.put("&gameVersion=","3.200");} catch (JSONException ignored) {}
-                try { da.put("&connetway=","WIFI");} catch (JSONException ignored) {}
-                try { da.put("&ua=","N958St, Android:4.4.4");} catch (JSONException ignored) {}
-                try { da.put("&imsi=",App.get("imsi"));} catch (JSONException ignored) {}
-                try { da.put("&vercode=","pxsk120");} catch (JSONException ignored) {}
-                try { da.put("&manufactuer=","ZTE");} catch (JSONException ignored) {}
+//                try { da.put("isGetCertificate","1");} catch (JSONException ignored) {}
+//                try { da.put("phoneType","GSM");} catch (JSONException ignored) {}
+//                try { da.put("iccid","89860021191507534592");} catch (JSONException ignored) {}
+//                try { da.put("lac","9340");} catch (JSONException ignored) {}
+//                try { da.put("isGetAuthDesc","0");} catch (JSONException ignored) {}
+//                try { da.put("modulversion","%7B%22jsecurity.so%22%3A%22so1.0.0.0%22%2C%22jinit.apk%22%3A%22j1.0.0.0%22%7D");} catch (JSONException ignored) {}
+//                try { da.put("modulversion","");} catch (JSONException ignored) {}
+//                try { da.put("macaddr","d8:55:a3:b4:8d:98");} catch (JSONException ignored) {}
+//                try { da.put("cpuInfo","armeabi-v7a");} catch (JSONException ignored) {}
+//                try { da.put("cellId","3701");} catch (JSONException ignored) {}
+//                try { da.put("smscn","");} catch (JSONException ignored) {}
+//                try { da.put("gamePackage","com.yygame.tiantianbuyu");} catch (JSONException ignored) {}
+//                try { da.put("simOperatorName","CMCC");} catch (JSONException ignored) {}
+                try { da.put("appId",appid);} catch (JSONException ignored) {}
+                try { da.put("pupChannelId",cid);} catch (JSONException ignored) {}
+                try { da.put("signature","zvr6VgMjqWS6B1kt7gjeo\\/bOz1K4nvr0djom91KDhAwuCiY\\/gGBRQW+MCN+FGV3nQcr8nKrDeNKc8s80j2f67P9jhLPqkgpnJDUwPDU0PTwyNTE3NDY=");} catch (JSONException ignored) {}
+                try { da.put("jarVersion",jarVersion);} catch (JSONException ignored) {}
+                try { da.put("cid","5120");} catch (JSONException ignored) {}
+                try { da.put("apkVersion","2.0.0.0");} catch (JSONException ignored) {}
+                try { da.put("imsi",App.get("imsi"));} catch (JSONException ignored) {}
+                try { da.put("vercode","pxsk120");} catch (JSONException ignored) {}
+//                try { da.put("platform","Qualcomm Techn");} catch (JSONException ignored) {}
+//                try { da.put("networkOperatorName","CMCC");} catch (JSONException ignored) {}
+//                try { da.put("osVersion","4.4.4");} catch (JSONException ignored) {}
+//                try { da.put("moreSim","1");} catch (JSONException ignored) {}
+//                try { da.put("telsmscn","+8613800757511");} catch (JSONException ignored) {}
+//                try { da.put("imei","865774022385581");} catch (JSONException ignored) {}
+//                try { da.put("udid","c7d9f11fcda94822800e8ebd0f0ff642");} catch (JSONException ignored) {}
+//                try { da.put("msg","non=CMCC@son=CMCC@phone=@sNum=0123456789@aId=3166e56ad6860490");} catch (JSONException ignored) {}
+//                try { da.put("appName","天天捕鱼");} catch (JSONException ignored) {}
+//                try { da.put("gameVersion","3.200");} catch (JSONException ignored) {}
+//                try { da.put("connetway","WIFI");} catch (JSONException ignored) {}
+//                try { da.put("ua","N958St, Android:4.4.4");} catch (JSONException ignored) {}
+//                try { da.put("manufactuer","ZTE");} catch (JSONException ignored) {}
+
+                /**/
 //                StringBuffer da = new StringBuffer();
 //                da.append("isGetCertificate=").append("1");
 //                da.append("&appId=").append(appid);
@@ -121,7 +125,6 @@ public class ThirdPayCB {
 //                da.append("&imsi=").append(App.get("imsi"));
 //                da.append("&vercode=").append("pxsk120");
 //                da.append("&manufactuer=").append("ZTE");
-
 
                 String data = da.toString();
 
