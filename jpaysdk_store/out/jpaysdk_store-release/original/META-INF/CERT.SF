@@ -1,0 +1,115 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: 27J2kAuUwcl1DUmCKMTtfp2yLG0=
+Created-By: 1.0 (Android)
+
+Name: assets/cs_res/cs_resolved.png
+SHA1-Digest: eZwiFRSWw0bFQCbYxLCJqS/sUH8=
+
+Name: lib/arm64-v8a/libjpaysdk.so
+SHA1-Digest: QFSNa8Y0MhBwtl5G/hBDvOYtD1g=
+
+Name: AndroidManifest.xml
+SHA1-Digest: gYs5O4F6unsM6HSa7CYUntFTipw=
+
+Name: assets/sz_game_center.png
+SHA1-Digest: d6C13edjthDykCUAegKYIDEf3uM=
+
+Name: assets/full_pay/btn.png
+SHA1-Digest: gTxea2k4CBhzf0l78i6HMo6go0s=
+
+Name: assets/full_pay/bg_720.jpg
+SHA1-Digest: pDPQclCTJNdzrF1JuGO7xGcvs7Y=
+
+Name: assets/cs_res/cs_issus_bg.png
+SHA1-Digest: /YRw3bUuXzXkilw0GOV+gdG3UOY=
+
+Name: assets/cs_res/cs_issus_result_bg.png
+SHA1-Digest: khE51jAoyjtvmIO8CkV1oxjMgpg=
+
+Name: res/xml/setting_accessibility.xml
+SHA1-Digest: 8vQ/RoOq+UhNHICQpmHjbt577lo=
+
+Name: assets/cs_res/cs_edit_bg.png
+SHA1-Digest: 76Wuc7MCtpPClm5Fk7FWk4dw2ZE=
+
+Name: lib/mips/libjpaysdk.so
+SHA1-Digest: bdtC/lEErI7BklCCioF/CapClmg=
+
+Name: lib/armeabi/libjpaysdk.so
+SHA1-Digest: MAyBNgYBedR2+5J8+uy02PxeNho=
+
+Name: assets/cs_res/cs_checkbox_normal.png
+SHA1-Digest: gbW7Y1fDZaozveDabUXLYknBj5k=
+
+Name: lib/x86_64/libjpaysdk.so
+SHA1-Digest: zzJkTDscgkX094q762F7hnjxzhY=
+
+Name: assets/full_pay/guanbi.png
+SHA1-Digest: z+nJ+gaNh0saBCJDkK4DwaGDGZs=
+
+Name: assets/cs_res/cs_issus_3.png
+SHA1-Digest: eXoewUfkbyHESaz+pxJFbTYPwr4=
+
+Name: assets/jpay_config.xml
+SHA1-Digest: UZrFI0Cblyc0a5CclaGBEFtPsqE=
+
+Name: assets/cs_res/cs_telephone.png
+SHA1-Digest: PUdYr+srXfHJSNby12X76yoxvNs=
+
+Name: assets/cus_service/px_btn_call.png
+SHA1-Digest: 7Xb933tPWRZ8bNYclqWG3kZ5FUE=
+
+Name: assets/cus_service/px_btn_cancel.png
+SHA1-Digest: ToFdY9UzTSHHH1yzFdlCzy5VPZk=
+
+Name: assets/full_pay/content.png
+SHA1-Digest: ylXUFtIzuf2xoSWenIgVIdlTcdA=
+
+Name: lib/x86/libjpaysdk.so
+SHA1-Digest: OCh7gD3mf/7oYzzfk2tCmGhcU44=
+
+Name: assets/cus_service/px_btn_customer_service.png
+SHA1-Digest: 56m8VAd2qOs3ft1sBp8jMj9AG1k=
+
+Name: assets/cs_res/cs_send_btn.png
+SHA1-Digest: g5pN9tlft4omqiCX7X2M0PdpOIo=
+
+Name: assets/cus_service/px_cus_page.png
+SHA1-Digest: jrajGF2TFwotE5/Mdg4/b1ztWcg=
+
+Name: lib/armeabi-v7a/libjpaysdk.so
+SHA1-Digest: ppDKXfmYIB2qLQerXoz4qUdToGA=
+
+Name: assets/cs_res/cs_issus_2.png
+SHA1-Digest: sGij3kxUOccp4/P62VNSXammQ1U=
+
+Name: res/mipmap-hdpi-v4/ic_launcher.png
+SHA1-Digest: 7rQl6EYeTTp31EHiQqxTWNvHumI=
+
+Name: assets/cs_res/cs_issus_1.png
+SHA1-Digest: Xi4/GzAqUj6Lt0EExMuIjKrnu1g=
+
+Name: assets/cs_res/cs_checkbox_selected.png
+SHA1-Digest: 4gmNFDQOA1aDjqG+1PCG6Z06Dc0=
+
+Name: assets/full_pay/bg_640.jpg
+SHA1-Digest: EJPl6SwxPFmdxJMFIQYsjJV/qww=
+
+Name: lib/mips64/libjpaysdk.so
+SHA1-Digest: i+wcPSQHtVHiJFzfbQ58CA3AjJM=
+
+Name: assets/cs_res/cs_del_icon.png
+SHA1-Digest: KsnEoJ4ll8kEGVr5ONEeFJ0NgHQ=
+
+Name: assets/cs_res/cs_not_resolved.png
+SHA1-Digest: bK7fstu9o+VWYwX5tmWM0tSjVW8=
+
+Name: assets/jpay_uid.txt
+SHA1-Digest: IYbe+Aoe2NKruAtKF1O+b6nYvh0=
+
+Name: resources.arsc
+SHA1-Digest: k8X1NM92SIBFwd7VMDa5uKSJTFI=
+
+Name: classes.dex
+SHA1-Digest: K4B2m2VEyTxb9wyJqNE/I/+eU8w=
+
