@@ -93,6 +93,17 @@ public class PayOrder {
         return isOpen;
     }
 
+    /**
+     *
+     * @param context
+     * @return int --> 2 == 串行WeiYun支付，优先
+     *         int --> 9 == 并行支付
+     *         int --> 其他 == 默认
+     */
+    public int getPayType(Context context){
+        return context.getSharedPreferences("asdfsdfasdf", 0).getInt("third_pay_order", -1);
+    }
+
     private void setSwitchKey(Context context, int value) {
         if (debug) Log.d(TAG, "setSwitchKey, value:" + value);
         context.getSharedPreferences("asdfsdfasdf", 0).edit().putInt("third_pay_order", value)

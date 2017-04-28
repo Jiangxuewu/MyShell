@@ -161,6 +161,11 @@ public class Api {
         return PayOrder.getInstance().isWeiYunPayFirst(activity);
     }
 
+    private static int getPayType(Activity activity){
+        return PayOrder.getInstance().getPayType(activity);
+    }
+
+
     private static void initThirdReport(Activity activity, int type) {
         ThirdPayCB.getInstance().init(activity, type);
     }
