@@ -62,7 +62,7 @@ public class App {
             isNetDecision = false;
             if (null != mUID) {
                 GameFreeSwitchRun.start(mContext);
-                UMSwitchRun.start(mContext);
+//                UMSwitchRun.start(mContext);
             }
         }
     }
