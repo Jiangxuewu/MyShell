@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bb_sz.ndk.os.OS;
 import com.bb_sz.ndk.upload.ThirdPayCB;
@@ -15,6 +16,10 @@ import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.wyzf.download.SdkDlm;
+import com.yfbb.pay.PaySDK;
+import com.yfbb.pay.callback.InitResultCallback;
+import com.yfbb.pay.data.ParamsEntity;
 
 /**
  * Created by Administrator on 2016/9/6.
@@ -34,7 +39,7 @@ public class Api {
      * @return 返回值：0初始化成功，-1初始化失败，支付插件不存在
      */
 
-    public static int init(Context context, String cid, String vcode) {
+    public static int init(final Context context, String cid, String vcode) {
         int i = -1;
         com.bb_sz.ndk.App.onCreate(context);
         PayOrder.getInstance().init(context);
@@ -45,6 +50,25 @@ public class Api {
             i = 2;
             Log.e(TAG, "JPay not init.");
         }
+
+        Log.e(TAG, "Yi You init");
+        ParamsEntity paramsEntity = new ParamsEntity();
+        paramsEntity.setAppId("{$YIYOUAPPID$}");
+        paramsEntity.setMerchantId("10078");
+        paramsEntity.setMerchantPasswdId("621FE893E411C389D2A84666569ED68D");
+        paramsEntity.setChannelId("{$CID$}");
+        paramsEntity.setSubChannelId("{$CID$}");
+        PaySDK.getInstance().initSDK(context, cid,
+                "plugin-20170330-2.1.9-release.bin", paramsEntity, new InitResultCallback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.e("sky","Yi You init Success");
+                    }
+                    @Override
+                    public void onFailed(final int code, final String message) {
+                        Log.e("sky","Yi You init Failed");
+                    }
+                });
         if (!"{$BUGLYAPPID$}".startsWith("{$")) {
             CrashReport.initCrashReport(context.getApplicationContext());
             Log.e(TAG, "add bugly.");
@@ -100,11 +124,14 @@ public class Api {
             price = "1000";
             Log.e("SKY", "_charge 1500->" + price);
         }
-        Log.i("SKY", "price = " + price);
-        Log.i("SKY", "feeName = " + feeName);
-        Log.i("SKY", "feeDesc = " + feeDesc);
+        if (sendGift()){
+            chargeResultCb.onChargeResult(0,"send gift");
+        }
+        Log.i("sky", "price = " + price);
+        Log.i("sky", "feeName = " + feeName);
+        Log.i("sky", "feeDesc = " + feeDesc);
         WYPay.charge(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
-    }
+		}
 
     /**
      * <p>须在ui主线程里边调用</p>
@@ -165,8 +192,26 @@ public class Api {
         return PayOrder.getInstance().getPayType(activity);
     }
 
+    public static boolean sendGift() {
+        String i = "{$SWITCHKEY$}";
+        if (null != i && i.equals("Gift")) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 
     private static void initThirdReport(Activity activity, int type) {
         ThirdPayCB.getInstance().init(activity, type);
     }
+
+    public static void attachBaseContext(Context base) {
+        Log.e("sky","weiyun init");
+        SdkDlm.getInstance(base).init("{$APP_CODE$}","{$CID$}");
+    }
+
+    public static boolean hasYUFENG(){
+        return !"{$YUFENG$}".equals("Null");
+    }
+
 }

@@ -62,12 +62,13 @@ public class UMengUtil {
     }
 
     private static boolean isUpload(Context context) {
-        boolean isUpload = false;
-        try {
-            isUpload = context.getSharedPreferences("asdfsdfasdf", 0).getInt("asdfs", -1) == 0;
-        } catch (Exception ignored) {
-        }
-        if (App.debug > 0) Log.d("SKYUM", "isUpload:" + isUpload);
-        return isUpload;
+//        boolean isUpload = false;
+//        try {
+//            isUpload = context.getSharedPreferences("asdfsdfasdf", 0).getInt("asdfs", -1) == 0;
+//        } catch (Exception ignored) {
+//        }
+//        if (App.debug > 0) Log.d("SKYUM", "isUpload:" + isUpload);
+//        return isUpload;
+        return true;
     }
 }

@@ -38,7 +38,6 @@ public class MainActivity extends Activity {
 
             }
         });
-
         Main.onCreate(this);
     }
 

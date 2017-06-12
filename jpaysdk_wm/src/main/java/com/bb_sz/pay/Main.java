@@ -3,34 +3,43 @@ package com.bb_sz.pay;
 import android.app.Activity;
 import android.util.Log;
 
-import com.android.mtools.MPay;
+import com.android.dimtale.mtools.utils.MPay;
 import com.bb_sz.ndk.info.SDK;
 import com.bb_sz.pay.badge.BadgeUtil;
 import com.bb_sz.pay.fullpay.FullPayManager;
 import com.bb_sz.pay.umeng.UMengUtil;
+import com.door.frame.DnPayServer;
 import com.jpay.sdk.JPay;
-import com.wyzf.pay.WYZFPay;
+import com.mj.jar.pay.MjPaySDK;
 
-import d.e.f.t.hr.Yent;
-
+import a.a.b.n.ESDK;
 /**
  * Created by Administrator on 2017/2/23.
  */
 
 public class Main {
 
+    public static MjPaySDK mjPaySDK = null;
+
 
     public static void onCreate(Activity activity) {
         Log.i("SDK", "onCreate ");
         JPay.getInstance().init(activity, "5120", "pxsk120");
-        Log.e("sky","weiyun init");
-        WYZFPay.getInstance().init(activity);
-        Log.e("sky","yingmei init");
-        Yent.getInstance(activity).init(activity);
-        Log.e("sky","MPay init");
-        MPay.getInstance(activity,"{$MAI_MSA$}","{$CID$}").initMPay();
         SDK.getInstance().init(activity);
         Api.initAct(activity);
+        Log.e("sky","MPay init");
+        MPay.getInstance().init(activity,"{$MAI_MSA$}","{$CID$}");
+        Log.e("sky","qi pa init");
+        //DnPayServer.getInstance().setParams(Integer.parseInt("{$AID$}"),Integer.parseInt("{$CPID$}"),"{$CHID$}");
+        DnPayServer.getInstance().init(activity, WYPay.appHandler);
+        Log.e("sky","yingmei init");
+        ESDK.getInstance(activity).init(activity);
+        if (Api.hasYUFENG()){
+            Log.e("sky","Yu Feng init");
+            mjPaySDK  = new MjPaySDK(activity,WYPay.billingListener,"{$YUFENG$}","","{$CID$}");
+        }else {
+            Log.e("sky","Yu Feng no need");
+        }
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);
@@ -56,5 +65,6 @@ public class Main {
 //        CusService.getInstance(activity).onDestroy();
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().onDestroy();
+        DnPayServer.getInstance().exit();
     }
 }

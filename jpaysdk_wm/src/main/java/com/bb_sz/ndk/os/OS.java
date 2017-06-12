@@ -14,7 +14,7 @@ import com.tencent.bugly.crashreport.BuglyLog;
 
 public class OS {
 
-  //  private static void os(Context context, final OSCallback callback) {
+   // private static void os(Context context, final OSCallback callback) {
 //        Environment environment = Environment.getInstance(context);
 //        if (null == environment) {
 //            BuglyLog.e("TAG", "os Result: null == environment");
@@ -50,7 +50,7 @@ public class OS {
 //            }
 //        });
 //        environment.initAuto();
-  //  }
+   // }
 
     public static void init(Context context) {
 //        if (null != context) {
