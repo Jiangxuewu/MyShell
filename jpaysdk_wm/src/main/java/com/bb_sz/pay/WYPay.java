@@ -44,10 +44,11 @@ public class WYPay {
 
     public static int[] FCNLM_PAY_POINT = {4449, 4450, 4451, 4451, 4452, 4466};
 
-
     public static int[] HJZJ_PAY_POINT = {4423, 4424, 4425, 4426, 4427, 4428, 4429, 4430, 4431, 4432, 4433, 4434, 4435, 4436, 4437, 4438, 4439, 4440, 4441, 4442, 4443};
 
     public static int[] CJFX_PAY_POINT = {4560, 4561, 4562, 4563, 4564, 4565, 4566, 4567, 4568};
+
+    public static int[] QCLXX_PAY_POINT = {4796,4797,4798,4799,4800};
 
     public static String[] FCNLM_FEE_NAME = {"100金币", "250金币", "500金币", "700金币", "1000金币", "1600金币"};
 
@@ -77,6 +78,14 @@ public class WYPay {
             "至尊大礼包",
             "升级礼包"
     };
+
+    public static String[] QCLXX_FEE_NAME = {
+            "获得788枚幸运星，仅需X.XX元，即可拥有！" ,
+            "获得560枚幸运星，仅需X.XX元，即可拥有！" ,
+            "获得118枚幸运星，仅需X.XX元，即可拥有！" ,
+            "获得228枚幸运星，仅需X.XX元，即可拥有！" ,
+            "获得500枚幸运星，仅需X.XX元，即可拥有！"};
+
 
     public static String[] HJZJ_M_PAY_POINT = {
             "lhpaAzcuov6kp5C6jydi1jqc",
@@ -136,6 +145,14 @@ public class WYPay {
             "upEk4ElgBkq1u1pbb1txgpj1"
     };
 
+    public static String[] QCLXX_M_PAY_POINT={
+            "54spvb3s7rl6c04jAAf0og71" ,
+            "24A0rDjafz9nkqAbvq804Coa" ,
+            "e4BB54wbqpybcp6ag9n9up4g" ,
+            "iDuokzoeEcCa3jEgw5uAw1ax" ,
+            "r4rcy55lu4d5ryvmmne4osfk"};
+
+
     public static String[] HJZJ_QP_PAY_POINT={
       "05YP" ,
       "05YQ" ,
@@ -194,6 +211,21 @@ public class WYPay {
           "05YF"
     };
 
+    public static String QCLXX_QP_PAY_POINT[] ={
+            "068L" ,
+            "068M" ,
+            "068N" ,
+            "068O" ,
+            "068P"};
+
+
+    public static String QCLXX_YF_PAY_POINT[] = {
+      "000670000" ,
+      "000670001" ,
+      "000670002" ,
+      "000670003" ,
+      "000670004"
+    };
 
 
 
@@ -261,6 +293,8 @@ public class WYPay {
             return FCNLM_M_PAY_POINT[indexof(feeName, FCNLM_FEE_NAME)];
         } else if (feeDesc.equals("超级飞侠")) {
             return CJFX_M_PAY_POINT[indexof(feeName, CJFX_FEE_NAME)];
+        }else if (feeDesc.equals("Q宠乐消消")){
+            return QCLXX_M_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }
         return "4xAlk9jEk86Dx4m5m58s6bsB";
     }
@@ -298,13 +332,15 @@ public class WYPay {
             return FCNLM_PAY_POINT[indexof(feeName, FCNLM_FEE_NAME)];
         } else if (feeDesc.equals("超级飞侠")) {
             return CJFX_PAY_POINT[indexof(feeName, CJFX_FEE_NAME)];
+        }else if (feeDesc.equals("Q宠乐消消")){
+            return QCLXX_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }
         return 0;
     }
 
 
     public static int indexof(String feeName, String[] payNames) {
-        Log.e("sky","feeName="+feeName+"---payNames="+payNames[0]);
+        Log.e("sky","indexof---feeName="+feeName+"---payNames="+payNames[0]);
         for (int i = 0; i < payNames.length; i++) {
             if (payNames[i].equals(feeName)) {
                 return i;
@@ -314,6 +350,8 @@ public class WYPay {
     }
 
     private static int getYiYouPayPoint(String feeDesc, String feeName) {
+        Log.e("sky", "getYiYouPayPoint---appname=" + feeDesc);
+        Log.e("sky", "getYiYouPayPoint---feeName=" + feeName);
         if (feeDesc.equals("天天捕鱼")) {
             return indexof(feeDesc,TTBY_FEE_NAME)+1;
         }else if (feeDesc.equals("合金战姬")) {
@@ -322,6 +360,8 @@ public class WYPay {
             return indexof(feeName, FCNLM_FEE_NAME)+1;
         } else if (feeDesc.equals("超级飞侠")) {
             return indexof(feeName, CJFX_FEE_NAME)+1;
+        }else if (feeDesc.equals("Q宠乐消消")){
+            return indexof(feeName, QCLXX_FEE_NAME)+1;
         }
         return 1;
     }
@@ -338,6 +378,8 @@ public class WYPay {
             result =  FCNLM_QP_PAY_POINT[indexof(feeName, FCNLM_FEE_NAME)];
         } else if (feeDesc.equals("超级飞侠")) {
             result =  CJFX_QP_PAY_POINT[indexof(feeName, CJFX_FEE_NAME)];
+        }else if (feeDesc.equals("Q宠乐消消")){
+            result = QCLXX_QP_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }
         Log.e("sky","qi pa payPoint="+result);
         return result;
@@ -365,6 +407,8 @@ public class WYPay {
                 return "000664000";
             } else if (feeDesc.equals("超级飞侠")) {
                 return "000666000";
+            }else if (feeDesc.equals("Q宠乐消消")){
+                return QCLXX_YF_PAY_POINT[indexof(feeName,QCLXX_FEE_NAME)];
             }
         }
         return null;
@@ -504,7 +548,6 @@ public class WYPay {
                     charge3(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     //玉峰
                     charge5(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
-
                 } else {
                     Log.e("sky:", "jpay success");
                     giftCallBack(0, "jpay success",chargeResultCb);
@@ -514,12 +557,12 @@ public class WYPay {
     }
 
     private static void charge5(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
-        initThirdReport(activity, 6);
         String payPoint = null;
         if (null == Main.mjPaySDK){
             Log.e("sky","Yu Feng no need");
             return;
         }else if (null != (payPoint = GET_YU_FENG_PAY_POINT(feeDesc,feeName,price))){
+            initThirdReport(activity, 6);
             Main.mjPaySDK.pay(String.valueOf(System.currentTimeMillis()),payPoint,"2000");
             return;
         }
