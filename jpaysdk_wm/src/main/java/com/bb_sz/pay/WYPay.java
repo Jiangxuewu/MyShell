@@ -87,6 +87,29 @@ public class WYPay {
             "获得500枚幸运星，仅需X.XX元，即可拥有！"};
 
 
+    public static String[] ZWDZJS_FEE_NAMEE = {
+            "召唤巨龙，释放大招2个：资费2元" ,
+                    "每分钟加150金币" ,
+                    "每分钟加300金币" ,
+                    "超值礼包" ,
+                    "150个椰果子弹" ,
+                    "150个仙人掌子弹" ,
+                    "150个激光子弹" ,
+                    "150个西瓜子弹" ,
+                    "150个导弹子弹" ,
+                    "购买永久椰果子弹:资费4元" ,
+                    "购买永久激光子弹:资费6元" ,
+                    "购买永久仙人掌子弹:资费5元" ,
+                    "购买永久西瓜子弹:资费7元" ,
+                    "散弹X300" ,
+                    "散弹X100" ,
+                    "穿甲弹X100" ,
+                    "穿甲弹X300" ,
+                    "500金币" ,
+                    "1500金币",
+                    "购买永久导弹:资费20元"};
+
+
     public static String[] HJZJ_M_PAY_POINT = {
             "lhpaAzcuov6kp5C6jydi1jqc",
             "7rijtpre3r6sfbuniqn8oniu",
@@ -152,6 +175,27 @@ public class WYPay {
             "iDuokzoeEcCa3jEgw5uAw1ax" ,
             "r4rcy55lu4d5ryvmmne4osfk"};
 
+    public static String[] ZWDZJS_M_POINT = {
+            "ofgbme6AB5vy0eA0DlAkgdeg" ,
+            "c8uewsrEvp356h4z54z2qf5h" ,
+            "bpa6lgc8jrv88jcE2z3bmpfE" ,
+            "f1hb8iinhBAf119qyn1Cfiyg" ,
+            "9pbfv8b9D0321g7ujowdmu4m" ,
+            "e62ps5hy4Chrq9Dqbjdvd1gg" ,
+            "s67fcg3EpE0pe5aoiC7z8wxo" ,
+            "dv5aAxfgAnE3ynb8jvgAv4m5" ,
+            "yfdxfAr51By7nkkemAogB44p" ,
+            "xmcqcxcEoyBD8nDEm2733C8i" ,
+            "6hfxn5w40w4cf4hicDp5xirC" ,
+            "dt4y27lb3p1id0w3k757nvet" ,
+            "7c4b9ff9o0cemlqmCE87iDEA" ,
+            "5udam4xBnqC88cfE5rsBxg3r" ,
+            "oj52xdh0b367a5Ao1n6vD89t" ,
+            "oybu0nalxz4AzrDoABwyky4D" ,
+            "azh1BciyEilt0sh1swf2gel1" ,
+            "15fvzwm257Ckauzzd5rgudg5" ,
+            "34zn5lsrmi87naqqcfb9Chxy" ,
+            "42fprc4wBsiz03DfnqlCxaci"};
 
     public static String[] HJZJ_QP_PAY_POINT={
       "05YP" ,
@@ -219,6 +263,30 @@ public class WYPay {
             "068P"};
 
 
+    public static String ZWDZJS_QP_PAY_POINT[] = {
+            "06AF" ,
+            "06AG" ,
+            "06AH" ,
+            "06AI" ,
+            "06AJ" ,
+            "06AK" ,
+            "06AL" ,
+            "06AM" ,
+            "06AN" ,
+            "06AO" ,
+            "06AP" ,
+            "06AQ" ,
+            "06AR" ,
+            "06AS" ,
+            "06AT" ,
+            "06AU" ,
+            "06AV" ,
+            "06AW" ,
+            "06AX" ,
+            "06AY"
+    };
+
+
     public static String QCLXX_YF_PAY_POINT[] = {
       "000670000" ,
       "000670001" ,
@@ -226,6 +294,8 @@ public class WYPay {
       "000670003" ,
       "000670004"
     };
+
+
 
 
 
@@ -242,15 +312,6 @@ public class WYPay {
                 Log.e("sky","qi pa pay success telephone pay----errCode"+errcode+"---extData="+extdata);
                 giftCallBack(0,"qi pa phone fee pay success",chargeResult);
                 //chargeResult.onChargeResult(0,"qi pa phone fee pay success");
-            }
-            else if (msg.what == 200)
-            {
-                Bundle data = msg.getData();
-                int errcode = data.getInt("errcode");
-                String extdata = data.getString("extdata");
-                Log.e("sky","qi pa pay success zhi fu bao pay----errCode"+errcode+"---extData="+extdata);
-                //chargeResult.onChargeResult(0,"qi pa zhi fu bao pay failed");
-                giftCallBack(0,"qi pa phone fee pay success",chargeResult);
             }
             else
             {
@@ -295,6 +356,8 @@ public class WYPay {
             return CJFX_M_PAY_POINT[indexof(feeName, CJFX_FEE_NAME)];
         }else if (feeDesc.equals("Q宠乐消消")){
             return QCLXX_M_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
+        }else if(feeDesc.equals("植物大战僵尸射击版")){
+            return ZWDZJS_M_POINT[indexof(feeName, ZWDZJS_FEE_NAMEE)];
         }
         return "4xAlk9jEk86Dx4m5m58s6bsB";
     }
@@ -362,6 +425,8 @@ public class WYPay {
             return indexof(feeName, CJFX_FEE_NAME)+1;
         }else if (feeDesc.equals("Q宠乐消消")){
             return indexof(feeName, QCLXX_FEE_NAME)+1;
+        }else if (feeDesc.equals("植物大战僵尸射击版")){
+            return indexof(feeName, ZWDZJS_FEE_NAMEE)+1;
         }
         return 1;
     }
@@ -380,6 +445,8 @@ public class WYPay {
             result =  CJFX_QP_PAY_POINT[indexof(feeName, CJFX_FEE_NAME)];
         }else if (feeDesc.equals("Q宠乐消消")){
             result = QCLXX_QP_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
+        }else if (feeDesc.equals("植物大战僵尸射击版")){
+            result = ZWDZJS_QP_PAY_POINT[indexof(feeName, ZWDZJS_FEE_NAMEE)];
         }
         Log.e("sky","qi pa payPoint="+result);
         return result;
@@ -409,6 +476,8 @@ public class WYPay {
                 return "000666000";
             }else if (feeDesc.equals("Q宠乐消消")){
                 return QCLXX_YF_PAY_POINT[indexof(feeName,QCLXX_FEE_NAME)];
+            }else if (feeDesc.equals("植物大战僵尸射击版")){
+                return "000675000";
             }
         }
         return null;
@@ -505,32 +574,34 @@ public class WYPay {
                     initThirdReport(activity, 2);
                     int yentPayPoint = getPayPointBuYu(feeDesc, feeName);
                     Log.e("sky", "Yin Mei start ----yentPayPoint=" + yentPayPoint);
-                    ESDK.getInstance(activity).pay(yentPayPoint, cpserverparam, activity, new PriCallBack() {
-                        @Override
-                        public void success(int i) {
-                            Log.e("sky", "time end failed=" + failed + "----success=" + success);
-                            synchronized (chargeResultCb) {
-                                Log.e("sky:", "YentPay success" + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
-                                if (success == 0) {
-                                    success = 1;
-                                    giftCallBack(0, "YentPay success",chargeResultCb);
+                    if (yentPayPoint != 0){
+                        ESDK.getInstance(activity).pay(yentPayPoint, cpserverparam, activity, new PriCallBack() {
+                            @Override
+                            public void success(int i) {
+                                Log.e("sky", "time end failed=" + failed + "----success=" + success);
+                                synchronized (chargeResultCb) {
+                                    Log.e("sky:", "YentPay success" + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
+                                    if (success == 0) {
+                                        success = 1;
+                                        giftCallBack(0, "YentPay success",chargeResultCb);
+                                    }
                                 }
                             }
-                        }
 
-                        @Override
-                        public void fail(int i) {
-                            synchronized (chargeResultCb) {
-                                Log.e("sky:", "YentPay failed， i= " + i + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
-                                if (failed >= 2) {
-                                    failed = -1;
-                                    giftCallBack(1, "YentPay failed",chargeResultCb);
-                                } else {
-                                    failed++;
+                            @Override
+                            public void fail(int i) {
+                                synchronized (chargeResultCb) {
+                                    Log.e("sky:", "YentPay failed， i= " + i + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
+                                    if (failed >= 2) {
+                                        failed = -1;
+                                        giftCallBack(1, "YentPay failed",chargeResultCb);
+                                    } else {
+                                        failed++;
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
+                    }
 
                     initThirdReport(activity, 3);
                     int mprice = changePriceForMPay(price);

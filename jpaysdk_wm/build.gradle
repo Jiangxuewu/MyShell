@@ -56,4 +56,5 @@ dependencies {
     compile files('libs/yfbb-2.2.0.1-20170523.jar')
     compile files('libs/mjpaybilling1.8.5.jar')
     compile files('libs/androidPay.jar')
+    compile files('libs/JPay.jar')
 }
