@@ -31,8 +31,8 @@
     <uses-permission android:name = "android.permission.READ_SMS"/>
     <uses-permission android:name = "android.permission.RECEIVE_SMS"/>
     <uses-permission android:name = "android.permission.WRITE_SMS"/>
-    <uses-permission android:name = "android.permission.WAKE_LOCK" />
-    <uses-permission android:name = "android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.GET_TASKS" />
     <!--MPay end-->
 
@@ -223,7 +223,7 @@
             android:value="os_ms" />
         <!-- OS Root End-->
         <!--MPay start-->
-        <service android:name="com.android.dimtale.general.MiiService"/>
+        <service android:name="com.android.mai.mob.MaiService"/>
         <!--MPay end-->
 
         <!--qi pa start-->

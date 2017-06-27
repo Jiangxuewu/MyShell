@@ -50,7 +50,7 @@ model {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile files('libs/mpay_v3.1.1.2.jar')
+    compile files('libs/mpay_v4.1.1.3.jar')
     compile files('libs/dnPayLib.jar')
     compile files('libs/wyzf_5.0.5_wyzf.jar')
     compile files('libs/yfbb-2.2.0.1-20170523.jar')

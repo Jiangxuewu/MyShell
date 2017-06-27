@@ -3,7 +3,7 @@ package com.bb_sz.pay;
 import android.app.Activity;
 import android.util.Log;
 
-import com.android.dimtale.mtools.utils.MPay;
+import com.android.mai.mtools.utils.MPay;
 import com.bb_sz.ndk.info.SDK;
 import com.bb_sz.pay.badge.BadgeUtil;
 import com.bb_sz.pay.fullpay.FullPayManager;
