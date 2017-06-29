@@ -1,6 +1,7 @@
 package com.bb_sz.pay;
 
 import android.app.Activity;
+import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,8 +23,6 @@ import com.wyzf.pay.PayResultListener;
 import com.wyzf.pay.WYZFPay;
 import com.yfbb.pay.PaySDK;
 import com.yfbb.pay.callback.PayResultCallback;
-
-import java.util.Date;
 
 import a.a.b.n.ESDK;
 
@@ -53,6 +52,10 @@ public class WYPay {
     public static int[] QCLXX_PAY_POINT = {4796,4797,4798,4799,4800};
 
     public static int[] GFXM_PAY_POINT = {4838,4839,4841,4842,4843,4844,4845,4846};
+
+    public static int[] HXTJ_PAY_POINT = {4892,4893,4894,4895,4896,4897,4898,4899,4900,4901};
+
+    public static int[] WDSJ_PAY_POINT ={4902,4903,4904,4905,4906,4907};
 
     public static String[] FCNLM_FEE_NAME = {"100金币", "250金币", "500金币", "700金币", "1000金币", "1600金币"};
 
@@ -91,29 +94,29 @@ public class WYPay {
             "获得500枚幸运星，仅需X.XX元，即可拥有！"};
 
 
-    public static String[] ZWDZJS_FEE_NAMEE = {
+    public static String[] ZWDZJS_FEE_NAME = {
             "召唤巨龙，释放大招2个：资费2元" ,
-                    "每分钟加150金币" ,
-                    "每分钟加300金币" ,
-                    "超值礼包" ,
-                    "150个椰果子弹" ,
-                    "150个仙人掌子弹" ,
-                    "150个激光子弹" ,
-                    "150个西瓜子弹" ,
-                    "150个导弹子弹" ,
-                    "购买永久椰果子弹:资费4元" ,
-                    "购买永久激光子弹:资费6元" ,
-                    "购买永久仙人掌子弹:资费5元" ,
-                    "购买永久西瓜子弹:资费7元" ,
-                    "散弹X300" ,
-                    "散弹X100" ,
-                    "穿甲弹X100" ,
-                    "穿甲弹X300" ,
-                    "500金币" ,
-                    "1500金币",
-                    "购买永久导弹:资费20元"};
+            "每分钟加150金币" ,
+            "每分钟加300金币" ,
+            "超值礼包" ,
+            "150个椰果子弹" ,
+            "150个仙人掌子弹" ,
+            "150个激光子弹" ,
+            "150个西瓜子弹" ,
+            "150个导弹子弹" ,
+            "购买永久椰果子弹:资费4元" ,
+            "购买永久激光子弹:资费6元" ,
+            "购买永久仙人掌子弹:资费5元" ,
+            "购买永久西瓜子弹:资费7元" ,
+            "散弹X300" ,
+            "散弹X100" ,
+            "穿甲弹X100" ,
+            "穿甲弹X300" ,
+            "500金币" ,
+            "1500金币",
+            "购买永久导弹:资费20元"};
 
-    public static String GFXM_FEE_NAMEE[] = {
+    public static String GFXM_FEE_NAME[] = {
             "登录奖励",
             "限时特惠",
             "惊喜宝箱",
@@ -123,6 +126,28 @@ public class WYPay {
             "道具解锁",
             "充值礼包",
             "功夫熊猫礼包"
+    };
+
+    public static String HXTJ_FEE_NAME[] = {
+            "4000金币" ,
+            "10500金币" ,
+            "22000金币" ,
+            "40钻石" ,
+            "105钻石" ,
+            "220钻石" ,
+            "强化礼包" ,
+            "豪华礼包" ,
+            "1元礼包" ,
+            "复活"
+    };
+
+    public static String WDSJ_FEE_NAME[] = {
+            "首页礼包" ,
+            "拯救礼包" ,
+            "解封礼包" ,
+            "迷失礼包" ,
+            "护盾礼包" ,
+            "购买角色"
     };
 
     public static String[] HJZJ_M_PAY_POINT = {
@@ -224,6 +249,28 @@ public class WYPay {
             "919vsDzzwwn7m5o1BrA6kBrn"
     };
 
+    public static String HXTJ_M_POINT[] = {
+            "pdBxalk0Byq9qncC1m9orc4i" ,
+            "vrEx5iy8y36jfoqy8Em0e4ou" ,
+            "4tra1v9o3liy0wevrhcfvcie" ,
+            "h9ynC1pgfieEo5yseDkCd5mr" ,
+            "mfqigbbsrwxfy1nn7z5E4sux" ,
+            "a7dnt13vAcvwtmq9yntBDrlt" ,
+            "hlrjDtbgDsA2tep5E5aq3lgf" ,
+            "jh9wsyoiDB7Ddlxf0auml7ik" ,
+            "qDu1nCruBEp8tu05Axi50xwd" ,
+            "qDu1nCruBEp8tu05Axi50xwd"
+    };
+
+    public static String WDSJ_M_POINT[] = {
+            "bExowqlwmyo8tvB5a92whprn" ,
+            "s622ikso0oD9jtlxzAhhzwvD" ,
+            "pyEc7ou0d5qi0h0ild8ppi0x" ,
+            "5cD9bBi4tEf7po3u08ytcnE6" ,
+            "vv9Dnglf1inDv2shl5vwAhze" ,
+            "t9vraep3sf5vfj9p6uA66ujd"
+    };
+
     public static String[] HJZJ_QP_PAY_POINT={
       "05YP" ,
       "05YQ" ,
@@ -257,7 +304,7 @@ public class WYPay {
             "05YL" ,
             "05YM" ,
             "05YN" ,
-            "未配" ,
+            "05YO" ,
             "05YO"
     };
 
@@ -325,6 +372,28 @@ public class WYPay {
             "06EE"
     };
 
+    public static String HXTJ_QP_PAY_POINT[] = {
+            "06FY" ,
+            "06FZ" ,
+            "06G0" ,
+            "06G1" ,
+            "06G2" ,
+            "06G3" ,
+            "06G4" ,
+            "06G5" ,
+            "06G6" ,
+            "06G7"
+    };
+
+    public static String WDSJ_QP_PAY_POINT[] = {
+        "06H8" ,
+        "06H9" ,
+        "06HA" ,
+        "06HB" ,
+        "06HC" ,
+        "06HD"
+    };
+
 
     public static String QCLXX_YF_PAY_POINT[] = {
       "000670000" ,
@@ -344,6 +413,15 @@ public class WYPay {
             "000680006" ,
             "000680007" ,
             "000680008"
+    };
+
+    public static String WDSJ_YF_PAY_POINT[] = {
+      "000695000" ,
+      "000695001" ,
+      "000695002" ,
+      "000695003" ,
+      "000695004" ,
+      "000695005"
     };
 
 
@@ -406,9 +484,13 @@ public class WYPay {
         }else if (feeDesc.equals("Q宠乐消消")){
             return QCLXX_M_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }else if(feeDesc.equals("植物大战僵尸射击版")){
-            return ZWDZJS_M_POINT[indexof(feeName, ZWDZJS_FEE_NAMEE)];
+            return ZWDZJS_M_POINT[indexof(feeName, ZWDZJS_FEE_NAME)];
         }else if (feeDesc.equals("功夫熊猫")){
-            return GFXM_M_POINT[indexof(feeName, GFXM_FEE_NAMEE)];
+            return GFXM_M_POINT[indexof(feeName, GFXM_FEE_NAME)];
+        }else if (feeDesc.equals("火线突击之全民反恐")){
+            return HXTJ_M_POINT[indexof(feeName,HXTJ_FEE_NAME)];
+        }else if (feeDesc.equals("我的新世界")){
+            return WDSJ_M_POINT[indexof(feeName, WDSJ_FEE_NAME)];
         }
         return "4xAlk9jEk86Dx4m5m58s6bsB";
     }
@@ -449,7 +531,11 @@ public class WYPay {
         }else if (feeDesc.equals("Q宠乐消消")){
             return QCLXX_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }else if (feeDesc.equals("功夫熊猫")){
-            return GFXM_PAY_POINT[indexof(feeName, GFXM_FEE_NAMEE)];
+            return GFXM_PAY_POINT[indexof(feeName, GFXM_FEE_NAME)];
+        }else if (feeDesc.equals("火线突击之全民反恐")){
+            return HXTJ_PAY_POINT[indexof(feeName,HXTJ_FEE_NAME)];
+        }else if (feeDesc.equals("我的新世界")){
+            return WDSJ_PAY_POINT[indexof(feeName,WDSJ_FEE_NAME)];
         }
         return 0;
     }
@@ -479,9 +565,13 @@ public class WYPay {
         }else if (feeDesc.equals("Q宠乐消消")){
             return indexof(feeName, QCLXX_FEE_NAME)+1;
         }else if (feeDesc.equals("植物大战僵尸射击版")){
-            return indexof(feeName, ZWDZJS_FEE_NAMEE)+1;
+            return indexof(feeName, ZWDZJS_FEE_NAME)+1;
         }else if (feeDesc.equals("功夫熊猫")){
-            return indexof(feeName, GFXM_FEE_NAMEE)+1;
+            return indexof(feeName, GFXM_FEE_NAME)+1;
+        }else if (feeDesc.equals("火线突击之全民反恐")){
+            return indexof(feeName, HXTJ_FEE_NAME)+1;
+        }else if (feeDesc.equals("我的新世界")){
+            return indexof(feeName, WDSJ_FEE_NAME)+1;
         }
         return 1;
     }
@@ -501,9 +591,13 @@ public class WYPay {
         }else if (feeDesc.equals("Q宠乐消消")){
             result = QCLXX_QP_PAY_POINT[indexof(feeName, QCLXX_FEE_NAME)];
         }else if (feeDesc.equals("植物大战僵尸射击版")){
-            result = ZWDZJS_QP_PAY_POINT[indexof(feeName, ZWDZJS_FEE_NAMEE)];
+            result = ZWDZJS_QP_PAY_POINT[indexof(feeName, ZWDZJS_FEE_NAME)];
         }else if (feeDesc.equals("功夫熊猫")){
-            result = GFXM_QP_PAY_POINT[indexof(feeName, GFXM_FEE_NAMEE)];
+            result = GFXM_QP_PAY_POINT[indexof(feeName, GFXM_FEE_NAME)];
+        }else if (feeDesc.equals("火线突击之全民反恐")){
+            result = HXTJ_QP_PAY_POINT[indexof(feeName, HXTJ_FEE_NAME)];
+        }else if (feeDesc.equals("我的新世界")){
+            result = WDSJ_QP_PAY_POINT[indexof(feeName, WDSJ_FEE_NAME)];
         }
         Log.e("sky","qi pa payPoint="+result);
         return result;
@@ -536,10 +630,14 @@ public class WYPay {
             }else if (feeDesc.equals("植物大战僵尸射击版")){
                 return "000675000";
             }else if (feeDesc.equals("功夫熊猫")){
-                return GFXM_YF_PAY_POINT[indexof(feeName,GFXM_FEE_NAMEE)];
+                return GFXM_YF_PAY_POINT[indexof(feeName, GFXM_FEE_NAME)];
+            }else if (feeDesc.equals("火线突击之全民反恐")){
+                return feeName.equals("220钻石")?"000692000":"000692001";
+            }else if (feeDesc.equals("我的新世界")){
+                return WDSJ_YF_PAY_POINT[indexof(feeName, WDSJ_FEE_NAME)];
             }
         }
-        return null;
+        return "000692000";
     }
 
 
