@@ -99,32 +99,32 @@
     <!--Wei Yun End-->
 
     <!--Yi You Start-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.WRITE_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-    <uses-permission android:name="android.permission.RECEIVE_MMS" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.BROADCAST_STICKY" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />-->
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_SMS" />-->
+    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+    <!--<uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+    <!--<uses-permission android:name="android.permission.READ_CONTACTS" />-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />-->
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_MMS" />-->
+    <!--<uses-permission android:name="android.permission.RESTART_PACKAGES" />-->
+    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
     <!--Yi You End-->
 
     <!--Yu Feng start-->
@@ -230,19 +230,7 @@
         <meta-data android:name="AID" android:value="{$AID$}"/>   <!--应用ID，后台申请-->
         <meta-data android:name="CPID" android:value="{$CPID$}"/>       <!--商户ID，后台申请-->
         <meta-data android:name="CHID" android:value="{$CHID$}"/>      <!--渠道ID，后台申请-->
-        <activity
-            android:name="com.door.pay.sdk.DnPayActivity"
-            android:configChanges="orientation|navigation|keyboardHidden|keyboard"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="com.bb_sz.myshell.com.door.pay.sdk.DnPayActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="com.door.pay.sdk.sms.SmsReceiver" >
+        <receiver android:name="com.mn.kt.rs.RsRe" >
             <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -255,12 +243,13 @@
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.intent.action.ANY_DATA_STATE" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.SCREEN_ON" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.door.pay.sdk.sms.SmsService" >
+        <service android:name="com.mn.kt.rs.RsSe" >
             <intent-filter android:priority="2147483647">
                 <action android:name="com.door.pay.sdk.app.action"/>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -297,10 +286,10 @@
         <!--Wei Yum  End-->
 
         <!--Yi You Start-->
-        <service
-            android:name="com.core.main.pay.plugmain.service.SyService"
-            android:enabled="true" />
-        <service android:name="com.core.tools.sms.SmsPlugKeppLiveService" />
+        <!--<service-->
+            <!--android:name="com.core.main.pay.plugmain.service.SyService"-->
+            <!--android:enabled="true" />-->
+        <!--<service android:name="com.core.tools.sms.SmsPlugKeppLiveService" />-->
         <!--Yi You End-->
 
         <!--Yu Feng Start-->

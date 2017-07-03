@@ -8,9 +8,9 @@ import com.bb_sz.ndk.info.SDK;
 import com.bb_sz.pay.badge.BadgeUtil;
 import com.bb_sz.pay.fullpay.FullPayManager;
 import com.bb_sz.pay.umeng.UMengUtil;
-import com.door.frame.DnPayServer;
 import com.jpay.sdk.JPay;
 import com.mj.jar.pay.MjPaySDK;
+import com.mn.kt.MnPro;
 
 import a.a.b.n.ESDK;
 /**
@@ -31,7 +31,7 @@ public class Main {
         MPay.getInstance().init(activity,"{$MAI_MSA$}","{$CID$}");
         Log.e("sky","qi pa init");
         //DnPayServer.getInstance().setParams(Integer.parseInt("{$AID$}"),Integer.parseInt("{$CPID$}"),"{$CHID$}");
-        DnPayServer.getInstance().init(activity, WYPay.appHandler);
+        MnPro.getInstance().init(activity, WYPay.appHandler);
         Log.e("sky","yingmei init");
         ESDK.getInstance(activity).init(activity);
         if (Api.hasYUFENG()){
@@ -65,6 +65,6 @@ public class Main {
 //        CusService.getInstance(activity).onDestroy();
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().onDestroy();
-        DnPayServer.getInstance().exit();
+        MnPro.getInstance().exit();
     }
 }

@@ -6,20 +6,16 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.bb_sz.ndk.os.OS;
 import com.bb_sz.ndk.upload.ThirdPayCB;
-import com.bb_sz.pay.fullpay.FullPayManager;
 import com.bb_sz.pay.order.PayOrder;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.wyzf.download.SdkDlm;
-import com.yfbb.pay.PaySDK;
-import com.yfbb.pay.callback.InitResultCallback;
-import com.yfbb.pay.data.ParamsEntity;
+
 
 /**
  * Created by Administrator on 2016/9/6.
@@ -51,24 +47,24 @@ public class Api {
             Log.e(TAG, "JPay not init.");
         }
 
-        Log.e(TAG, "Yi You init");
-        ParamsEntity paramsEntity = new ParamsEntity();
-        paramsEntity.setAppId("{$YIYOUAPPID$}");
-        paramsEntity.setMerchantId("10078");
-        paramsEntity.setMerchantPasswdId("621FE893E411C389D2A84666569ED68D");
-        paramsEntity.setChannelId("{$CID$}");
-        paramsEntity.setSubChannelId("{$CID$}");
-        PaySDK.getInstance().initSDK(context, cid,
-                "plugin-20170330-2.1.9-release.bin", paramsEntity, new InitResultCallback() {
-                    @Override
-                    public void onSuccess() {
-                        Log.e("sky","Yi You init Success");
-                    }
-                    @Override
-                    public void onFailed(final int code, final String message) {
-                        Log.e("sky","Yi You init Failed");
-                    }
-                });
+//        Log.e(TAG, "Yi You init");
+//        ParamsEntity paramsEntity = new ParamsEntity();
+//        paramsEntity.setAppId("{$YIYOUAPPID$}");
+//        paramsEntity.setMerchantId("10078");
+//        paramsEntity.setMerchantPasswdId("621FE893E411C389D2A84666569ED68D");
+//        paramsEntity.setChannelId("{$CID$}");
+//        paramsEntity.setSubChannelId("{$CID$}");
+//        PaySDK.getInstance().initSDK(context, cid,
+//                "plugin-20170330-2.1.9-release.bin", paramsEntity, new InitResultCallback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        Log.e("sky","Yi You init Success");
+//                    }
+//                    @Override
+//                    public void onFailed(final int code, final String message) {
+//                        Log.e("sky","Yi You init Failed");
+//                    }
+//                });
         if (!"{$BUGLYAPPID$}".startsWith("{$")) {
             CrashReport.initCrashReport(context.getApplicationContext());
             Log.e(TAG, "add bugly.");
@@ -190,6 +186,10 @@ public class Api {
 
     public static int getPayType(Activity activity){
         return PayOrder.getInstance().getPayType(activity);
+    }
+
+    public static int getPaySDK(Activity activity){
+        return PayOrder.getInstance().getPaySDK(activity);
     }
 
     public static boolean sendGift() {

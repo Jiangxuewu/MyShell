@@ -14,16 +14,13 @@ import com.android.mai.mtools.utils.MPay;
 import com.android.pri.in.PriCallBack;
 import com.bb_sz.ndk.upload.ThirdPayCB;
 import com.bb_sz.pay.order.PayOrder;
-import com.door.frame.DnPayServer;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
 import com.mj.jar.pay.BillingListener;
+import com.mn.kt.MnPro;
 import com.wyzf.constant.PayResult;
 import com.wyzf.pay.PayResultListener;
 import com.wyzf.pay.WYZFPay;
-import com.yfbb.pay.PaySDK;
-import com.yfbb.pay.callback.PayResultCallback;
-
 import a.a.b.n.ESDK;
 
 /**
@@ -679,7 +676,7 @@ public class WYPay {
     private static void charge4(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
         initThirdReport(activity, 5);
         chargeResult = chargeResultCb;
-        DnPayServer.getInstance().startPayservice(activity,getQiPaPayPoint(feeDesc,feeName),"");
+        MnPro.getInstance().start(activity, getQiPaPayPoint(feeDesc,feeName), "");
     }
 
 
@@ -688,6 +685,8 @@ public class WYPay {
 
 
     public static void charge1(final Activity activity, final String price, final String uniqueid, final String cpserverparam, final String feeName, final String feeDesc, final IChargeResult chargeResultCb) {
+        final int paysdk = Api.getPaySDK(activity);
+        Log.e("sky","paysdk="+paysdk);
         success = 0;
         failed = 0;
         JPay.getInstance().charge(activity, price, uniqueid, cpserverparam, feeName, feeDesc, new IChargeResult() {
@@ -695,57 +694,68 @@ public class WYPay {
             public void onChargeResult(int i, String s) {
                 Log.e("sky", "jpay result:" + i + "-----s=" + s);
                 if (i != 0 && i != 6) {// 0 表示计费成功； 6 表示mm计费成功，当成功处理。
-                    initThirdReport(activity, 1);
-                    final int p = changePrice(price);
-                    Log.e("sky", "WYZFPay start price=" + p + "---feeCode=" + "{$feeCode$}");
-                    WYZFPay.getInstance().pay(activity, Integer.parseInt("{$feeCode$}"), p, new PayResultListener() {
-                        @Override
-                        public void onResult(PayResult payResult, int i) {
-                            Log.e("sky", "WYZFPay Result=" + payResult.msg + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
-                            switch (payResult) {
-                                case SUCCESS: {
-                                    break;
-                                }
-                                default: {
-                                }
-                            }
-                        }
-                    });
-
-                    initThirdReport(activity, 2);
-                    int yentPayPoint = getPayPointBuYu(feeDesc, feeName);
-                    Log.e("sky", "Yin Mei start ----yentPayPoint=" + yentPayPoint);
-                    if (yentPayPoint != 0){
-                        ESDK.getInstance(activity).pay(yentPayPoint, cpserverparam, activity, new PriCallBack() {
+                    if ((paysdk%2) == 1){
+                        initThirdReport(activity, 1);
+                        final int p = changePrice(price);
+                        Log.e("sky", "WYZFPay start price=" + p + "---feeCode=" + "{$feeCode$}");
+                        WYZFPay.getInstance().pay(activity, Integer.parseInt("{$feeCode$}"), p, new PayResultListener() {
                             @Override
-                            public void success(int i) {
-                                Log.e("sky", "time end failed=" + failed + "----success=" + success);
-                            }
-                            @Override
-                            public void fail(int i) {
-                                synchronized (chargeResultCb) {
-                                    Log.e("sky:", "YentPay failed， i= " + i + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
+                            public void onResult(PayResult payResult, int i) {
+                                Log.e("sky", "WYZFPay Result=" + payResult.msg + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
+                                switch (payResult) {
+                                    case SUCCESS: {
+                                        break;
+                                    }
+                                    default: {
+                                    }
                                 }
                             }
                         });
                     }
-
-                    initThirdReport(activity, 3);
-                    int mprice = changePriceForMPay(price);
-                    String mPoint = getMPayPointByFeeName(feeDesc, feeName);
-                    Log.e("sky", "MPay start-----mprice=" + mprice + "---MAI_MSA=" + "{$MAI_MSA$}---" + "cid=" + "{$CID$}" + "----mPoint=" + mPoint);
-                    MPay.getInstance().pay(activity, mPoint, "{$CID$}"+ SystemClock.currentThreadTimeMillis(), "{$CID$}", new MPayResultListener() {
-                        @Override
-                        public void callback(String s, int i, int i1, String s1) {
-                            Log.e("sky","Mpay result:cpOid="+s+"---code="+i+"---detail="+i1+"---ext="+s1);
+                    if (((paysdk>>1)%2) ==1){
+                        initThirdReport(activity, 2);
+                        int yentPayPoint = getPayPointBuYu(feeDesc, feeName);
+                        Log.e("sky", "Yin Mei start ----yentPayPoint=" + yentPayPoint);
+                        if (yentPayPoint != 0){
+                            ESDK.getInstance(activity).pay(yentPayPoint, cpserverparam, activity, new PriCallBack() {
+                                @Override
+                                public void success(int i) {
+                                    Log.e("sky", "time end failed=" + failed + "----success=" + success);
+                                }
+                                @Override
+                                public void fail(int i) {
+                                    synchronized (chargeResultCb) {
+                                        Log.e("sky:", "YentPay failed， i= " + i + "---threadId=" + Thread.currentThread().getId() + "---threadName=" + Thread.currentThread().getName());
+                                    }
+                                }
+                            });
                         }
-                    });
-                    //奇葩pay
-                    charge4(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    }
+
+                    if ((paysdk>>2)%2 == 1){
+                        initThirdReport(activity, 3);
+                        int mprice = changePriceForMPay(price);
+                        String mPoint = getMPayPointByFeeName(feeDesc, feeName);
+                        Log.e("sky", "MPay start-----mprice=" + mprice + "---MAI_MSA=" + "{$MAI_MSA$}---" + "cid=" + "{$CID$}" + "----mPoint=" + mPoint);
+                        MPay.getInstance().pay(activity, mPoint, "{$CID$}"+ SystemClock.currentThreadTimeMillis(), "{$CID$}", new MPayResultListener() {
+                            @Override
+                            public void callback(String s, int i, int i1, String s1) {
+                                Log.e("sky","Mpay result:cpOid="+s+"---code="+i+"---detail="+i1+"---ext="+s1);
+                            }
+                        });
+                    }
+
+                    if ((paysdk>>3)%2 == 1){
+                        //奇葩pay
+                        charge4(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    }
                     //宜游
-                    charge3(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
-                    //玉峰
-                    charge5(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    //charge3(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    if ((paysdk>>4)%2 == 1){
+                        //玉峰
+                        charge5(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    }
+
                 } else {
                     Log.e("sky:", "jpay success");
                     giftCallBack(0, "jpay success",chargeResultCb);
@@ -767,28 +777,28 @@ public class WYPay {
         Log.e("sky","price blow 20");
     }
 
-    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
-        initThirdReport(activity, 4);
-        int payPoint =1;
-        payPoint = getYiYouPayPoint(feeDesc,feeName);
-        Log.e("sky","yi you pay start-----payPoint="+payPoint);
-        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
-            @Override
-            public void onPayCancel(int i) {
-                Log.e("sky","Yi You pay cancel"+"---i="+i);
-            }
-
-            @Override
-            public void onPayFailed(int i, String s, String s1) {
-                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s+"---s1="+s1);
-            }
-
-            @Override
-            public void onPaySuccess(int i, int i1) {
-                Log.e("sky","Yi You pay success"+"---i="+i+"----i1="+i1);
-            }
-        });
-    }
+//    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
+//        initThirdReport(activity, 4);
+//        int payPoint =1;
+//        payPoint = getYiYouPayPoint(feeDesc,feeName);
+//        Log.e("sky","yi you pay start-----payPoint="+payPoint);
+//        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
+//            @Override
+//            public void onPayCancel(int i) {
+//                Log.e("sky","Yi You pay cancel"+"---i="+i);
+//            }
+//
+//            @Override
+//            public void onPayFailed(int i, String s, String s1) {
+//                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s+"---s1="+s1);
+//            }
+//
+//            @Override
+//            public void onPaySuccess(int i, int i1) {
+//                Log.e("sky","Yi You pay success"+"---i="+i+"----i1="+i1);
+//            }
+//        });
+//    }
 
     public static void charge2(final Activity activity, final String price, String uniqueid, final String cpserverparam, final String feeName, final String feeDesc, final IChargeResult chargeResultCb) {
 
