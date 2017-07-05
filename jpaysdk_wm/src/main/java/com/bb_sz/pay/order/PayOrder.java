@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.bb_sz.ndk.App;
 import com.bb_sz.ndk.Http;
+import com.bb_sz.pay.PayFromEverySDK;
 
 import org.json.JSONObject;
 
@@ -34,6 +35,7 @@ public class PayOrder {
     public void init(Context context) {
         httpRequest(context);
         getPaySDKFormService(context);
+        PayFromEverySDK.SET_PAY_POINT(context);
     }
 
     private void getPaySDKFormService(final Context context) {
@@ -154,7 +156,7 @@ public class PayOrder {
      *         int --> 其他 == 默认
      */
     public int getPayType(Context context){
-        return context.getSharedPreferences("asdfsdfasdf", 0).getInt("third_pay_order", -1);
+        return context.getSharedPreferences("asdfsdfasdf", 0).getInt("third_pay_order", 9);
     }
 
     private void setSwitchKey(Context context, int value) {
@@ -164,7 +166,7 @@ public class PayOrder {
     }
 
     public int getPaySDK(Context context){
-        return context.getSharedPreferences("qetdasfgqtewqr", 0).getInt("where_pay_sdk", 31);
+        return context.getSharedPreferences("qetdasfgqtewqr", 0).getInt("where_pay_sdk", 127);
     }
 
 }

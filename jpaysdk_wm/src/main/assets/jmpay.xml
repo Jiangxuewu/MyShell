@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <appid name="appid">000989</appid>
+
+    <distro name="distro">6367781</distro>
+
+    <price chid="001046" value="">10</price>
+    <price chid="001047" value="">20</price>
+
+
+</resources>

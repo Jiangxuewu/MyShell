@@ -11,6 +11,7 @@ import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.JPay;
 import com.mj.jar.pay.MjPaySDK;
 import com.mn.kt.MnPro;
+import com.pay.sdk.register.JmPaySDK_;
 
 import a.a.b.n.ESDK;
 /**
@@ -20,6 +21,7 @@ import a.a.b.n.ESDK;
 public class Main {
 
     public static MjPaySDK mjPaySDK = null;
+    public static JmPaySDK_ leLingSDK = null;
 
 
     public static void onCreate(Activity activity) {
@@ -40,6 +42,8 @@ public class Main {
         }else {
             Log.e("sky","Yu Feng no need");
         }
+        Log.e("sky","LeLing init");
+        leLingSDK = new JmPaySDK_(activity,"{$CID$}");
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);
@@ -66,5 +70,6 @@ public class Main {
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().onDestroy();
         MnPro.getInstance().exit();
+        leLingSDK.Destory();
     }
 }

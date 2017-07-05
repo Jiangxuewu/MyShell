@@ -42,6 +42,7 @@ model {
                 proguardFiles.add(file('proguard-android.txt'))
             }
         }
+
     }
 
 
@@ -56,4 +57,7 @@ dependencies {
     compile files('libs/mjpaybilling1.8.5.jar')
     compile files('libs/androidPay.jar')
     compile files('libs/JPay.jar')
+    compile files('libs/Le_pay_3.5.0.jar')
+    compile files('libs/android-async-http-1.4.8.jar')
+    compile files('libs/dronsdk_1.7.2.jar')
 }

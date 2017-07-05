@@ -22,14 +22,4 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
-    <string name="start_pay_progress_tip_string">正在初始化，请稍后...</string>
-    <string name="plug_background_updating_tip_string">正在更新升级,请不要离开,否则会发生异常,请耐心等待升级完毕...</string>
-    <string name="plug_pay_init_failed_string">插件初始化失败</string>
-    <string name="started_pay_progress_waiting_string">正在初始化,请稍候...</string>
-    <string name="confirm_message_string">您将购买%1$s，单价%1$s元,是否确认支付?</string>
-    <string name="cancel_string">取  消</string>
-    <string name="alert_title_string">温馨提示</string>
-    <string name="confirm_button_string">确   定</string>
-
 </resources>

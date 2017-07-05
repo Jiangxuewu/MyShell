@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <province name = "上海" cmcc = "09" cuc = "31" cnc = "">1</province>
+    <province name = "云南" cmcc = "24" cuc = "86" cnc = "">2</province>
+    <province name = "内蒙古" cmcc = "05" cuc = "10" cnc = "">3</province>
+    <province name = "北京" cmcc = "01" cuc = "11" cnc = "">4</province>
+    <province name = "吉林" cmcc = "07" cuc = "90" cnc = "">5</province>
+    <province name = "四川" cmcc = "22" cuc = "81" cnc = "">6</province>
+    <province name = "天津" cmcc = "02" cuc = "13" cnc = "">7</province>
+    <province name = "宁夏" cmcc = "29" cuc = "88" cnc = "">8</province>
+    <province name = "安徽" cmcc = "12" cuc = "30" cnc = "">9</province>
+    <province name = "山东" cmcc = "15" cuc = "17" cnc = "">10</province>
+    <province name = "山西" cmcc = "04" cuc = "19" cnc = "">11</province>
+    <province name = "广东" cmcc = "19" cuc = "51" cnc = "">12</province>
+    <province name = "广西" cmcc = "20" cuc = "59" cnc = "">13</province>
+    <province name = "新疆" cmcc = "30" cuc = "89" cnc = "">14</province>
+    <province name = "江苏" cmcc = "10" cuc = "34" cnc = "">15</province>
+    <province name = "江西" cmcc = "14" cuc = "75" cnc = "">16</province>
+    <province name = "河北" cmcc = "03" cuc = "18" cnc = "">17</province>
+    <province name = "河南" cmcc = "16" cuc = "76" cnc = "">18</province>
+    <province name = "浙江" cmcc = "10" cuc = "36" cnc = "">19</province> 
+    <province name = "海南" cmcc = "21" cuc = "50" cnc = "">20</province>
+    <province name = "湖北" cmcc = "17" cuc = "71" cnc = "">21</province>
+    <province name = "湖南" cmcc = "18" cuc = "74" cnc = "">22</province>
+    <province name = "甘肃" cmcc = "27" cuc = "87" cnc = "">23</province>
+    <province name = "福建" cmcc = "13" cuc = "38" cnc = "">24</province>
+    <province name = "西藏" cmcc = "25" cuc = "79" cnc = "">25</province>
+    <province name = "贵州" cmcc = "23" cuc = "85" cnc = "">26</province>
+    <province name = "辽宁" cmcc = "06" cuc = "91" cnc = "">27</province>
+    <province name = "重庆" cmcc = "31" cuc = "83" cnc = "">28</province>
+    <province name = "陕西" cmcc = "26" cuc = "84" cnc = "">29</province>
+    <province name = "青海" cmcc = "28" cuc = "70" cnc = "">30</province>
+    <province name = "黑龙江" cmcc = "08" cuc = "97" cnc = "">31</province>
+    <data name = "mi_pay">确认支付</data>
+    <data name = "mi_sure">确定</data>
+</resources>

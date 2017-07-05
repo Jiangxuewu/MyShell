@@ -1,6 +1,7 @@
 package com.bb_sz.pay.umeng;
 
 import android.content.Context;
+import android.hardware.camera2.params.Face;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -69,6 +70,9 @@ public class UMengUtil {
 //        }
 //        if (App.debug > 0) Log.d("SKYUM", "isUpload:" + isUpload);
 //        return isUpload;
+        if ("{$UMENG$}".equals("No")){
+            return false;
+        }
         return true;
     }
 }

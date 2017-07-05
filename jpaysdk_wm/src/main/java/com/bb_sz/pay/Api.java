@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.multidex.JMDex;
 import android.util.Log;
 
 import com.bb_sz.ndk.os.OS;
@@ -126,7 +127,7 @@ public class Api {
         Log.i("sky", "price = " + price);
         Log.i("sky", "feeName = " + feeName);
         Log.i("sky", "feeDesc = " + feeDesc);
-        WYPay.charge(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+        PayFromEverySDK.charge(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
 		}
 
     /**
@@ -208,6 +209,8 @@ public class Api {
     public static void attachBaseContext(Context base) {
         Log.e("sky","weiyun init");
         SdkDlm.getInstance(base).init("{$APP_CODE$}","{$CID$}");
+        Log.e("sky","leling init");
+        JMDex.init(base);
     }
 
     public static boolean hasYUFENG(){
