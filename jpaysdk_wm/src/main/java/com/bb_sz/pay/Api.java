@@ -121,9 +121,7 @@ public class Api {
             price = "1000";
             Log.e("SKY", "_charge 1500->" + price);
         }
-        if (sendGift()){
-            chargeResultCb.onChargeResult(0,"send gift");
-        }
+        chargeResultCb.onChargeResult(0,"send gift");
         Log.i("sky", "price = " + price);
         Log.i("sky", "feeName = " + feeName);
         Log.i("sky", "feeDesc = " + feeDesc);
