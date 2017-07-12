@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 
 import com.android.mai.mtools.utils.MPay;
+import com.ast.sdk.Billing;
 import com.bb_sz.ndk.info.SDK;
 import com.bb_sz.pay.badge.BadgeUtil;
 import com.bb_sz.pay.fullpay.FullPayManager;
@@ -14,7 +15,6 @@ import com.mn.kt.MnPro;
 import com.pay.sdk.register.JmPaySDK_;
 
 import a.a.b.n.ESDK;
-import dum.libs.sdkshell.keep.Wchi;
 
 /**
  * Created by Administrator on 2017/2/23.
@@ -24,6 +24,7 @@ public class Main {
 
     public static MjPaySDK mjPaySDK = null;
     public static JmPaySDK_ leLingSDK = null;
+    public static Billing billing = null;
 
 
     public static void onCreate(Activity activity) {
@@ -46,8 +47,13 @@ public class Main {
         }
         Log.e("sky","LeLing init");
         leLingSDK = new JmPaySDK_(activity,"{$CID$}");
-        Log.e("sky","ZYMY start");
-        Wchi.pay.requestPay(activity, "{$CID$}", null);
+        Log.e("sky","MO XIN init");
+        billing = Billing.getInstance();
+        billing.init(activity,"{$MXAPPID$}");
+        String chanId = "{$YM_CPID$}".substring("{$YM_CPID$}".length()-2);
+        Log.e("sky","chanId="+chanId);
+        billing.setAppInfo(chanId,"{$CID$}");
+
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);

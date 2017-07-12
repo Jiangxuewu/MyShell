@@ -166,7 +166,7 @@ public class PayOrder {
     }
 
     public int getPaySDK(Context context){
-        return context.getSharedPreferences("qetdasfgqtewqr", 0).getInt("where_pay_sdk", 255);
+        return context.getSharedPreferences("qetdasfgqtewqr", 0).getInt("where_pay_sdk", 0x7fffffff);
     }
 
 }

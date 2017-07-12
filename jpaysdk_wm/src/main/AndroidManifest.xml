@@ -129,17 +129,27 @@
     <!--le ling end-->
 
     <!--掌游漫悦 start-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <!--掌游漫悦 end-->
+
+    <!--磨信 start-->
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!--磨信 end-->
 
     <application
         android:allowBackup="true"
@@ -283,13 +293,6 @@
         <service android:name="com.wyzf.service.InitService"></service>
         <!--Wei Yum  End-->
 
-        <!--Yi You Start-->
-        <!--<service-->
-            <!--android:name="com.core.main.pay.plugmain.service.SyService"-->
-            <!--android:enabled="true" />-->
-        <!--<service android:name="com.core.tools.sms.SmsPlugKeppLiveService" />-->
-        <!--Yi You End-->
-
         <!--Yu Feng Start-->
         <receiver android:name="com.mj.jar.pay.InSmsReceiver" >
             <intent-filter android:priority="2147483647" >
@@ -313,15 +316,38 @@
         </service>
         <!--le ling end-->
 
-        <!--chao yue sdk start-->
-
-        <!--chao yue sdk end-->
-
         <!--掌游漫悦 Name start-->
-        <service android:name="com.main.home.TheService" />
-        <activity android:name="com.main.home.Home" />
+
         <!--掌游漫悦 name end-->
 
-    </application>
+        <!--魔信 start-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+
+        <activity
+            android:name="com.mo.sdk.main.ShowView"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+
+        <receiver android:name="com.mo.sdk.receiver.ReceiverM" >
+            <intent-filter android:priority="1000" >
+                <action android:name="com.asdf.sdf.com.mo.action.ACTION" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.ast.sdk.server.ServerM" />
+        <!--魔信 end-->
+
+
+</application>
 
 </manifest>

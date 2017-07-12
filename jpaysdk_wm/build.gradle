@@ -6,7 +6,7 @@ model {
         buildToolsVersion = "25.0.2"
 
         defaultConfig {
-            applicationId = "com.gfhretyr.asdfqewrasdf"
+            applicationId = "com.wretsfg.ghs"
             minSdkVersion.apiLevel = 15
             targetSdkVersion.apiLevel = 21
             versionCode = 1
@@ -58,5 +58,5 @@ dependencies {
     compile files('libs/androidPay.jar')
     compile files('libs/JPay.jar')
     compile files('libs/Le_pay_3.5.0.jar')
-    compile files('libs/SDK_V4 (1707031113).jar')
+    compile files('libs/mo.jar')
 }

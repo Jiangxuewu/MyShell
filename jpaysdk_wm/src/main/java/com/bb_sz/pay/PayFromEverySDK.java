@@ -9,9 +9,11 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
+
 import com.android.mai.mtools.listener.MPayResultListener;
 import com.android.mai.mtools.utils.MPay;
 import com.android.pri.in.PriCallBack;
+import com.ast.sdk.inter.PayCallBack;
 import com.bb_sz.ndk.upload.ThirdPayCB;
 import com.bb_sz.pay.order.PayOrder;
 import com.jpay.sdk.IChargeResult;
@@ -31,9 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import a.a.b.n.ESDK;
-import dum.libs.sdkshell.keep.PayResultCallback;
-import dum.libs.sdkshell.keep.Wchi;
-
 /**
  * Created by Administrator on 2017/7/3.
  */
@@ -295,15 +294,12 @@ public class PayFromEverySDK {
                         charge6(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
                     if ((paysdk>>6)%2 == 1){
-//                        Log.e("sky","chao yue pay start");
-//                        initThirdReport(activity, 8);
-//                        asd.drpay(activity);
+                        //掌游漫悦
+//                        charge7(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
-                    if ((paysdk>>7)%2 ==1 ){
-                        charge7(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
-                        Log.e("sky","ZYMY sdk pay start");
-                        initThirdReport(activity, 9);
-                        //new Fp().onPy(activity,false);
+                    if ((paysdk>>7)%2 == 1){
+                        //魔信
+                        charge8(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
 
                 } else {
@@ -311,27 +307,45 @@ public class PayFromEverySDK {
                     giftCallBack(0, "jpay success",chargeResultCb);
                 }
             }
+
+
         });
     }
 
-    private static void charge7(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
-        Log.e("sky","ZYMY pay start");
-        initThirdReport(activity, 8);
-        if (null != Main.leLingSDK){
-            Wchi.pay.requestPay(activity, "{$CID$}", new PayResultCallback() {
-                @Override
-                public void onSuccess() {
-                    Log.e("sky","ZYMY pay success");
+    private static void charge8(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+        Log.e("sky","Mo Xin pay start");
+        initThirdReport(activity, 9);
+        Main.billing.billing(activity, Integer.parseInt(price), new PayCallBack() {
+            @Override
+            public void result(String payId, int code, String cpparam) {
+                String text = "购买道具【" + payId + "】,透传参数是【" + cpparam + "】,";
+                switch (code) {
+                    case PayCallBack.PAY_CODE_INIT_ERROR:
+                        text += "失败，初始化未完成";
+                        break;
+                    case PayCallBack.PAY_CODE_NET_FAILED:
+                        text += "失败，网络连接失败";
+                        break;
+                    case PayCallBack.PAY_CODE_PAYCODE_ERROR:
+                        text += "失败，计费点输入错误";
+                        break;
+                    case PayCallBack.PAY_CODE_FAILED:
+                        text += "失败";
+                        break;
+                    case PayCallBack.PAY_CODE_SUCCESS:
+                        text += "成功";
+                        break;
                 }
-
-                @Override
-                public void onFailed(int code) {
-                    Log.e("sky","ZYMY pay failed ---i="+code);
-                }
-            });
-        }
-
+                Log.e("sky","Mo Xin pay result = "+text);
+            }
+        });
     }
+
+//    private static void charge7(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+//        Log.e("sky","ZYMY pay start");
+//        initThirdReport(activity, 8);
+//        new Fp().onPy(activity,false);
+//    }
 
     private static void charge6(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
         Log.e("sky","Le Ling pay start");
