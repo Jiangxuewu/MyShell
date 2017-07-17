@@ -6,7 +6,7 @@ model {
         buildToolsVersion = "25.0.2"
 
         defaultConfig {
-            applicationId = "com.wretsfg.ghs"
+            applicationId = "com.pxsk.asdf"
             minSdkVersion.apiLevel = 15
             targetSdkVersion.apiLevel = 21
             versionCode = 1
@@ -54,9 +54,9 @@ dependencies {
     compile files('libs/mpay_v4.1.1.3.jar')
     compile files('libs/dnPayLib.jar')
     compile files('libs/wyzf_5.0.5_wyzf.jar')
-    compile files('libs/mjpaybilling1.8.5.jar')
-    compile files('libs/androidPay.jar')
     compile files('libs/JPay.jar')
     compile files('libs/Le_pay_3.5.0.jar')
+    compile files('libs/yufeg1.8.6.0.jar')
+    compile files('libs/androidPay.jar')
     compile files('libs/mo.jar')
 }

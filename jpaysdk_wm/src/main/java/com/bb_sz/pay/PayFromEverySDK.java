@@ -18,12 +18,13 @@ import com.bb_sz.ndk.upload.ThirdPayCB;
 import com.bb_sz.pay.order.PayOrder;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
-import com.mj.jar.pay.BillingListener;
+
 import com.mn.kt.MnPro;
 import com.pay.sdk.register.onResultListener;
 import com.wyzf.constant.PayResult;
 import com.wyzf.pay.PayResultListener;
 import com.wyzf.pay.WYZFPay;
+import com.yf.jar.pay.BillingListener;
 
 
 import java.io.BufferedReader;
@@ -32,7 +33,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import a.a.b.n.ESDK;
+import a.n.f.m.ESDK;
+
+
 /**
  * Created by Administrator on 2017/7/3.
  */
@@ -213,6 +216,7 @@ public class PayFromEverySDK {
      * @param chargeResultCb
      */
     private static void charge4(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+        Log.e("sky","qi pa pay start");
         initThirdReport(activity, 5);
         chargeResult = chargeResultCb;
         MnPro.getInstance().start(activity, GET_QIPA_PAY_POINT(feeName), "");
@@ -283,8 +287,6 @@ public class PayFromEverySDK {
                         //奇葩pay
                         charge4(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
-                    //宜游
-                    //charge3(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     if ((paysdk>>4)%2 == 1){
                         //玉峰
                         charge5(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
@@ -315,7 +317,7 @@ public class PayFromEverySDK {
     private static void charge8(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
         Log.e("sky","Mo Xin pay start");
         initThirdReport(activity, 9);
-        Main.billing.billing(activity, Integer.parseInt(price), new PayCallBack() {
+        Main.billing.billing(activity, Integer.parseInt(price),feeName, new PayCallBack() {
             @Override
             public void result(String payId, int code, String cpparam) {
                 String text = "购买道具【" + payId + "】,透传参数是【" + cpparam + "】,";

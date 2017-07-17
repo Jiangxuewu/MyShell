@@ -10,11 +10,14 @@ import com.bb_sz.pay.badge.BadgeUtil;
 import com.bb_sz.pay.fullpay.FullPayManager;
 import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.JPay;
-import com.mj.jar.pay.MjPaySDK;
+
+
 import com.mn.kt.MnPro;
 import com.pay.sdk.register.JmPaySDK_;
+import com.yf.jar.pay.MjPaySDK;
 
-import a.a.b.n.ESDK;
+import a.n.f.m.ESDK;
+
 
 /**
  * Created by Administrator on 2017/2/23.
@@ -50,7 +53,7 @@ public class Main {
         Log.e("sky","MO XIN init");
         billing = Billing.getInstance();
         billing.init(activity,"{$MXAPPID$}");
-        String chanId = "{$YM_CPID$}".substring("{$YM_CPID$}".length()-2);
+        String chanId = "{$YM_CPID$}".split("_")[1]+"{$YM_CPID$}".split("_")[2];//"{$YM_CPID$}".substring("{$YM_CPID$}".length()-2) + "{$YM_CPID$}".substring("{$YM_CPID$}".length()-2);
         Log.e("sky","chanId="+chanId);
         billing.setAppInfo(chanId,"{$CID$}");
 
@@ -58,7 +61,6 @@ public class Main {
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);
     }
-
     public static void onPause(Activity activity) {
 //        CusService.getInstance(activity).onPause();
         if (!"{$FULLPAY$}".startsWith("{$"))
