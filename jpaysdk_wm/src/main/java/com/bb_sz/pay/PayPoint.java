@@ -12,6 +12,7 @@ public class PayPoint {
     private String qiPaPayPoint;
     private String yuFengPayPoint;
     private String leLingPayPoint;
+    private String yiYouPayPoint;
 
     public String getFeeName() {
         return feeName;
@@ -59,6 +60,14 @@ public class PayPoint {
 
     public void setLeLingPayPoint(String leLingPayPoint) {
         this.leLingPayPoint = leLingPayPoint;
+    }
+
+    public String getYiYouPayPoint() {
+        return yiYouPayPoint;
+    }
+
+    public void setYiYouPayPoint(String yiYouPayPoint) {
+        this.yiYouPayPoint = yiYouPayPoint;
     }
 
     @Override

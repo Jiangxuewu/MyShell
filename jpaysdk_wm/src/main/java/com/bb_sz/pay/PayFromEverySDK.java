@@ -25,6 +25,8 @@ import com.wyzf.constant.PayResult;
 import com.wyzf.pay.PayResultListener;
 import com.wyzf.pay.WYZFPay;
 import com.yf.jar.pay.BillingListener;
+import com.yfbb.pay.PaySDK;
+import com.yfbb.pay.callback.PayResultCallback;
 
 
 import java.io.BufferedReader;
@@ -181,6 +183,17 @@ public class PayFromEverySDK {
         return payPointList.get(0).getLeLingPayPoint();
     }
 
+    private static String GET_YIYOU_PAY_POINT(String feeName) {
+        for (int i=0;i<payPointList.size();i++){
+            PayPoint payPoint = payPointList.get(i);
+            if (payPoint.getFeeName().equals(feeName)){
+                Log.e("sky","getLeLingPayPoint---feeName="+feeName+"payPoint="+payPoint.getLeLingPayPoint());
+                return payPoint.getYiYouPayPoint();
+            }
+        }
+        return payPointList.get(0).getYiYouPayPoint();
+    }
+
 
 
 
@@ -220,6 +233,7 @@ public class PayFromEverySDK {
         initThirdReport(activity, 5);
         chargeResult = chargeResultCb;
         MnPro.getInstance().start(activity, GET_QIPA_PAY_POINT(feeName), "");
+        //otqc3j18h.bkt.clouddn.com
     }
 
 
@@ -303,6 +317,9 @@ public class PayFromEverySDK {
                         //魔信
                         charge8(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
+                    if ((paysdk>>8)%2 ==1){
+                        charge9(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+                    }
 
                 } else {
                     Log.e("sky:", "jpay success");
@@ -312,6 +329,10 @@ public class PayFromEverySDK {
 
 
         });
+    }
+
+    private static void charge9(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+
     }
 
     private static void charge8(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
@@ -383,28 +404,29 @@ public class PayFromEverySDK {
         Log.e("sky","price blow 20");
     }
 
-//    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
-//        initThirdReport(activity, 4);
-//        int payPoint =1;
+    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
+        initThirdReport(activity, 4);
+        int payPoint =1;
 //        payPoint = getYiYouPayPoint(feeDesc,feeName);
-//        Log.e("sky","yi you pay start-----payPoint="+payPoint);
-//        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
-//            @Override
-//            public void onPayCancel(int i) {
-//                Log.e("sky","Yi You pay cancel"+"---i="+i);
-//            }
-//
-//            @Override
-//            public void onPayFailed(int i, String s, String s1) {
-//                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s+"---s1="+s1);
-//            }
-//
-//            @Override
-//            public void onPaySuccess(int i, int i1) {
-//                Log.e("sky","Yi You pay success"+"---i="+i+"----i1="+i1);
-//            }
-//        });
-//    }
+        payPoint = Integer.valueOf(GET_YIYOU_PAY_POINT(feeName));
+        Log.e("sky","yi you pay start-----payPoint="+payPoint);
+        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
+            @Override
+            public void onPayCancel(int i) {
+                Log.e("sky","Yi You pay cancel"+"---i="+i);
+            }
+
+            @Override
+            public void onPayFailed(int i, String s) {
+                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s);
+            }
+
+            @Override
+            public void onPaySuccess(int i, int i1) {
+                Log.e("sky","Yi You pay Success"+"------i="+i+"---i1="+i1);
+            }
+        });
+    }
 
     public static void charge2(final Activity activity, final String price, String uniqueid, final String cpserverparam, final String feeName, final String feeDesc, final IChargeResult chargeResultCb) {
 

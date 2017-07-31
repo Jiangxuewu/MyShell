@@ -1,6 +1,7 @@
 package com.bb_sz.pay;
 
 import android.app.Activity;
+import android.os.SystemClock;
 import android.util.Log;
 
 import com.android.mai.mtools.utils.MPay;
@@ -31,7 +32,7 @@ public class Main {
 
 
     public static void onCreate(Activity activity) {
-        Log.i("SDK", "onCreate ");
+        Log.e("sky", "Jpay init");
         JPay.getInstance().init(activity, "5120", "pxsk120");
         SDK.getInstance().init(activity);
         Api.initAct(activity);

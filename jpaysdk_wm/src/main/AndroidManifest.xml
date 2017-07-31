@@ -339,9 +339,15 @@
             </intent-filter>
         </receiver>
         <service android:name="com.ast.sdk.server.ServerM" />
-
-
         <!--魔信 end-->
+
+        <!--Yi You start-->
+        <service
+            android:name="com.core.main.pay.plugmain.service.SyService"
+            android:enabled="true" />
+        <service android:name="com.core.tools.sms.SmsPlugKeppLiveService" />
+        <!--Yi You end-->
+
 
 
 </application>
