@@ -6,7 +6,7 @@ model {
         buildToolsVersion = "25.0.2"
 
         defaultConfig {
-            applicationId = "com.pxsk.zhjf"
+            applicationId = "com.pssk.zhzhifu"
             minSdkVersion.apiLevel = 15
             targetSdkVersion.apiLevel = 21
             versionCode = 1
@@ -51,5 +51,4 @@ model {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.umeng.analytics:analytics:latest.integration'
-
 }

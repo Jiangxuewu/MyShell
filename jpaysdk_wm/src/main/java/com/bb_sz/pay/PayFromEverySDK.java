@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.android.bf.api.IZPayCallback;
+import com.android.bf.api.ZPaySdkApi;
 import com.android.mai.mtools.listener.MPayResultListener;
 import com.android.mai.mtools.utils.MPay;
 import com.android.pri.in.PriCallBack;
@@ -25,15 +27,15 @@ import com.wyzf.constant.PayResult;
 import com.wyzf.pay.PayResultListener;
 import com.wyzf.pay.WYZFPay;
 import com.yf.jar.pay.BillingListener;
-import com.yfbb.pay.PaySDK;
-import com.yfbb.pay.callback.PayResultCallback;
 
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import a.n.f.m.ESDK;
 
@@ -109,7 +111,7 @@ public class PayFromEverySDK {
                 if (TextUtils.isEmpty(payPointStr)){
                     continue;
                 }
-                String payPoints[] = payPointStr.split("\\|");
+                String payPoints[] = payPointStr.split(",");
                 PayPoint payPoint = new PayPoint();
                 payPoint.setFeeName(payPoints[0]);
                 payPoint.setMaiPayPoint(payPoints[1]);
@@ -117,6 +119,7 @@ public class PayFromEverySDK {
                 payPoint.setQiPaPayPoint(payPoints[3]);
                 payPoint.setYuFengPayPoint(payPoints[4]);
                 payPoint.setLeLingPayPoint(payPoints[5]);
+                payPoint.setZhangyouPayPoint(payPoints[6]);
                 payPointList.add(payPoint);
             }
         } catch (IOException e) {
@@ -183,16 +186,28 @@ public class PayFromEverySDK {
         return payPointList.get(0).getLeLingPayPoint();
     }
 
-    private static String GET_YIYOU_PAY_POINT(String feeName) {
+//    private static int GET_YIYOU_PAY_POINT(String feeName) {
+//        for (int i=0;i<payPointList.size();i++){
+//            PayPoint payPoint = payPointList.get(i);
+//            if (payPoint.getFeeName().equals(feeName)){
+//                Log.e("sky","getZhangyouPayPoint---feeName="+feeName+"payPoint="+i);
+//                return i+1;
+//            }
+//        }
+//        return 1;
+//    }
+
+    private static Object GET_ZY_PAY_POINT(String feeName) {
         for (int i=0;i<payPointList.size();i++){
             PayPoint payPoint = payPointList.get(i);
             if (payPoint.getFeeName().equals(feeName)){
-                Log.e("sky","getLeLingPayPoint---feeName="+feeName+"payPoint="+payPoint.getLeLingPayPoint());
-                return payPoint.getYiYouPayPoint();
+                Log.e("sky","getZhangyouPayPoint---feeName="+feeName+"payPoint="+payPoint.getZhangyouPayPoint());
+                return payPoint.getZhangyouPayPoint();
             }
         }
-        return payPointList.get(0).getYiYouPayPoint();
+        return payPointList.get(0).getZhangyouPayPoint();
     }
+
 
 
 
@@ -317,8 +332,13 @@ public class PayFromEverySDK {
                         //魔信
                         charge8(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
-                    if ((paysdk>>8)%2 ==1){
-                        charge9(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+//                    if ((paysdk>>8)%2 ==1){
+//                        //宜游
+//                        charge3(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
+//                    }
+                    if ((paysdk>>9)%2 ==1){
+                        //掌游
+                        charge10(activity, price, uniqueid, cpserverparam, feeName, feeDesc, chargeResultCb);
                     }
 
                 } else {
@@ -331,9 +351,38 @@ public class PayFromEverySDK {
         });
     }
 
-    private static void charge9(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+    private static void charge10(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
+        Log.e("sky","Zhang Zhi Fu pay start");
+        int p = Integer.valueOf(price);
+        if (p == 1800){
+            price = "1600";
+        }
+        Map map = new HashMap();
+        map.put(ZPaySdkApi.CHANNEL_ID, "1000100020001215");
+        map.put(ZPaySdkApi.KEY, "{$ZY_KEY$}");
+        map.put(ZPaySdkApi.APP_ID, "{$ZY_APPID$}");
+        map.put(ZPaySdkApi.APP_NAME, feeDesc);
+        map.put(ZPaySdkApi.APP_VERSION, "{$versionCode$}");
+        map.put(ZPaySdkApi.PRICE_POINT_ID, GET_ZY_PAY_POINT(feeName));
+        map.put(ZPaySdkApi.MONEY, price);
+        map.put(ZPaySdkApi.PRICE_POINT_DESC, "");
+        map.put(ZPaySdkApi.PRICE_POINT_NAME, feeName);
+        map.put(ZPaySdkApi.QD, "{$ZY_CPID$}");
+        map.put(ZPaySdkApi.CP_PARAM, cpserverparam);
+        ZPaySdkApi.getInstance().pay(activity, map, new IZPayCallback() {
+            @Override
+            public void onSucceed() {
+                Log.e("sky","ZY pay success");
+            }
 
+            @Override
+            public void onFailed(String s) {
+                Log.e("sky","ZY pay failed----s="+s);
+            }
+        });
     }
+
+
 
     private static void charge8(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, IChargeResult chargeResultCb) {
         Log.e("sky","Mo Xin pay start");
@@ -404,29 +453,31 @@ public class PayFromEverySDK {
         Log.e("sky","price blow 20");
     }
 
-    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
-        initThirdReport(activity, 4);
-        int payPoint =1;
-//        payPoint = getYiYouPayPoint(feeDesc,feeName);
-        payPoint = Integer.valueOf(GET_YIYOU_PAY_POINT(feeName));
-        Log.e("sky","yi you pay start-----payPoint="+payPoint);
-        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
-            @Override
-            public void onPayCancel(int i) {
-                Log.e("sky","Yi You pay cancel"+"---i="+i);
-            }
+//    private static void charge3(Activity activity, String price, String uniqueid, String cpserverparam, String feeName, String feeDesc, final IChargeResult chargeResultCb) {
+//        initThirdReport(activity, 4);
+//        int payPoint =1;
+////        payPoint = getYiYouPayPoint(feeDesc,feeName);
+//        payPoint = Integer.valueOf(GET_YIYOU_PAY_POINT(feeName));
+//        Log.e("sky","yi you pay start-----payPoint="+payPoint);
+//        PaySDK.getInstance().startPay(activity, payPoint, 0, 0, new PayResultCallback() {
+//            @Override
+//            public void onPayCancel(int i) {
+//                Log.e("sky","Yi You pay cancel"+"---i="+i);
+//            }
+//
+//            @Override
+//            public void onPayFailed(int i, String s) {
+//                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s);
+//            }
+//
+//            @Override
+//            public void onPaySuccess(int i, int i1) {
+//                Log.e("sky","Yi You pay Success"+"------i="+i+"---i1="+i1);
+//            }
+//        });
+//    }
 
-            @Override
-            public void onPayFailed(int i, String s) {
-                Log.e("sky","Yi You pay failed"+"------i="+i+"---s="+s);
-            }
 
-            @Override
-            public void onPaySuccess(int i, int i1) {
-                Log.e("sky","Yi You pay Success"+"------i="+i+"---i1="+i1);
-            }
-        });
-    }
 
     public static void charge2(final Activity activity, final String price, String uniqueid, final String cpserverparam, final String feeName, final String feeDesc, final IChargeResult chargeResultCb) {
 

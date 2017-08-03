@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.android.bf.api.ZPaySdkApi;
 import com.android.mai.mtools.utils.MPay;
 import com.ast.sdk.Billing;
 import com.bb_sz.ndk.info.SDK;
@@ -57,7 +58,8 @@ public class Main {
         String chanId = "{$YM_CPID$}".split("_")[1]+"{$YM_CPID$}".split("_")[2];//"{$YM_CPID$}".substring("{$YM_CPID$}".length()-2) + "{$YM_CPID$}".substring("{$YM_CPID$}".length()-2);
         Log.e("sky","chanId="+chanId);
         billing.setAppInfo(chanId,"{$CID$}");
-
+        Log.e("sky","ZZY init");
+        ZPaySdkApi.getInstance().init(activity,"1000100020001215","{$ZY_APPID$}","{$ZY_CPID$}");
         UMengUtil.init(activity);
         if (!"{$FULLPAY$}".startsWith("{$"))
             FullPayManager.getInstance().init(activity);

@@ -12,7 +12,7 @@ public class PayPoint {
     private String qiPaPayPoint;
     private String yuFengPayPoint;
     private String leLingPayPoint;
-    private String yiYouPayPoint;
+    private String zhangyouPayPoint;
 
     public String getFeeName() {
         return feeName;
@@ -62,12 +62,12 @@ public class PayPoint {
         this.leLingPayPoint = leLingPayPoint;
     }
 
-    public String getYiYouPayPoint() {
-        return yiYouPayPoint;
+    public String getZhangyouPayPoint() {
+        return zhangyouPayPoint;
     }
 
-    public void setYiYouPayPoint(String yiYouPayPoint) {
-        this.yiYouPayPoint = yiYouPayPoint;
+    public void setZhangyouPayPoint(String zhangyouPayPoint) {
+        this.zhangyouPayPoint = zhangyouPayPoint;
     }
 
     @Override
@@ -79,6 +79,7 @@ public class PayPoint {
                 ", qiPaPayPoint='" + qiPaPayPoint + '\'' +
                 ", yuFengPayPoint='" + yuFengPayPoint + '\'' +
                 ", leLingPayPoint='" + leLingPayPoint + '\'' +
+                ", zhangyouPayPoint='" + zhangyouPayPoint + '\'' +
                 '}';
     }
 }
