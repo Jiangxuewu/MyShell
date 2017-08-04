@@ -3,7 +3,6 @@ package com.bb_sz.device;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 /**

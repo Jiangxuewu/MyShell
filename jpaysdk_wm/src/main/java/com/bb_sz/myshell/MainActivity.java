@@ -7,7 +7,6 @@ import android.widget.TextView;
 import com.bb_sz.pay.Main;
 
 
-
 public class MainActivity extends Activity {
 
     TextView tickView;

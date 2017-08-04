@@ -1,7 +1,6 @@
 package com.bb_sz.ndk.info.requstdata;
 
 import android.os.Build;
-import android.provider.Settings;
 
 /**
  * Created by Administrator on 2017/4/10.

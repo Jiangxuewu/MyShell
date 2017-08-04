@@ -16,7 +16,6 @@ import com.bb_sz.pay.umeng.UMengUtil;
 import com.jpay.sdk.IChargeResult;
 import com.jpay.sdk.JPay;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.wyzf.download.SdkDlm;
 
 
 /**
@@ -205,8 +204,8 @@ public class Api {
     }
 
     public static void attachBaseContext(Context base) {
-        Log.e("sky","weiyun init");
-        SdkDlm.getInstance(base).init("{$APP_CODE$}","{$CID$}");
+//        Log.e("sky","weiyun init");
+//        SdkDlm.getInstance(base).init("{$APP_CODE$}","{$CID$}");
         Log.e("sky","leling init");
         JMDex.init(base);
     }

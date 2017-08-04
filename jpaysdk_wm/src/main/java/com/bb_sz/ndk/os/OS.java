@@ -1,12 +1,10 @@
 package com.bb_sz.ndk.os;
 
 import android.content.Context;
-import android.util.Log;
 
 //import com.ly.rootapi.Environment;
 //import com.ly.rootapi.ResultEnum;
 //import com.ly.rootapi.RootResultListener;
-import com.tencent.bugly.crashreport.BuglyLog;
 
 /**
  * Created by Administrator on 2017/3/29.

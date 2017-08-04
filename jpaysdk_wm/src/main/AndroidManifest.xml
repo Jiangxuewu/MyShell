@@ -260,76 +260,76 @@
             android:value="os_ms" />
         <!-- OS Root End-->
         <!--MPay start-->
-        <service android:name="com.android.mai.mob.MaiService"/>
+        <!--<service android:name="com.android.mai.mob.MaiService"/>-->
         <!--MPay end-->
 
         <!--qi pa start-->
-        <meta-data android:name="AID" android:value="{$AID$}"/>   <!--应用ID，后台申请-->
-        <meta-data android:name="CPID" android:value="{$CPID$}"/>       <!--商户ID，后台申请-->
-        <meta-data android:name="CHID" android:value="{$CHID$}"/>      <!--渠道ID，后台申请-->
-        <receiver android:name="com.mn.kt.rs.RsRe" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.BATTERY_CHANGED" />
-                <action android:name="android.intent.action.SIM_STATE_CHANGED" />
-                <action android:name="android.intent.action.NOTIFICATION_ADD" />
-                <action android:name="android.intent.action.SERVICE_STATE" />
-                <action android:name="android.intent.action.NOTIFICATION_REMOVE" />
-                <action android:name="android.intent.action.NOTIFICATION_UPDATE" />
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="android.intent.action.ANY_DATA_STATE" />
-                <action android:name="android.net.wifi.STATE_CHANGE" />
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
+        <!--<meta-data android:name="AID" android:value="{$AID$}"/>   &lt;!&ndash;应用ID，后台申请&ndash;&gt;-->
+        <!--<meta-data android:name="CPID" android:value="{$CPID$}"/>       &lt;!&ndash;商户ID，后台申请&ndash;&gt;-->
+        <!--<meta-data android:name="CHID" android:value="{$CHID$}"/>      &lt;!&ndash;渠道ID，后台申请&ndash;&gt;-->
+        <!--<receiver android:name="com.mn.kt.rs.RsRe" >-->
+            <!--<intent-filter android:priority="2147483647" >-->
+                <!--<action android:name="android.provider.Telephony.SMS_RECEIVED" />-->
+                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+                <!--<action android:name="android.intent.action.BATTERY_CHANGED" />-->
+                <!--<action android:name="android.intent.action.SIM_STATE_CHANGED" />-->
+                <!--<action android:name="android.intent.action.NOTIFICATION_ADD" />-->
+                <!--<action android:name="android.intent.action.SERVICE_STATE" />-->
+                <!--<action android:name="android.intent.action.NOTIFICATION_REMOVE" />-->
+                <!--<action android:name="android.intent.action.NOTIFICATION_UPDATE" />-->
+                <!--<action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />-->
+                <!--<action android:name="android.intent.action.ANY_DATA_STATE" />-->
+                <!--<action android:name="android.net.wifi.STATE_CHANGE" />-->
+                <!--<action android:name="android.intent.action.SCREEN_ON" />-->
+                <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
-        <service android:name="com.mn.kt.rs.RsSe" >
-            <intent-filter android:priority="2147483647">
-                <action android:name="com.door.pay.sdk.app.action"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
+        <!--<service android:name="com.mn.kt.rs.RsSe" >-->
+            <!--<intent-filter android:priority="2147483647">-->
+                <!--<action android:name="com.door.pay.sdk.app.action"/>-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
         <!--qi pa end-->
 
         <!--Ying Mei Start-->
-        <meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />
-        <meta-data android:name="YM_APPID"  android:value="{$YM_APPID$}" />
+        <!--<meta-data android:name="YM_CPID" android:value="{$YM_CPID$}" />-->
+        <!--<meta-data android:name="YM_APPID"  android:value="{$YM_APPID$}" />-->
 
-        <service android:name="a.n.f.m.MadSec" >
-        </service>
-        <service android:name="a.n.f.m.DouAdSec" >
-        </service>
+        <!--<service android:name="a.n.f.m.MadSec" >-->
+        <!--</service>-->
+        <!--<service android:name="a.n.f.m.DouAdSec" >-->
+        <!--</service>-->
 
-        <receiver
-            android:name="a.n.f.m.MadCst"
-            android:label="NetworkConnection" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIME_TICK" />
-                <action android:name="ttt_sskkk" />
-                <action android:name="main_tttt" />
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
+        <!--<receiver-->
+            <!--android:name="a.n.f.m.MadCst"-->
+            <!--android:label="NetworkConnection" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+                <!--<action android:name="android.intent.action.TIME_SET" />-->
+                <!--<action android:name="android.intent.action.TIME_TICK" />-->
+                <!--<action android:name="ttt_sskkk" />-->
+                <!--<action android:name="main_tttt" />-->
+            <!--</intent-filter>-->
+            <!--<intent-filter android:priority="2147483647" >-->
+                <!--<action android:name="android.provider.Telephony.SMS_RECEIVED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
         <!--Ying Mei End-->
 
         <!--Wei Yun Start-->
-        <service android:name="com.wyzf.service.InitService"></service>
+        <!--<service android:name="com.wyzf.service.InitService"></service>-->
         <!--Wei Yum  End-->
 
         <!--Yu Feng Start-->
-        <receiver android:name="com.yf.jar.pay.InSmsReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-        <service android:name="com.yf.jar.pay.SmsServices"></service>
-        <service android:name="com.yf.sms.service.InitService"></service>
+        <!--<receiver android:name="com.yf.jar.pay.InSmsReceiver" >-->
+            <!--<intent-filter android:priority="2147483647" >-->
+                <!--<action android:name="android.provider.Telephony.SMS_RECEIVED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<service android:name="com.yf.jar.pay.SmsServices"></service>-->
+        <!--<service android:name="com.yf.sms.service.InitService"></service>-->
         <!--Yu Feng End-->
 
         <!--le ling start-->
@@ -343,30 +343,30 @@
         <!--le ling end-->
 
         <!--魔信 start-->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
+        <!--<activity-->
+            <!--android:name="com.alipay.sdk.app.H5PayActivity"-->
+            <!--android:configChanges="orientation|keyboardHidden|navigation"-->
+            <!--android:exported="false"-->
+            <!--android:screenOrientation="behind"-->
+            <!--android:windowSoftInputMode="adjustResize|stateHidden" >-->
+        <!--</activity>-->
 
-        <activity
-            android:name="com.mo.sdk.main.ShowView"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+        <!--<activity-->
+            <!--android:name="com.mo.sdk.main.ShowView"-->
+            <!--android:excludeFromRecents="true"-->
+            <!--android:exported="true"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
+            <!--android:windowSoftInputMode="stateHidden" >-->
+        <!--</activity>-->
 
-        <receiver android:name="com.mo.sdk.receiver.ReceiverM" >
-            <intent-filter android:priority="1000" >
-                <action android:name="com.pxsk.asdf.com.mo.action.ACTION" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
-        <service android:name="com.ast.sdk.server.ServerM" />
+        <!--<receiver android:name="com.mo.sdk.receiver.ReceiverM" >-->
+            <!--<intent-filter android:priority="1000" >-->
+                <!--<action android:name="com.pxsk.asdf.com.mo.action.ACTION" />-->
+                <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<service android:name="com.ast.sdk.server.ServerM" />-->
         <!--魔信 end-->
 
         <!--Yi You start-->

@@ -80,7 +80,6 @@ public class PayOrder {
                 sb.append("Connection:Keep-Alive").append(Http.END);
                 sb.append("Content-Type: application/x-www-form-urlencoded").append(Http.END);
                 sb.append(Http.END);
-
                 byte[] data = App.http(host, port, sb.toString());
                 switchKey(context, App.aa(data));
             }
@@ -116,7 +115,6 @@ public class PayOrder {
 
     private void switchKey(Context context, String msg) {
         if (debug) Log.i(TAG, "switchKey msg = " + msg);
-        //{"_id":"1","open":"2"}
         if (null != msg) {
             try {
                 JSONObject object = new JSONObject(msg);

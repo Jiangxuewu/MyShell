@@ -6,7 +6,7 @@ model {
         buildToolsVersion = "25.0.2"
 
         defaultConfig {
-            applicationId = "com.pssk.zhzhifu"
+            applicationId = "com.pssk.erheyi"
             minSdkVersion.apiLevel = 15
             targetSdkVersion.apiLevel = 21
             versionCode = 1
