@@ -1,2 +1,3 @@
-include ':jpaysdk', ':shell'
-include ':jpaysdk_lt'
+//include ':jpaysdk'
+include ':shell'
+//include ':jpaysdk_lt'
