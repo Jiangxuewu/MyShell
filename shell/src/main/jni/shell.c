@@ -2,6 +2,7 @@
 // Created by Administrator on 2016/10/13.
 //
 
+#include <malloc.h>
 #include "shell.h"
 #include "decode.h"
 
